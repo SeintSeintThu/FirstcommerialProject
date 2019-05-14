@@ -1,3 +1,25 @@
-<p>
-  two works!
-</p>
+<h1 class="display-4">
+  CUS.REGISTER
+</h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <div class="form-group">
+    <input class="hidden" name="id" #id="ngModel" [(ngModel)]="customerService.formData.id" class="formControl" placeholder="ID"> 
+  </div>
+  <div class="form-group">
+    <input name="name" #name="ngModel" [(ngModel)]="customerService.formData.name" class="formControl" placeholder="Name" required>
+    <div  *ngIf ="name.invalid && name.touched" class="valdiation-error">This field is required!</div> 
+  </div>
+  <div class="form-row">
+ <div class="form-group col-md-6">
+    <input name="address" #address="ngModel" [(ngModel)]="customerService.formData.address" class="formControl" placeholder="Address"> 
+  </div>
+  <div class="form-group col-md-6">
+    <input name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="customerService.formData.phoneNumber" class="formControl" placeholder="Phone Numer"> 
+  </div>
+</div>
+  <div class="form-group">
+  <button  [disabled]="from.invalid" type="submit" class="btn btn-lg btn-block btn-info">
+    SUBMIT
+  </button>
+  </div>
+</form>

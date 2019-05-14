@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
-import { HomePage } from './home.page';
+import { DetailPage } from './detail.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: DetailPage
   }
 ];
 
@@ -21,7 +20,7 @@ const routes: Routes = [
   ],
   providers: [ 
   ],
-  declarations: [HomePage],
+  declarations: [DetailPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class HomePageModule {}
+export class DetailPageModule {}

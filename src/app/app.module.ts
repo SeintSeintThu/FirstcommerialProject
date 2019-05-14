@@ -4,17 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import  {AngularFireModule} from '@angular/fire';
-import {AngularFirestoreModule} from '@angular/fire/firestore'
-import { LoginPage } from './pages/login/login.page';
-import { HomePage } from './pages/home/home.page';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginPage,
-    HomePage
+    AppComponent
   ],
   imports: [
     BrowserModule,
