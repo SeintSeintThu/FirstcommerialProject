@@ -19,6 +19,7 @@ export class TwoPage implements OnInit {
      // private toastService : ToastrService
 
   ) { }
+     townships: string[] = [ "ANNUAL", "CASUAL", "MEDICAL", "UNPAID", "MATERNITY", "PATERNITY", "PARENTAL", "COMPASIONATE", "EDUCATION", "MARRIAGE" ];
   ngOnInit() {
     this.resetform();
   }
@@ -27,9 +28,10 @@ export class TwoPage implements OnInit {
       form.reset();
     this.recordService.formData = {
       customerName : null,
-      customerPhno : null,
-      customerTownship: null,
+      phoneNumber : null,
+      township: null,
       makeDate : null,
+      note :null,
       usage : null,
       total : 0
     }

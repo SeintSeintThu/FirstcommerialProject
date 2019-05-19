@@ -21,9 +21,10 @@ export class ThreePage implements OnInit {
       form.reset();
     this.recordService.formData = {
       customerName : null,
-      customerPhno : null,
-      customerTownship: null,
+      phoneNumber : null,
+      township: null,
       makeDate : null,
+      note :null,
       usage : null,
       total : 0
     }

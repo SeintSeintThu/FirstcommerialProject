@@ -1,7 +1,7 @@
 <div class="container-fluid navbar-fixed" style="padding: 0;margin: 0">
   <nav>
       <div class="nav-wrapper brown darken-1 white-text">
-          <a  routerLink="/home"style="padding-left: 30px" class="brand-logo">TOOTOO</a>
+          <a routerLink="/home"style="padding-left: 30px" class="brand-logo">TOOTOO</a>
           <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a class="zawgyi" routerLink="/detail">တိုက္ရန္</a></li>
@@ -26,27 +26,30 @@
   </div><br><br><br>
   <div class="container">
        <div class="row">
-           <form class="col s12">
+           <form class="col s12" #form="ngForm" (submit)="onSubmit(form)">
                <div class="row">
                    <div class="input-field col s4">
-                       <input id="last_name" type="text" class="validate">
-                       <label class="zawgyi" for="last_name">နာမည္</label>
+                       <input type="text" class="validate hidden" name="customerName" #customerName="ngModel" [(ngModel)]="recordService.formData.customerName" class="formControl" placeholder="Name">
+                       <label class="zawgyi">နာမည္</label>
                    </div>
                    
                    <div class="input-field col s4">
-                       <input id="last_name" type="text" class="validate">
+                       <input id="last_name" type="text" class="validate" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="recordService.formData.phoneNumber" class="formControl" placeholder="PhoneNumber">
                        <label class="zawgyi" for="last_name">ဖုန္းနံပါတ္</label>
                    </div>
                    <div class="input-field col s4">
-                       <select class="browser-default">
+                       <select class="browser-default" #township="ngModel"  [(ngModel)]="recordService.formData.township">
                            <option class="zawgyi" value="" disabled selected>ျမို့</option>
                            <option class="zawgyi" value="1">သာေကတ</option>
+                           <option class="zawgyi" value="2">သန္လ်င္</option>
+                           <option class="zawgyi" value="3">ဗိုလ္တစ္ေထာင္</option>
+                           <option class="zawgyi" value="1">ဆူးေယ</option>
                            <option class="zawgyi" value="2">သန္လ်င္</option>
                            <option class="zawgyi" value="3">ဗိုလ္တစ္ေထာင္</option>
                        </select>
                    </div>
                    <div class="input-field col s12">
-                       <textarea id="textarea1" class="materialize-textarea"></textarea>
+                       <textarea id="textarea1" class="materialize-textarea" #township="ngModel" [(ngModel)]="recordService.formData.township"></textarea>
                        <label for="textarea1">မွတ္ရန္</label>
                    </div>
                </div>

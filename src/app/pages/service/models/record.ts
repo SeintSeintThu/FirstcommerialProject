@@ -2,8 +2,9 @@ import { Customer } from './customer';
 
 export class Record {
     customerName : string;
-    customerPhno : string;
-    customerTownship: string;
+    phoneNumber : string;
+    township: string;
+    note : string;
     makeDate : Date;
     usage : Map<number,number>;
     total : number;
