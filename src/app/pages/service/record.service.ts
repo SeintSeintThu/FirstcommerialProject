@@ -16,4 +16,5 @@ export class RecordService {
     return this.fireStore.collection('record').snapshotChanges();
     
   }
+  
 }

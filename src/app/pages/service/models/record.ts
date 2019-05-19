@@ -6,7 +6,7 @@ export class Record {
     township: string;
     note : string;
     makeDate : Date;
-    usage : Map<number,number>;
+    usage : Map<string,number>;
     total : number;
     
 }

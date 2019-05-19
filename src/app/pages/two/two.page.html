@@ -24,32 +24,33 @@
   <div class="container">
       <h4 class="zawgyi center-text" >၂လံုး</h4>
   </div><br><br><br>
+    
+                  
   <div class="container">
        <div class="row">
-           <form class="col s12" #form="ngForm" (submit)="onSubmit(form)">
+           <form class="col s12" #form1="ngForm">
+                <div>
+                        <label>Start Date</label>
+                        <input type="date" class="formControl" id="makeDate" name= "makeDate" [(ngModel)]="record.makeDate" (ngModelChange)="onChangeStartDate($event)" [value]="makeDate" required>
+                    </div>    
                <div class="row">
                    <div class="input-field col s4">
-                       <input type="text" class="validate hidden" name="customerName" #customerName="ngModel" [(ngModel)]="recordService.formData.customerName" class="formControl" placeholder="Name">
+                       <input  id= "name" type="text" class="validate hidden" name="customerName"[(ngModel)]="record.customerName"  class="formControl" placeholder="Name">
                        <label class="zawgyi">နာမည္</label>
                    </div>
                    
                    <div class="input-field col s4">
-                       <input id="last_name" type="text" class="validate" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="recordService.formData.phoneNumber" class="formControl" placeholder="PhoneNumber">
+                       <input id="phoneNumber" type="text" class="validate" name="phoneNumber" [(ngModel)]="record.phoneNumber" class="formControl" placeholder="PhoneNumber">
                        <label class="zawgyi" for="last_name">ဖုန္းနံပါတ္</label>
                    </div>
                    <div class="input-field col s4">
-                       <select class="browser-default" #township="ngModel"  [(ngModel)]="recordService.formData.township">
-                           <option class="zawgyi" value="" disabled selected>ျမို့</option>
-                           <option class="zawgyi" value="1">သာေကတ</option>
-                           <option class="zawgyi" value="2">သန္လ်င္</option>
-                           <option class="zawgyi" value="3">ဗိုလ္တစ္ေထာင္</option>
-                           <option class="zawgyi" value="1">ဆူးေယ</option>
-                           <option class="zawgyi" value="2">သန္လ်င္</option>
-                           <option class="zawgyi" value="3">ဗိုလ္တစ္ေထာင္</option>
-                       </select>
+                       <select id="township" class="browser-default"name="township" [(ngModel)]="record.township" (ngModelChange)="onChangeSelectedTownship($event)"> 
+                            <option class="zawgyi" [value]="" disabled selected>ျမို့</option>
+                            <option class="zawgyi" *ngFor="let township of townships" [value]="township">{{ township }}</option>    
+                        </select>
                    </div>
                    <div class="input-field col s12">
-                       <textarea id="textarea1" class="materialize-textarea" #township="ngModel" [(ngModel)]="recordService.formData.township"></textarea>
+                       <textarea id="note" class="materialize-textarea" name="note" [(ngModel)]="record.note" class="formControl"></textarea>
                        <label for="textarea1">မွတ္ရန္</label>
                    </div>
                </div>
@@ -59,62 +60,68 @@
   </div><br><br>
   <div class="container">
        <div class="row">
-           <form class="col s12">
+           <form class="col s12"  #form2="ngForm" >
                <div class="row">
                    <div class="input-field col s3">
-                       <input id="last_name" type="text" class="validate">
+                       <input id="number" type="text" class="validate" name="number" [(ngModel)]="number">
                        <label class="zawgyi" for="last_name">နံပါတ္သြင္းရန္</label>
                    </div>
-                   <div class="input-field col s2">
-                       <input id="last_name" type="text" class="validate">
-                       <label class="zawgyi" for="last_name">ပမာဏ</label>
-                   </div>
+                   <div class="input-field col s3">
+                        <label>
+                            <input #dae type="checkbox" name="dae" [(ngModel)]="selectedFormat" (change) = "onChange(dae.checked,'dae')">
+                            <span class="zawgyi">Dae</span>
+                        </label>
+                    </div>
+                    <div class="input-field col s3">
+                            <label>
+                                <input #arr type="checkbox" name="arr" [(ngModel)]="selectedFormat" (change) = "onChange(arr.checked,'arr')">
+                                <span class="zawgyi">အာ</span>
+                            </label>
+                        </div>
                    <div class="input-field col s3">
                        <label>
-                           <input type="checkbox" />
-                           <span class="zawgyi">အာ</span>
-                       </label>
-                   </div>
-                   <div class="input-field col s3">
-                       <label>
-                           <input type="checkbox" />
+                           <input #double type="checkbox" name="double" [(ngModel)]="selectedFormat" (change) = "onChange(double.checked,'double')" />
                            <span class="zawgyi">အပူး</span>
                        </label>
                    </div>
-                   <div class="input-field col s3">
+                    <div class="input-field col s3">
                        <label>
-                           <input type="checkbox" />
+                           <input #power type="checkbox" name="power" [(ngModel)]="selectedFormat" (change) = "onChange(power.checked,'power')"/>
                            <span class="zawgyi">ပါ၀ါ</span>
                        </label>
                    </div>
                    <div class="input-field col s3">
                        <label>
-                           <input type="checkbox" />
+                           <input #natkhat type="checkbox" name="natkhat" [(ngModel)]="selectedFormat" (change) = "onChange(natkhat.checked,'natkhat')" />
                            <span class="zawgyi">နကၡ</span>
                        </label>
                    </div>
                    <div class="input-field col s3">
                        <label>
-                           <input type="checkbox" />
+                           <input  #arrow_back type="checkbox" name="arrow_back" [(ngModel)]="selectedFormat" (change) = "onChange(arrow_back.checked,'arrow_back')"/>
                            <span><i class="material-icons">arrow_back</i></span>
                        </label>
                    </div>
                    <div class="input-field col s3">
                        <label>
-                           <input type="checkbox" />
+                           <input  #arrow_forward type="checkbox" name="arrow_forward" [(ngModel)]="selectedFormat" (change) = "onChange(arrow_forward.checked,'arrow_forward')"/>
                            <span><i class="material-icons">arrow_forward</i></span>
                        </label>
-                   </div>
+                   </div> 
+                   <div class="input-field col s2">
+                        <input id="amount" type="text" class="validate" name="amount" [(ngModel)]="amount">
+                        <label class="zawgyi" for="last_name">ပမာဏ</label>
+                    </div>
                </div><br>
-               <div class="center-text">
-                <a class="waves-effect waves-light btn-large brown darken-1 white-text">နိုတ္ရန္</a>
+               <div class="center-text">      
+                <button class="waves-effect waves-light btn-large brown darken-1 white-text" (click)="makeUsage(form2)">နိုတ္ရန္</button>
                </div>
            </form>
       </div>
   </div><br><br>
   <div class="container">
       <p style="font-size: 30px;" class="zawgyi center-text">ထိုးစာရင္း</p><br><br>
-      <table class="centered">
+      <table *ngIf ="usages" class="centered" [(ngModel)]="usages">
        <thead>
            <tr>
                <th>နံပါတ္စဥ္</th>
@@ -125,27 +132,18 @@
        </thead>
 
        <tbody>
-           <tr>
-               <td>၁</td>
-               <td>၂၁</td>
-               <td>၅၀၀</td>
+           <tr *ngFor="let info of usages">
+               <td>{{info.id}}</td>
+               <td>{{info.number}}</td>
+               <td>{{info.amount}}</td>
                <td><a class="waves-effect waves-light btn-small brown darken-1 white-text">နိုတ္ရန္</a></td>
            </tr>
-           <tr>
-               <td>၂</td>
-               <td>၄၄</td>
-               <td>၁၀၀၀</td>
-               <td><a class="waves-effect waves-light btn-small brown darken-1 white-text">နိုတ္ရန္</a></td>
-           </tr>
-           <tr>
-               <td>၃</td>
-               <td>၈၇</td>
-               <td>၃၀၀</td>
-               <td><a class="waves-effect waves-light btn-small brown darken-1 white-text">နိုတ္ရန္</a></td>
-           </tr>
-       </tbody>
+           </tbody>
   </table>
   </div><br><br>
   <div class="center-text">
-    <a class="waves-effect waves-light btn-large brown darken-1 white-text">ျပီျပီ</a><br><br><br>
+   <button type="submit"  (click) ="saveRecord(form1)" class="btn btn-lg btn-block btn-info">
+            SUBMIT( ျပီျပီ)
+          </button>
    </div>
+   
