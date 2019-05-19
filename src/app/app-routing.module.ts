@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'two', loadChildren: '../app/pages/two/two.module#TwoPageModule'},
   { path: 'three', loadChildren: '../app/pages/three/three.module#ThreePageModule'},
   { path: 'detail', loadChildren: '../app/pages/detail/detail.module#DetailPageModule'},
-  { path: 'search', loadChildren: '../app/pages/search/search.module#SearchPageModule'}
+  { path: 'search', loadChildren: '../app/pages/search/search.module#SearchPageModule'},
+  { path: 'percent', loadChildren: '../app/pages/home/home.module#HomePageModule'}
 ];
 
 @NgModule({

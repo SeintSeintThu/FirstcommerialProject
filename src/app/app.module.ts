@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import  {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { CustomerService } from './pages/service/customer.service';
 
 
 
@@ -20,6 +21,7 @@ import { environment } from '../environments/environment';
     AngularFirestoreModule 
   ],
   providers: [
+  CustomerService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,25 +1,140 @@
-<h1 class="display-4">
-  CUS.REGISTER
-</h1>
-<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-  <div class="form-group">
-    <input class="hidden" name="id" #id="ngModel" [(ngModel)]="customerService.formData.id" class="formControl" placeholder="ID"> 
-  </div>
-  <div class="form-group">
-    <input name="name" #name="ngModel" [(ngModel)]="customerService.formData.name" class="formControl" placeholder="Name" required>
-    <div  *ngIf ="name.invalid && name.touched" class="valdiation-error">This field is required!</div> 
-  </div>
-  <div class="form-row">
- <div class="form-group col-md-6">
-    <input name="address" #address="ngModel" [(ngModel)]="customerService.formData.address" class="formControl" placeholder="Address"> 
-  </div>
-  <div class="form-group col-md-6">
-    <input name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="customerService.formData.phoneNumber" class="formControl" placeholder="Phone Numer"> 
-  </div>
+<div class="container-fluid">
+  <nav>
+      <div class="nav-wrapper brown darken-1 white-text">
+          <a href="home.html" style="padding-left: 30px" class="brand-logo">TOOTOO</a>
+          <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a class="zawgyi" routerLink="/detail">တိုက္ရန္</a></li>
+            <li><a class="zawgyi" routerLink="/search">ရွာရန္</a></li>
+            <li><a class="zawgyi" routerLink="/two">၂လံုး</a></li>
+            <li><a class="zawgyi" routerLink="/three">၃လံုး</a></li>
+            <li><a class="zawgyi" routerLink="/percent">ရာခိုင္နွုန္းခ်ိုးရန္</a></li>
+          </ul>
+      </div>
+  </nav>
+  <ul class="sidenav" id="mobile-links">
+    <li><a class="zawgyi" routerLink="/detail">တိုက္ရန္</a></li>
+    <li><a class="zawgyi" routerLink="/search">ရွာရန္</a></li>
+    <li><a class="zawgyi" routerLink="/two">၂လံုး</a></li>
+    <li><a class="zawgyi" routerLink="/three">၃လံုး</a></li>
+    <li><a class="zawgyi" routerLink="/percent">ရာခိုင္နွုန္းခ်ိုးရန္</a></li>
+  </ul>
+
 </div>
-  <div class="form-group">
-  <button  [disabled]="from.invalid" type="submit" class="btn btn-lg btn-block btn-info">
-    SUBMIT
-  </button>
-  </div>
-</form>
+  <div class="container">
+ <h4 class="zawgyi" >၃လံုး</h4>
+  </div><br><br><br>
+  <div class="container">
+       <div class="row">
+           <form class="col s12">
+               <div class="row">
+                   <div class="input-field col s4">
+                       <input id="last_name" type="text" class="validate">
+                       <label class="zawgyi" for="last_name">နာမည္</label>
+                   </div>
+                   
+                   <div class="input-field col s4">
+                       <input id="last_name" type="text" class="validate">
+                       <label class="zawgyi" for="last_name">ဖုန္းနံပါတ္</label>
+                   </div>
+                   <div class="input-field col s4">
+                       <select class="browser-default">
+                           <option class="zawgyi" value="" disabled selected>ျမို့</option>
+                           <option class="zawgyi" value="1">သာေကတ</option>
+                           <option class="zawgyi" value="2">သန္လ်င္</option>
+                           <option class="zawgyi" value="3">ဗိုလ္တစ္ေထာင္</option>
+                       </select>
+                   </div>
+                   <div class="input-field col s12">
+                       <textarea id="textarea1" class="materialize-textarea"></textarea>
+                       <label for="textarea1">မွတ္ရန္</label>
+                   </div>
+               </div>
+
+           </form>
+      </div>
+  </div><br><br>
+  <div class="container">
+       <div class="row">
+           <form class="col s12">
+               <div class="row">
+                   <div class="input-field col s3">
+                       <input id="last_name" type="text" class="validate">
+                       <label class="zawgyi" for="last_name">နံပါတ္သြင္းရန္</label>
+                   </div>
+                   <div class="input-field col s2">
+                       <input id="last_name" type="text" class="validate">
+                       <label class="zawgyi" for="last_name">ပမာဏ</label>
+                   </div>
+                   <div class="input-field col s2">
+                       <label>
+                           <input type="checkbox" />
+                           <span class="zawgyi">အာ</span>
+                       </label>
+                   </div>
+                   <div class="input-field col s3">
+                       <label>
+                           <input type="checkbox" />
+                           <span class="zawgyi">အပူး</span>
+                       </label>
+                   </div>
+                   
+                   <div class="input-field col s2">
+                       <label>
+                           <input type="checkbox" />
+                           <span><i class="material-icons">arrow_back</i></span>
+                       </label>
+                   </div>
+                    <div class="input-field col s2">
+                       <label>
+                           <input type="checkbox" />
+                           <span><i class="material-icons">arrow_downward</i></span>
+                       </label>
+                   </div>
+                   <div class="input-field col s2">
+                       <label>
+                           <input type="checkbox" />
+                           <span><i class="material-icons">arrow_forward</i></span>
+                       </label>
+                   </div>
+               </div><br>
+               <a class="waves-effect waves-light btn-large brown darken-1 white-text">နိုတ္ရန္</a>
+           </form>
+      </div>
+  </div><br><br>
+  <div class="container">
+     <p style="font-size: 30px;" class="zawgyi">ထိုးစာရင္း</p><br><br>
+      <table class="centered">
+       <thead>
+           <tr>
+               <th>နံပါတ္စဥ္</th>
+               <th>ထိုးဂဏန္း</th>
+               <th>ထိုးေငြပမာဏ(က်ပ္)</th>
+               <th>ျပင္ရန္</th>
+           </tr>
+       </thead>
+
+       <tbody>
+           <tr>
+               <td>၁</td>
+               <td>၂၁၁</td>
+               <td>၅၀၀</td>
+               <td><a class="waves-effect waves-light btn-small brown darken-1 white-text">နိုတ္ရန္</a></td>
+           </tr>
+           <tr>
+               <td>၂</td>
+               <td>၄၄၄</td>
+               <td>၁၀၀၀</td>
+               <td><a class="waves-effect waves-light btn-small brown darken-1 white-text">နိုတ္ရန္</a></td>
+           </tr>
+           <tr>
+               <td>၃</td>
+               <td>၈၇၄</td>
+               <td>၃၀၀</td>
+               <td><a class="waves-effect waves-light btn-small brown darken-1 white-text">နိုတ္ရန္</a></td>
+           </tr>
+       </tbody>
+  </table>
+  </div><br><br>
+  <a class="waves-effect waves-light btn-large brown darken-1 white-text">ျပီျပီ</a><br><br><br>
+   
