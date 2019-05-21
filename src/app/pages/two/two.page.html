@@ -35,23 +35,23 @@
                     </div>    
                <div class="row">
                    <div class="input-field col s4">
-                       <input  id= "name" type="text" class="validate hidden" name="customerName"[(ngModel)]="record.customerName"  class="formControl" placeholder="Name">
+                       <input  id= "name" type="text" class="validate hidden" name="customerName"[(ngModel)]="record.customerName"  class="formControl">
                        <label class="zawgyi">နာမည္</label>
                    </div>
                    
                    <div class="input-field col s4">
-                       <input id="phoneNumber" type="text" class="validate" name="phoneNumber" [(ngModel)]="record.phoneNumber" class="formControl" placeholder="PhoneNumber">
+                       <input id="phoneNumber" type="text" class="validate" name="phoneNumber" [(ngModel)]="record.phoneNumber" class="formControl" >
                        <label class="zawgyi" for="last_name">ဖုန္းနံပါတ္</label>
                    </div>
                    <div class="input-field col s4">
-                       <select id="township" class="browser-default"name="township" [(ngModel)]="record.township" (ngModelChange)="onChangeSelectedTownship($event)"> 
+                       <select id="township" class="browser-default"name="township" [(ngModel)]="record.township" (ngModelChange)="onChangeSelectedTownship($event)">
                             <option class="zawgyi" [value]="" disabled selected>ျမို့</option>
                             <option class="zawgyi" *ngFor="let township of townships" [value]="township">{{ township }}</option>    
                         </select>
                    </div>
                    <div class="input-field col s12">
                        <textarea id="note" class="materialize-textarea" name="note" [(ngModel)]="record.note" class="formControl"></textarea>
-                       <label for="textarea1">မွတ္ရန္</label>
+                       <label for="textarea1"></label>
                    </div>
                </div>
 
@@ -66,45 +66,45 @@
                        <input id="number" type="text" class="validate" name="number" [(ngModel)]="number">
                        <label class="zawgyi" for="last_name">နံပါတ္သြင္းရန္</label>
                    </div>
-                   <div class="input-field col s3">
+                   <div class="input-field col s6">
                         <label>
-                            <input #dae type="checkbox" name="dae" [(ngModel)]="selectedFormat" (change) = "onChange(dae.checked,'dae')">
+                            <input #dae type="radio" class="with-gap" name="group1" [(ngModel)]="selectedFormat" (change) = "onChange(dae.checked,'dae')">
                             <span class="zawgyi">Dae</span>
                         </label>
                     </div>
                     <div class="input-field col s3">
                             <label>
-                                <input #arr type="checkbox" name="arr" [(ngModel)]="selectedFormat" (change) = "onChange(arr.checked,'arr')">
+                                <input #arr type="radio" class="with-gap" name="group1" [(ngModel)]="selectedFormat" (change) = "onChange(arr.checked,'arr')">
                                 <span class="zawgyi">အာ</span>
                             </label>
                         </div>
                    <div class="input-field col s3">
                        <label>
-                           <input #double type="checkbox" name="double" [(ngModel)]="selectedFormat" (change) = "onChange(double.checked,'double')" />
+                           <input #double type="radio" class="with-gap" name="group1" [(ngModel)]="selectedFormat" (change) = "onChange(double.checked,'double')" />
                            <span class="zawgyi">အပူး</span>
                        </label>
                    </div>
                     <div class="input-field col s3">
                        <label>
-                           <input #power type="checkbox" name="power" [(ngModel)]="selectedFormat" (change) = "onChange(power.checked,'power')"/>
+                           <input #power type="radio" class="with-gap" name="group1" [(ngModel)]="selectedFormat" (change) = "onChange(power.checked,'power')"/>
                            <span class="zawgyi">ပါ၀ါ</span>
                        </label>
                    </div>
                    <div class="input-field col s3">
                        <label>
-                           <input #natkhat type="checkbox" name="natkhat" [(ngModel)]="selectedFormat" (change) = "onChange(natkhat.checked,'natkhat')" />
+                           <input #natkhat type="radio" class="with-gap" name="group1" [(ngModel)]="selectedFormat" (change) = "onChange(natkhat.checked,'natkhat')" />
                            <span class="zawgyi">နကၡ</span>
                        </label>
                    </div>
                    <div class="input-field col s3">
                        <label>
-                           <input  #arrow_back type="checkbox" name="arrow_back" [(ngModel)]="selectedFormat" (change) = "onChange(arrow_back.checked,'arrow_back')"/>
+                           <input  #arrow_back type="radio" class="with-gap" name="group1" [(ngModel)]="selectedFormat" (change) = "onChange(arrow_back.checked,'arrow_back')"/>
                            <span><i class="material-icons">arrow_back</i></span>
                        </label>
                    </div>
                    <div class="input-field col s3">
                        <label>
-                           <input  #arrow_forward type="checkbox" name="arrow_forward" [(ngModel)]="selectedFormat" (change) = "onChange(arrow_forward.checked,'arrow_forward')"/>
+                           <input  #arrow_forward type="radio" class="with-gap" name="group1" [(ngModel)]="selectedFormat" (change) = "onChange(arrow_forward.checked,'arrow_forward')"/>
                            <span><i class="material-icons">arrow_forward</i></span>
                        </label>
                    </div> 
@@ -141,9 +141,14 @@
            </tbody>
   </table>
   </div><br><br>
+  <bR><br>
   <div class="center-text">
-   <button type="submit"  (click) ="saveRecord(form1)" class="btn btn-lg btn-block btn-info">
-            SUBMIT( ျပီျပီ)
+   <button type="submit"  (click) ="saveRecord(form1)" class="waves-effect waves-light btn-large brown darken-1 white-text">
+            ျပီျပီ
           </button>
-   </div>
-   
+   </div><br><br><br>
+   <script>
+        $(document).ready(function(){
+         $('.sidenav').sidenav();
+      });
+   </script>
