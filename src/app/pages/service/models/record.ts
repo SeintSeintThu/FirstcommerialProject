@@ -1,4 +1,5 @@
 import { Customer } from './customer';
+import { Usage } from './usage';
 
 export class Record {
     customerName : string;
@@ -6,7 +7,7 @@ export class Record {
     township: string;
     note : string;
     makeDate : Date;
-    usage : Map<string,number>;
+    usage  : any[];
     total : number;
     
 }

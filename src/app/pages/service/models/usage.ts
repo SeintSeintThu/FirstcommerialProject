@@ -3,9 +3,10 @@ export class Usage {
     number: string;
     amount: number;
 
- constructor(id :number ,number  : string,
+ constructor(id :number ,
+    number  : string,
         amount : number){
-            this.id= id;
+          this.id= id;
     this.number = number;
     this.amount = amount;
 }
