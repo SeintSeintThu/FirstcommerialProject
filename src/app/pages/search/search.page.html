@@ -42,18 +42,19 @@
   </div><br><br>
   <div class="container">
     <p style="font-size: 30px;" class="zawgyi center-text">ထိုးစာရင္း</p><br><br>
-    <table *ngIf ="afterSearch" class="centered" [(ngModel)]="afterSearch">
+    <table class="centered">
      <thead>
          <tr>
             <th>နံပါတ္စဥ္</th>
             <th>နာမည္</th>
             <th>ဖုန္း နံပါတ္</th>
+            <th>နံပါတ္</th>
             <th>ပမာဏ</th>
-            <th>#</th>
+
          </tr>
      </thead>
 
-     <tbody>
+     <tbody *ngIf ="afterSearch" class="centered" [(ngModel)]="afterSearch">
          <tr *ngFor="let record of afterSearch">
              <td>{{record.id}}</td>
              <td>{{record.customerName}}</td>

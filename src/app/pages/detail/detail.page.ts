@@ -15,7 +15,7 @@ export class DetailPage implements OnInit {
 
   records = [];
   afterSearch = [];
-  //usages: Set<Usage>;
+  total : number = 0;
   ngOnInit() {
     this.afterSearch = [];
     let recordRef = this.fireStore.collection('record');
@@ -43,17 +43,21 @@ export class DetailPage implements OnInit {
     if (term.trim() === '') {
       console.log('Type a number');
       this.afterSearch.pop();
+      this.total = 0;
     }
     this.records.forEach(element => {
       for (let item of element.object.usage) {
         console.log(term)
+       
         if (item.number === term) {
           console.log(item.number + ":" + term)
+         this.total = +this.total + +item.amount;
           let meta = {
             id: element.id,
             customerName: element.object.customerName,
             customerPhoneNumber: element.object.phoneNumber,
-            amount: item.amount
+            amount: item.amount,
+            
           }
           this.afterSearch.push(meta);
           //recordIds.push(element.id);

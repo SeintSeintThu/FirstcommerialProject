@@ -17,6 +17,7 @@ export class SearchPage implements OnInit {
   ) { }
   records = [];
   afterSearch = [];
+  flag : boolean;
   ngOnInit() {
     this.afterSearch = [];
     let recordRef = this.fireStore.collection('record');
@@ -43,25 +44,33 @@ export class SearchPage implements OnInit {
     if (term.trim() === '') {
       console.log('Type a number');
       this.afterSearch.pop();
+      this.afterSearch = [];
     }
     console.log(this.records)
     this.records.forEach(element => {
-      for (let item of element.object) {
-        console.log(term);
-        console.log(item);
-        if (item.number === term) {
-          console.log(item.number + ":" + term)
-          let meta = {
-            id: element.id,
-            customerName: element.object.customerName,
-            customerPhoneNumber: element.object.phoneNumber,
-            amount: item.amount
+      console.log(element);
+      console.log(term); 
+         console.log(element.object.customerName+ ":" + term)
+         if (element.object.customerName === term || element.object.phoneNumber === term || 
+          element.object.phoneNumber === term || element.object.township === term || element.object.note === term 
+          || element.object.makeDate === term){
+            this.flag = true;
+            console.log(this.flag);
           }
-          this.afterSearch.push(meta);
-          //recordIds.push(element.id);
+  
+          for(let usage of element.object.usage){
+            if(usage.number === term || usage.amount === term || this.flag){
+                  let meta = {
+                      id: element.id,
+                     customerName: element.object.customerName,
+                     customerPhoneNumber: element.object.phoneNumber,
+                     number :usage.number,
+                     amount: usage.amount
+                   }
+                  this.afterSearch.push(meta);
+          }
         }
-      }
-    });
-    console.log(this.afterSearch); 
+
+        });
   } 
 }
