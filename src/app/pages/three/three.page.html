@@ -30,7 +30,7 @@
          <div class="row">
              <form class="col s12" #form1="ngForm">
                   <div>
-                          <label>Start Date</label>
+                          <label>Choose date :</label>
                           <input type="date" class="formControl" id="makeDate" name= "makeDate" [(ngModel)]="recordService.formData.makeDate" (ngModelChange)="onChangeStartDate($event)" [value]="makeDate" required>
                       </div>    
                  <div class="row">
@@ -84,18 +84,7 @@
                              <span class="zawgyi">အပူး</span>
                          </label>
                      </div>
-                      <div class="input-field col s3">
-                         <label>
-                             <input #power type="radio" class="with-gap" name="group1"  (change) = "onChange(power.checked,'power')"/>
-                             <span class="zawgyi">ပါ၀ါ</span>
-                         </label>
-                     </div>
-                     <div class="input-field col s3">
-                         <label>
-                             <input #natkhat type="radio" class="with-gap" name="group1" (change) = "onChange(natkhat.checked,'natkhat')" />
-                             <span class="zawgyi">နကၡ</span>
-                         </label>
-                     </div>
+                      
                      <div class="input-field col s3">
                          <label>
                              <input #arrow_forward  type="radio" class="with-gap" name="group1"  (change) = "onChange(arrow_forward.checked,'arrow_forward')"/>

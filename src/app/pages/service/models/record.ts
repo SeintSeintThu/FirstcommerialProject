@@ -7,7 +7,10 @@ export class Record {
     township: string;
     note : string;
     makeDate : Date;
+    //for array
     usage  : any[];
+    //for map
+    //usage : Map<string,number>;
     total : number;
     
 }

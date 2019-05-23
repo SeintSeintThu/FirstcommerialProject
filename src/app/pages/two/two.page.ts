@@ -94,6 +94,7 @@ export class TwoPage implements OnInit {
     }
     let firebaseRef = this.fireStore.collection("record");
     firebaseRef.add(Object.assign({}, this.record));
+    this.resetform();
 
   }
 
@@ -134,8 +135,7 @@ export class TwoPage implements OnInit {
       }
       case 'double': {
         console.log("In double");
-        let next = this.number % 10;
-        this.makeupUsage(this.usages.size + 1, (next * 10) + next + "", this.amount);
+        this.makeupUsage(this.usages.size + 1, this.number+""+ this.number, this.amount);
         console.log(this.usages.size);
         console.log(this.usages);
         break;

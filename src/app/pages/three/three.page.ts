@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Usage } from '../service/models/usage';
 import { Record } from '../service/models/record';
 import { Format } from '../service/models/format';
+import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Component({
@@ -29,8 +30,8 @@ export class ThreePage implements OnInit {
   @Input() isChecked = false;
 
   doubles: number[] = [111, 222, 333, 444, 555, 666, 777, 888, 999];
-  powers: number[] = [16, 27, 38, 49, 50];
-  natkhats: string[] = ['18', '24', '35', '07', '96'];
+  //powers: number[] = [16, 27, 38, 49, 50];
+  //natkhats: string[] = ['18', '24', '35', '07', '96'];
   numberforSeries: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   townships: Array<string> = [
     "သာေကတ",
@@ -71,7 +72,10 @@ export class ThreePage implements OnInit {
         number: item.number,
         amount: item.amount
       }
+      //for array
       array.push(usageOne);
+      //for map
+      this.usageMap.set(item.number,item.amount);
     }
 
     this.record = {
@@ -90,7 +94,7 @@ export class ThreePage implements OnInit {
 
   makeupUsage(id: number, number: string, amount: number) {
     let usage = new Usage(id, number, amount);
-    this.usages.add(usage);
+      this.usages.add(usage);  
   }
 
   makeUsage(form?: NgForm) {
@@ -138,28 +142,7 @@ export class ThreePage implements OnInit {
       }
       case 'double': {
         console.log("In double");
-        let next = this.number % 100;
-        this.makeupUsage(this.usages.size + 1, next+""+ next +""+next, this.amount);
-        console.log(this.usages.size);
-        console.log(this.usages);
-        break;
-      }
-      case 'natkhat': {
-        console.log("In natkhat");
-        if (this.number == 0) {
-          for (let natkhat of this.natkhats)
-            this.makeupUsage(this.usages.size + 1, natkhat, this.amount);
-        }
-        console.log(this.usages.size);
-        console.log(this.usages);
-        break;
-      }
-      case 'power': {
-        if (this.number == 0) {
-          for (let power of this.powers)
-            this.makeupUsage(this.usages.size + 1, power + "", this.amount);
-
-        }
+        this.makeupUsage(this.usages.size + 1, this.number+""+this.number +""+this.number, this.amount);
         console.log(this.usages.size);
         console.log(this.usages);
         break;

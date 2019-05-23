@@ -11,10 +11,14 @@ export class RecordService {
   formData : Record;
 
   constructor(private fireStore: AngularFirestore) { }
-  getRecord ()
+  getRecords ()
   {  
     return this.fireStore.collection('record').snapshotChanges();
     
   }
+  getRecordsWithNumber(number:string){
+  }
+    
+  
   
 }
