@@ -31,7 +31,7 @@
                 <div class="nav-wrapper brown darken-1 white-text">
                     <form>
                         <div class="input-field">
-                            <input id="searchKey" type="search" name= "searchKey" (input)="search($event)" required>
+                            <input id="searchKey" type="search" name= "searchKey"#id (keyup.enter)="onEnter(id.value)"  required>
                             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                             <i class="material-icons">close</i>
                         </div>

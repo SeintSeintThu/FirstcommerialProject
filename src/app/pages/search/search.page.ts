@@ -19,9 +19,9 @@ export class SearchPage implements OnInit {
   records = [];
   afterSearch = [];
   foundIds  : string[];
+  id : string;
   ngOnInit() {
     this.afterSearch = [];
-    this.foundIds = new Array();
     let recordRef = this.fireStore.collection('record');
     recordRef.get()
       .subscribe(snapshot => {
@@ -41,8 +41,11 @@ export class SearchPage implements OnInit {
     console.log(this.records);
     
   }
-  onEnter(value) {
-    let term = value;
+  
+  search(searchEvent: any) {
+    let term = searchEvent.target.value;
+    console.log(term)
+
     console.log(term);
     if (term.trim() === '') {
       console.log('Type a number');
@@ -60,8 +63,7 @@ export class SearchPage implements OnInit {
         console.log(element.object.note === term);
       console.log(element.object.makeDate === term);     
 
-
-        if (element.object.customerName === term){
+      if (element.object.customerName === term){
               this.foundIds.push(element.id);
               console.log(this.foundIds);
         }   
@@ -90,13 +92,65 @@ export class SearchPage implements OnInit {
           //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
     });
         console.log(this.foundIds);
-      //  this.makeAddMeta(foundIds)
+       //this.makeAddMeta(this.foundIds)
+
+   
+  }
+
+  onEnter(value) {
+    let term = value;
+    if (term.trim() === '') {
+      console.log('Type a number');
+      this.afterSearch.pop();
+      this.afterSearch = [];
+    }
+    
+    console.log(this.records)
+    this.records.forEach(element => {
+        console.log(element);
+        console.log(term);
+        console.log(element.object.customerName + ":" + term)
+        console.log(element.object.customerName === term);
+        console.log(element.object.township === term);
+        console.log(element.object.note === term);
+      console.log(element.object.makeDate === term);     
+
+      if (element.object.customerName === term){
+              this.id= element.id;
+              console.log(this.id);
+        }   
+          //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
+        else if (element.object.phoneNumber === term){
+            this.id = element.id;
+            console.log(this.id);
+        }   
+          //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
+        else if (element.object.township === term){
+
+            this.id = element.id;
+            console.log(this.id);
+        }   
+          //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
+        else if (element.object.note === term){
+            this.id= element.id;
+            console.log(this.id);
+        }   
+          //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
+        else if (element.object.makeDate === term) {
+            this.id= element.id;
+            console.log(this.id);
+          } 
+
+          //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
+    });
+        console.log(this.id);
+        this.makeAddMeta(this.id)
 
   }
 
-  makeAddMeta(foundIds : string[]) {
+  makeAddMeta(id : string) {
     let total = 0;
-    foundIds.forEach(id =>{
+    
       this.records.forEach(element =>{
         for(let usage  of element.object.usage){
           total = +total + +usage.amount;
@@ -115,8 +169,6 @@ export class SearchPage implements OnInit {
 
     });
     
-  });
+}
    
-    
-  }
 }
