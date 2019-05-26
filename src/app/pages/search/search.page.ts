@@ -20,6 +20,7 @@ export class SearchPage implements OnInit {
   afterSearch = [];
   foundIds  : string[];
   id : string;
+  searchType  : string;
   ngOnInit() {
     this.afterSearch = [];
     let recordRef = this.fireStore.collection('record');
@@ -103,6 +104,7 @@ export class SearchPage implements OnInit {
       console.log('Type a number');
       this.afterSearch.pop();
       this.afterSearch = [];
+      this.foundIds =  [];
     }
     
     console.log(this.records)
@@ -114,43 +116,52 @@ export class SearchPage implements OnInit {
         console.log(element.object.township === term);
         console.log(element.object.note === term);
       console.log(element.object.makeDate === term);     
+      switch(this.searchType){
+        case 'name' :{
+          if (element.object.customerName === term){
+            this.foundIds.push(element.id);
+              console.log(this.foundIds);
+               }   
+               break;
+              }
+          //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
+        case 'phoneNumber' :{
+          if(element.object.phoneNumber === term){
+            this.foundIds.push(element.id);
+            console.log(this.foundIds);
+        }   
+        break;
+      }
+      case 'township' : {
+          //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
+         if (element.object.township === term){
 
-      if (element.object.customerName === term){
-              this.id= element.id;
-              console.log(this.id);
+          this.foundIds.push(element.id);
+            console.log(this.foundIds);
         }   
+        break;
+      }
           //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
-        else if (element.object.phoneNumber === term){
-            this.id = element.id;
-            console.log(this.id);
-        }   
+       
           //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
-        else if (element.object.township === term){
-
-            this.id = element.id;
-            console.log(this.id);
-        }   
-          //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
-        else if (element.object.note === term){
-            this.id= element.id;
-            console.log(this.id);
-        }   
-          //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
-        else if (element.object.makeDate === term) {
-            this.id= element.id;
-            console.log(this.id);
+        case 'date' : { 
+          if(element.object.makeDate === term) {
+            this.foundIds.push(element.id);
+            console.log(this.foundIds);
           } 
-
+          break;
+        }
+      }
           //this.makeAddMeta(element.id, element.object.customerName, element.object.phoneNumber, usage.number, usage.amount);
     });
-        console.log(this.id);
-        this.makeAddMeta(this.id)
+        console.log(this.foundIds);
+        this.makeAddMeta(this.foundIds)
 
   }
 
-  makeAddMeta(id : string) {
+  makeAddMeta(ids : string[]) {
     let total = 0;
-    
+    for(let id of ids){
       this.records.forEach(element =>{
         for(let usage  of element.object.usage){
           total = +total + +usage.amount;
@@ -168,7 +179,14 @@ export class SearchPage implements OnInit {
       }
 
     });
+  }
     
 }
    
+onChange(isChecked,type)
+{     
+  if(isChecked)
+    this.searchType = type;
+  console.log(this.searchType)
+}
 }

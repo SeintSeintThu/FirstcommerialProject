@@ -31,9 +31,28 @@
                     <form>
                         <div class="input-field">
                             <input id="searchKey" name= "searchKey" #id (keyup.enter)="onEnter(id.value)" type="search"> required>
-                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <!-- <label class="label-icon" for="search"><i class="material-icons">search</i></label> -->
                             <i class="material-icons">close</i>
                         </div>
+                        <div class="input-field col s3">
+                            <label>
+                                <input #name type="radio" class="with-gap" name="group1" (change) = "onChange(name.checked,'name')">
+                                        <span class="zawgyi">Name</span>
+                                    </label>
+                            </div>
+                            <div class="input-field col s3">
+                                <label>
+                                    <input #township type="radio" class="with-gap" name="group1" (change) = "onChange(township.checked,'township')">
+                                            <span class="zawgyi">Township</span>
+                                    </label>
+                                </div>
+                              
+                                <div class="input-field col s3">
+                                    <label>
+                                        <input #phoneNumber type="radio" class="with-gap" name="group1" (change) = "onChange(phoneNumber.checked,'phoneNumber')">
+                                                <span class="zawgyi">PhoneNumber</span>
+                                            </label>
+                                 </div>
                     </form>
                 </div>
               </nav>
@@ -61,6 +80,14 @@
              <td>{{record.customerPhoneNumber}}</td>
              <td>{{record.number}}</td>
              <td>{{record.amount}}</td>
+            
+         </tr>
+         <tr>
+            <td>Total</td>
+            <td></td>
+            <td>:</td>
+            <td></td>
+            <td>{{record.total}}</td>
          </tr>
          </tbody>
 </table>
