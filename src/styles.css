@@ -20,3 +20,32 @@
 .center-text{
     text-align: center;
 }
+
+.bd-img1 {
+    background-image: url("assets/Welcome.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+      background-size: 100%;
+  }
+  .bd-img2 {
+    background-image: url("assets/login-img.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+      background-size: 100%;
+  }
+  .login-b{
+      margin-top: 480px;
+  }
+  .hov-bt:hover{
+      padding: 0px 40px;
+  }
+  .text-center{
+      text-align: center;
+  }
+  .font1{
+      color: #0f45a9;
+  }
+  .font2{
+      color: #b40d39;
+  }
+  

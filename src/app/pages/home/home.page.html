@@ -1,90 +1,17 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="col"><button class="btn" routerLink="/search">Search</button></div>
-    <div class="col"><button class="btn" routerLink="/detail">Match</button></div>
-    <div class="col"><button class="btn" routerLink="/two">2D</button></div>
-    <div class="col"><button class="btn" routerLink="/three">3D</button></div>
-  </div>
-</div> -->
-        <div class="container-fluid navbar-fixed" style="padding: 0;margin: 0">
-          <nav>
-              <div class="nav-wrapper brown darken-1 white-text">
-                  <a routerLink="/home" style="padding-left: 30px" class="brand-logo">TOOTOO</a>
-                  <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                  <ul class="right hide-on-med-and-down">
-                    <li><a class="zawgyi" routerLink="/detail">တိုက္ရန္</a></li>
-                    <li><a class="zawgyi" routerLink="/search">ရွာရန္</a></li>
-                    <li><a class="zawgyi" routerLink="/two">၂လံုး</a></li>
-                    <li><a class="zawgyi" routerLink="/three">၃လံုး</a></li>
-                    <li><a class="zawgyi" routerLink="/percent">ရာခိုင္နွုန္းခ်ိုးရန္</a></li>
-                  </ul>
-              </div>
-          </nav>
-          <ul class="sidenav" id="mobile-links">
-            <li><a class="zawgyi" routerLink="/detail">တိုက္ရန္</a></li>
-            <li><a class="zawgyi" routerLink="/search">ရွာရန္</a></li>
-            <li><a class="zawgyi" routerLink="/two">၂လံုး</a></li>
-            <li><a class="zawgyi" routerLink="/three">၃လံုး</a></li>
-            <li><a class="zawgyi" routerLink="/percent">ရာခိုင္နွုန္းခ်ိုးရန္</a></li>
-          </ul>
-     
-      </div>
-      <div class="container">
-              <h4 class="zawgyi center-text">ယေန့ စာရင္း ရာခိုင္နွုန္းခ်ိုးရန္</h4>
-          </div><br><br><br>
-      <div class="container">
-              <div class="input-field">
-                  <select class="browser-default"  [(ngModel)]="selectedValue" (ngModelChange)="onChangeSelectedPercent($event)">
-                      <option class="zawgyi" value="" disabled selected>ရာခိုင္နွုန္း</option>
-                      <option class="zawgyi" value="10">%10</option>
-                      <option class="zawgyi" value="20">%20</option>
-                      <option class="zawgyi" value="30">%30</option>
-                      <option class="zawgyi" value="40">%40</option>
-                      <option class="zawgyi" value="50">%50</option>
-                      <option class="zawgyi" value="60">%60</option>
-                      <option class="zawgyi" value="70">%70</option>
-                      <option class="zawgyi" value="80">%80</option>
-                      <option class="zawgyi" value="90">%90</option>
-                      <option class="zawgyi" value="100">%100</option>
-                  </select>
-              </div>
-      </div><br><br><br>
-    <div class="container">
-        <table class="centered">
-            <thead>
-                <tr>
-                    <th>နံပါတ္စဥ္</th>
-                    <th>နာမည္</th>
-                    <th>ဖုန္း နံပါတ္</th>
-                    <th>ပမာဏ</th>
-                    <th>#</th>
-                </tr>
-            </thead>
 
-            <tbody>
-                <tr>
-                    <td>၁</td>
-                    <td>ေမာင္ေမာင္</td>
-                    <td>၀၉၁၁၁၂၂၂၃၃၃</td>
-                    <td>၅၀၀</td>
-                </tr>
-                <tr>
-                    <td>၂</td>
-                    <td>ေက်ာ္ေက်ာ္</td>
-                    <td>၀၉၁၁၁၂၂၂၃၃၃</td>
-                    <td>၁၀၀၀</td>
-                       
-                </tr>
-                <tr>
-                    <td>၃</td>
-                    <td>ေအးေအး</td>
-                    <td>၀၉၁၁၁၂၂၂၃၃၃</td>
-                    <td>၂၀၀၀</td>
-                </tr>
-            </tbody>
-        </table>
-      </div><br><br>
-      <div class="center-text">
-         <a class="waves-effect waves-light btn-large brown darken-1 white-text">ျပီျပီ</a><br><br><br>
-       </div>
+<div class="container-fluid">
+    <nav>
+        <div class="nav-wrapper brown darken-1 white-text">
+            <a routerLink="/home" style="padding-left: 30px" class="brand-logo center">TOOTOO</a>
+        </div>
+    </nav>
+</div>
+<div class="row" style="padding-top: 20%; padding-left: 30%">
+    <div class="col s6">
+        <a  routerLink="/twod" class="waves-effect waves-light btn-large brown darken-1 white-text zawgyi">၂လံုး</a>
+    </div>
+    <div class="col s6">
+        <a  routerLink="/threed" class="waves-effect waves-light btn-large brown darken-1 white-text zawgyi">၃လံုး</a>
+    </div>
+</div>
        
