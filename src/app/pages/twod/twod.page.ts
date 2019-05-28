@@ -7,6 +7,7 @@ import { Format } from '../service/models/format';
 import { Usage } from '../service/models/usage';
 import { TwoDService } from '../service/twod.service';
 import { LegarMap } from '../service/models/legarmap';
+import { WebDriverLogger } from 'blocking-proxy/built/lib/webdriver_logger';
 
 
 //import {ToastrService} from 'ngx-toastr';
@@ -53,9 +54,7 @@ export class TwoDeePage implements OnInit {
   row8 = [];
   row9 = [];
   row10 = [];
-  amount1: number;
-  amount2: number;
-  waitingListTotal: number =0;
+  waitingListTotal: number = 0;
   excedListTotal: number =0;
 
   @Input() isChecked = false;
@@ -138,12 +137,12 @@ export class TwoDeePage implements OnInit {
     if (this.number == null && this.amount == 0)
       return;
     switch (this.selectedFormat) {
-      case 'dae': {
+      case '': {
         this.addtoLeger(this.number, this.amount)
         //this.makeupUsage(this.usages.size + 1, this.number + "", this.amount);   
         break;
       }
-      case 'arr': {
+      case 'r': {
         let firstNumber = ~~(this.number / 10);//2
         let secondNumber = this.number % 10;//3
         console.log(firstNumber);
@@ -152,20 +151,22 @@ export class TwoDeePage implements OnInit {
         console.log(next);
         
         this.addtoLeger(this.number, this.amount);
-        if(this.amount2)
-        this.addtoLeger(next, this.amount2)
-        else 
-        this.addtoLeger(next, this.amount)
+        this.addtoLeger(next, this.amount);
+
+        // if(this.amount2)
+        // this.addtoLeger(next, this.amount2)
+        // else 
+        // this.addtoLeger(next, this.amount)
         break;
       }
-      case 'double': {
+      case '*': {
         console.log("In double");
         let next :number = +(this.number) * 10 + + this.number;
         console.log(next);
         this.addtoLeger(next, this.amount);
         break;
       }
-      case 'natkhat': {
+      case 'n': {
         console.log("In natkhat");
         if (this.number == 0) {
           for (let natkhat of this.natkhats)
@@ -174,14 +175,14 @@ export class TwoDeePage implements OnInit {
 
         break;
       }
-      case 'power': {
+      case 'p': {
         if (this.number == 0) {
           for (let power of this.powers)
           this.addtoLeger(power, this.amount);
         }
         break;
       }
-      case 'arrow_back': {
+      case 'b': {
         console.log('this.arrow_back')
         let next = this.number % 10;
         this.addtoLeger(next * 10, this.amount);
@@ -189,7 +190,7 @@ export class TwoDeePage implements OnInit {
             this.addtoLeger((next * 10) + number, this.amount);
         break;
       }
-      case 'arrow_forward': {
+      case 'f': {
         console.log("In arrow_forward");
         let next = this.number % 10;
         this.addtoLeger("0" + next, this.amount);
@@ -206,25 +207,12 @@ export class TwoDeePage implements OnInit {
 
   }
 
-  onChange(isChecked, type) {
-    console.log("checkCeckboxValue is reached");
-    console.log(isChecked + ":" + type);
-    this.selectedFormat = type;
-    console.log(this.selectedFormat)
-
-  }
-
   //For New
-  onEnterAmount1(amount) { //PASS
-    this.amount1 = amount;
-    console.log(this.number + this.selectedFormat + this.amount1);
-    this.makeUsage(this.number,this.amount1)
-    //this.addtoLeger(this.number, this.amount)
-  }
-  onEnterAmount2(amount) { //PASS
-    this.amount2 = amount;
-    console.log(this.number + this.selectedFormat + this.amount1);
-    this.makeUsage(this.number,this.amount1)
+ 
+  onEnterAmount(amount) { //PASS
+    this.amount = amount;
+    console.log(this.number + this.selectedFormat + this.amount);
+    this.makeUsage(this.number,this.amount)
     //this.addtoLeger(this.number, this.amount)
   }
   onEnterCustomer(value) { //PASS
@@ -507,9 +495,14 @@ export class TwoDeePage implements OnInit {
       this.waitingList.push(record)
     }
     //for total
+      console.log(this.waitingList.length)
+      this.waitingListTotal =0;
       this.waitingList.forEach(record=>
-        {
-          this.waitingListTotal = + this.waitingListTotal+ + record.amount;
+        {  
+          console.log(this.waitingListTotal)
+          console.log(record.amount)
+          this.waitingListTotal = + this.waitingListTotal + + record.amount;
+          console.log(this.waitingListTotal)
         });
   }
 
@@ -561,9 +554,10 @@ export class TwoDeePage implements OnInit {
       }
     });
       //for total
-      this.excedList.forEach(record=>
+      this.excedListTotal = 0;
+      this.excedList.forEach(record1=>
         {
-          this.excedListTotal = + this.excedList+ + record.amount;
+          this.excedListTotal = + this.excedListTotal + + record1.amount;
         })
 
   }

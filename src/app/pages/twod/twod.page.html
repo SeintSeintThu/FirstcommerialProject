@@ -11,18 +11,15 @@
 </div><br><br>
 <div class="container mb-0 text-center">
     <div class="row">
-        <div class="col s3">
-            <label class="zawgyi">{{now}}</label>
-        </div>
+       
         <div class="col s3">
             <h4 class="zawgyi">၂လံုး</h4>
         </div>
-        <div class="col s6">
-            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)">နိတ္ရန္</a>
+        <div class="col s3">
+            <h6 class="zawgyi">{{now}}</h6>
         </div>
         <div class="col s3">
             <label class="zawgyi" for="last_name">နာမည္ အသစ္</label>
-
             <input id="search_name" type="text" class="validate" #id (keyup.enter)="onEnterCustomer(id.value)">
         </div>
         <div class="input-field col s4">
@@ -31,6 +28,13 @@
                 <option class="zawgyi" [value]="" disabled selected>--</option>
                 <option class="zawgyi" *ngFor="let customer of customers" [value]="customer">{{ customer }}</option>
             </select>
+        </div>
+        <div class="col s3">
+            <input id="last_name" #value type="text" class="validate" >
+            <label class="zawgyi" for="last_name">ရာခိုင္နွုန္းခ်ိုးရန္</label>
+        </div>  
+        <div class="col s6">
+            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)">နိတ္ရန္</a>
         </div>
 
     </div>
@@ -61,15 +65,16 @@
             <input id="last_name" type="text" class="validate" [(ngModel)]="number" >
             <label class="zawgyi" for="last_name">နံပါတ္သြင္းရန္</label>
         </div>
-        
         <div class="col s1">
-                <input id="last_name" type="text" class="validate"#amount1 (keyup.enter)="onEnterAmount1(amount1.value)">
-                <label class="zawgyi" for="last_name">ေငြပမာဏ</label>
-        </div>
-        <div class="col s1">
-            <input id="last_name" type="text" class="validate"#amount2 (keyup.enter)="onEnterAmount2(amount2.value)">
+            <input id="last_name" type="text" class="validate" [(ngModel)]="selectedFormat" >
             <label class="zawgyi" for="last_name">ကီး</label>
         </div>
+        
+        <div class="col s1">
+                <input id="last_name" type="text" class="validate"#amount (keyup.enter)="onEnterAmount(amount.value)">
+                <label class="zawgyi" for="last_name">ေငြပမာဏ</label>
+        </div>
+       
         <div class="input-field col s3 zawgyi">
                 <table>
                     <thead>
@@ -85,30 +90,26 @@
                             <td class="font1">{{info.amount}}</td>
                         </tr>
                         <tr>
-                            <td>Total : {{excedListTotal}}</td>
+                            <td>Total :{{excedListTotal}}</td>
                         </tr>
                     </tbody>
                 </table>
         </div>
-    </div>
-    
-    
+    </div>    
    
-</div><br><br>
+</div>
 <div class="container-fluid" style="width: 100%; height: 2px; background-color: #000">
     </div><br><br>
-<div class="row">
-        <div class="col s3">
-            <input id="last_name" #value type="text" class="validate">
-            <label class="zawgyi" for="last_name">ရာခိုင္နွုန္းခ်ိုးရန္</label>
-        </div>  
-    
+<div class="row">  
     <div class="col s3">
         <input id="last_name" type="text" class="validate">
         <label class="zawgyi" for="last_name">ရွာရန္</label>
     </div>
     <div class="col s3 input-field">
-        <a (click)= saveRecord() class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi">နိတ္ရန္</a>
+        <a (click)= findRecord() class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi">နိတ္ရန္</a>
+    </div>
+    <div class="col s3 input-field">
+        <a (click)= saveRecord() class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi">သိမ္းရန္</a>
     </div>
     </div>
 <div class="container-fluid">
