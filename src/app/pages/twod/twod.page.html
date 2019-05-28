@@ -2,26 +2,25 @@
 
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<div class="container-fluid">
+<div class="container-fluid navbar-fixed" style="padding:0;margin:0;">
     <nav>
         <div class="nav-wrapper brown darken-1 white-text">
             <a routerLink="/home" style="padding-left: 30px" class="brand-logo center">TOOTOO</a>
         </div>
     </nav>
-</div><br>
+</div><br><br>
 <div class="container mb-0 text-center">
     <div class="row">
         <div class="col s3">
             <label class="zawgyi">{{now}}</label>
         </div>
-        <div class="col s3 input-field">
-            <input id="last_name" #value type="text" class="validate">
-            <label class="zawgyi" for="last_name">ရာခိုင္နွုန္းခ်ိုးရန္</label>
+        <div class="col s3">
+            <h4 class="zawgyi">၂လံုး</h4>
         </div>
         <div class="col s6">
-            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)">Set</a>
+            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)">နိတ္ရန္</a>
         </div>
-        <div class="input-field col s3">
+        <div class="col s3">
             <label class="zawgyi" for="last_name">နာမည္ အသစ္</label>
 
             <input id="search_name" type="text" class="validate" #id (keyup.enter)="onEnterCustomer(id.value)">
@@ -35,115 +34,83 @@
         </div>
 
     </div>
-</div>
+</div><br><br><br>
 <div class="container">
     <div class="row">
-        <div class="input-field col s3">
+            <div class="input-field col s3 zawgyi">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>နံပါတ္</th>
+                                <th>ပမာဏ</th>
+                            </tr>
+                        </thead>
+        
+                        <tbody>
+                            <tr *ngFor="let info of waitingList">
+                                <td>{{info.number}}</td>
+                                <td class="font1">{{info.amount}}</td>
+                            </tr>
+                            <tr>
+                                <td>Total : {{waitingListTotal}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+        <div class="col s2">
             <input id="last_name" type="text" class="validate" [(ngModel)]="number" >
             <label class="zawgyi" for="last_name">နံပါတ္သြင္းရန္</label>
         </div>
-        <div class="input-field col s6">
-            <label>
-                <input #dae type="radio" class="with-gap" name="group1" (change) = "onChange(dae.checked,'dae')">
-                <span class="zawgyi">Dae</span>
-            </label>
-        </div>
-        <div class="input-field col s3">
-                <label>
-                    <input #arr type="radio" class="with-gap" name="group1" (change) = "onChange(arr.checked,'arr')">
-                    <span class="zawgyi">အာ</span>
-                </label>
-            </div>
-       <div class="input-field col s3">
-           <label>
-               <input #double type="radio" class="with-gap" name="group1"  (change) = "onChange(double.checked,'double')" />
-               <span class="zawgyi">အပူး</span>
-           </label>
-       </div>
-        <div class="input-field col s3">
-           <label>
-               <input #power type="radio" class="with-gap" name="group1"  (change) = "onChange(power.checked,'power')"/>
-               <span class="zawgyi">ပါ၀ါ</span>
-           </label>
-       </div>
-       <div class="input-field col s3">
-           <label>
-               <input #natkhat type="radio" class="with-gap" name="group1" (change) = "onChange(natkhat.checked,'natkhat')" />
-               <span class="zawgyi">နကၡ</span>
-           </label>
-       </div>
-       <div class="input-field col s3">
-           <label>
-               <input #arrow_forward  type="radio" class="with-gap" name="group1"  (change) = "onChange(arrow_forward.checked,'arrow_forward')"/>
-               <span><i class="material-icons">arrow_back</i></span>
-           </label>
-       </div>
-       <div class="input-field col s3">
-           <label>
-               <input #arrow_back type="radio" class="with-gap" name="group1"  (change) = "onChange(arrow_back.checked,'arrow_back')"/>
-               <span><i class="material-icons">arrow_forward</i></span>
-           </label>
-       </div> 
-        <div class="input-field col s3">
+        
+        <div class="col s1">
                 <input id="last_name" type="text" class="validate"#amount1 (keyup.enter)="onEnterAmount1(amount1.value)">
-                <label class="zawgyi" for="last_name">ပမာဏ</label>
+                <label class="zawgyi" for="last_name">ေငြပမာဏ</label>
         </div>
-        <div class="input-field col s3">
+        <div class="col s1">
             <input id="last_name" type="text" class="validate"#amount2 (keyup.enter)="onEnterAmount2(amount2.value)">
-            <label class="zawgyi" for="last_name">ပမာဏ</label>
-    </div>
-    </div>
-    <div class="row">
+            <label class="zawgyi" for="last_name">ကီး</label>
+        </div>
         <div class="input-field col s3 zawgyi">
-            <table>
-                <thead>
-                    <tr>
-                        <th>နံပါတ္</th>
-                        <th>ပမာဏ</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr *ngFor="let info of waitingList">
-                        <td>{{info.number}}</td>
-                        <td class="font1">{{info.amount}}</td>
-                    </tr>
-                    <tr>
-                        <td>Total : {{waitingListTotal}}</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>နံပါတ္</th>
+                            <th>ပမာဏ <i class="font2">(%)</i></th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <tr *ngFor="let info of excedList">
+                            <td>{{info.number}}</td>
+                            <td class="font1">{{info.amount}}</td>
+                        </tr>
+                        <tr>
+                            <td>Total : {{excedListTotal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
     </div>
-    <div class="input-field col s3 zawgyi">
-            <table>
-                <thead>
-                    <tr>
-                        <th>နံပါတ္</th>
-                        <th>ပမာဏ <i class="font2">( % )</i></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr *ngFor="let info of excedList">
-                        <td>{{info.number}}</td>
-                        <td class="font1">{{info.amount}}</td>
-                    </tr>
-                    <tr>
-                        <td>Total : {{excedListTotal}}</td>
-                    </tr>
-                </tbody>
-            </table>
-    </div>
-    <div class="col s3 input-field">
+    
+    
+   
+</div><br><br>
+<div class="container-fluid" style="width: 100%; height: 2px; background-color: #000">
+    </div><br><br>
+<div class="row">
+        <div class="col s3">
+            <input id="last_name" #value type="text" class="validate">
+            <label class="zawgyi" for="last_name">ရာခိုင္နွုန္းခ်ိုးရန္</label>
+        </div>  
+    
+    <div class="col s3">
         <input id="last_name" type="text" class="validate">
         <label class="zawgyi" for="last_name">ရွာရန္</label>
     </div>
     <div class="col s3 input-field">
-        <a (click)= saveRecord() class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi">Thein Yan</a>
+        <a (click)= saveRecord() class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi">နိတ္ရန္</a>
     </div>
     </div>
-   
-</div>
 <div class="container-fluid">
     <div class="row">
        
