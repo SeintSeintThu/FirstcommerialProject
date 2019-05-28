@@ -8,6 +8,7 @@ import { Usage } from '../service/models/usage';
 import { TwoDService } from '../service/twod.service';
 import { LegarMap } from '../service/models/legarmap';
 import { WebDriverLogger } from 'blocking-proxy/built/lib/webdriver_logger';
+import { Legar } from '../service/models/legar';
 
 
 //import {ToastrService} from 'ngx-toastr';
@@ -21,19 +22,15 @@ export class TwoDeePage implements OnInit {
 
 
   constructor(
-    private fireStore: AngularFirestore,
-    private twoDService: TwoDService
-    // private toastService : ToastrService
+    private fireStore: AngularFirestore
   ) { }
 
-  records: Record[]; // not work
-  record: Record = new Record();
+  
+  legar: Legar = new Legar();
   number: number;
   amount: number;
   selectedFormat: string;
-  usages: Set<Usage>;
-  usagesList: Usage[];
-  usageMap: Map<string, number>;
+
   /**
    * this is for new Design
    */
@@ -56,7 +53,8 @@ export class TwoDeePage implements OnInit {
   row10 = [];
   waitingListTotal: number = 0;
   excedListTotal: number =0;
-
+  waitingArray = [];
+  excedArray= [];
   @Input() isChecked = false;
 
   doubles: number[] = [11, 22, 33, 44, 55, 66, 77, 88, 99];
@@ -73,10 +71,8 @@ export class TwoDeePage implements OnInit {
   ngOnInit() {
     this.now = new Date().toLocaleTimeString();
     this.resetform();
-    this.formats = new Set<Format>();
-    this.usageMap = new Map<string, number>();
-    this.usages = new Set<Usage>();
-    this.usagesList = [];
+    this.waitingArray =[];
+  this.excedArray =[];
     this.makeupLegarMap();
 
   }
@@ -93,53 +89,50 @@ export class TwoDeePage implements OnInit {
       total: 0
     }
   }
-
-  saveRecord(form?: NgForm) {
-    let data = form.value;
-    let array = [];
-    let total = 0;
-    console.log(this.usages);
-    for (let item of Array.from(this.usages.values())) {
-      total = +total + +item.amount;
+  saveRecord() {    
+    this.waitingList.forEach(item=>{
       console.log(item);
       let usageOne = {
         number: item.number,
-        amount: item.amount
+        amount: item.amount,
+        total : this.waitingListTotal
       }
-      array.push(usageOne);
-    }
+      this.waitingArray.push(usageOne);
+    });
 
-    this.record = {
-      customerName: data.customerName,
-      phoneNumber: data.phoneNumber,
-      township: data.township,
-      note: data.note,
-      makeDate: data.makeDate,
-      usage: array,
-      total: total
+    this.excedList.forEach(item=>{
+      console.log(item);
+      let usageOne = {
+        number: item.number,
+        amount: item.amount,
+        total : this.waitingListTotal
+      }
+      this.excedList.push(usageOne);
+    });
+
+    this.legar = {
+        customerName: this.customer,
+        now : this.now,
+        restricedAmount : this.restricedValue,
+        waitingList : this.waitingArray,
+        excedList : this.excedArray,
+        totalforAll: this.waitingListTotal
     }
-    let firebaseRef = this.fireStore.collection("record");
-    firebaseRef.add(Object.assign({}, this.record));
+    let firebaseRef = this.fireStore.collection("legar");
+    firebaseRef.add(Object.assign({}, this.legar));
     this.resetform();
 
   }
 
-  makeupUsage(id: number, number: string, amount: number) {
-    let usage = new Usage(id, number, amount);
-    this.usages.add(usage);
-  }
-
   makeUsage(number,amount) {
-    //let data = form.value;
     this.number = number;
     this.amount = amount;
     console.log(this.selectedFormat)
     if (this.number == null && this.amount == 0)
       return;
     switch (this.selectedFormat) {
-      case '': {
+      case '*': {
         this.addtoLeger(this.number, this.amount)
-        //this.makeupUsage(this.usages.size + 1, this.number + "", this.amount);   
         break;
       }
       case 'r': {
@@ -199,12 +192,6 @@ export class TwoDeePage implements OnInit {
         break;
       }
     }
-  }
-  removeUsage(usages, object) {
-    console.log(usages + ":" + object);
-    if (this.usages.has(object))
-      this.usages.delete(object);
-
   }
 
   //For New
