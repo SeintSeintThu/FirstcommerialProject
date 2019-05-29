@@ -1,14 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForm, FormBuilder } from '@angular/forms';
 import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
-import { RecordService } from '../service/record.service';
-import { Record } from '../service/models/record';
+
 import { Format } from '../service/models/format';
-import { Usage } from '../service/models/usage';
-import { TwoDService } from '../service/twod.service';
 import { LegarMap } from '../service/models/legarmap';
 import { WebDriverLogger } from 'blocking-proxy/built/lib/webdriver_logger';
 import { Legar } from '../service/models/legar';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 
 //import {ToastrService} from 'ngx-toastr';
@@ -22,10 +20,11 @@ export class TwoDeePage implements OnInit {
 
 
   constructor(
-    private fireStore: AngularFirestore
+    private fireStore: AngularFirestore,
+    private toast : ToastrService
   ) { }
 
-  
+
   legar: Legar = new Legar();
   number: number;
   amount: number;
@@ -55,6 +54,8 @@ export class TwoDeePage implements OnInit {
   excedListTotal: number =0;
   waitingArray = [];
   excedArray= [];
+  searchList = [];
+  searchValue :string;
   @Input() isChecked = false;
 
   doubles: number[] = [11, 22, 33, 44, 55, 66, 77, 88, 99];
@@ -74,6 +75,7 @@ export class TwoDeePage implements OnInit {
     this.waitingArray =[];
   this.excedArray =[];
     this.makeupLegarMap();
+    this.searchList =[];
 
   }
   resetform(form?: NgForm) {
@@ -89,6 +91,28 @@ export class TwoDeePage implements OnInit {
       total: 0
     }
   }
+
+  searchRecord(){
+    this.searchList.pop();
+     this.waitingList.forEach(record =>{
+      if(record.number === this.searchValue){
+        let recordNew = {
+          number: record.number,
+          amount: record.amount
+        }
+        this.searchList.push(recordNew)
+      }
+      else 
+      {
+        let recordNew = {
+          number: this.searchValue,
+          amount: 0
+        }
+        this.searchList.push(recordNew)
+
+      }
+    });
+   }
   saveRecord() {    
     this.waitingList.forEach(item=>{
       console.log(item);
@@ -107,7 +131,7 @@ export class TwoDeePage implements OnInit {
         amount: item.amount,
         total : this.waitingListTotal
       }
-      this.excedList.push(usageOne);
+      this.excedArray.push(usageOne);
     });
 
     this.legar = {
@@ -118,9 +142,10 @@ export class TwoDeePage implements OnInit {
         excedList : this.excedArray,
         totalforAll: this.waitingListTotal
     }
-    let firebaseRef = this.fireStore.collection("legar");
+    let firebaseRef = this.fireStore.collection("legartwoD");
     firebaseRef.add(Object.assign({}, this.legar));
     this.resetform();
+    this.toast.success("save successfully",this.legar.customerName);
 
   }
 
@@ -131,7 +156,7 @@ export class TwoDeePage implements OnInit {
     if (this.number == null && this.amount == 0)
       return;
     switch (this.selectedFormat) {
-      case '*': {
+      case 'd': {
         this.addtoLeger(this.number, this.amount)
         break;
       }
@@ -204,11 +229,13 @@ export class TwoDeePage implements OnInit {
   }
   onEnterCustomer(value) { //PASS
     this.customers.push(value);
+    this.toast.success("Add successfully",value+"");
   }
   onEnterRestritedValue(value) { //PASS
     console.log(value)
     this.restricedValue = value;
     console.log(this.restricedValue)
+    this.toast.success("Add successfully",this.restricedValue+"");
   }
   onChangeSelectedCustomer(event) { //PASS
     this.customer = event;

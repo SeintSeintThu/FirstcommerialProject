@@ -3,7 +3,7 @@ import { NgForm, FormBuilder } from '@angular/forms';
 import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 import { RecordService } from '../service/record.service';
 import { Legar } from '../service/models/legar';
-import { isNgTemplate } from '@angular/compiler';
+import { ToastrService } from 'ngx-toastr';
 //import {ToastrService} from 'ngx-toastr';
 
 @Component({
@@ -16,8 +16,8 @@ export class ThreeDeePage implements OnInit {
 
   constructor(
     private fireStore: AngularFirestore,
-    private recordService: RecordService
-    // private toastService : ToastrService
+    private recordService: RecordService,
+    private toast : ToastrService
   ) { }
 
   
@@ -93,6 +93,15 @@ export class ThreeDeePage implements OnInit {
         }
         this.searchList.push(recordNew)
       }
+      else 
+      {
+        let recordNew = {
+          number: this.searchValue,
+          amount: 0
+        }
+        this.searchList.push(recordNew)
+
+      }
     });
    }
   saveRecord() {
@@ -113,7 +122,7 @@ export class ThreeDeePage implements OnInit {
         amount: item.amount,
         total : this.waitingListTotal
       }
-      this.excedList.push(usageOne);
+      this.excedArray.push(usageOne);
     });
 
     this.legar = {
@@ -124,9 +133,10 @@ export class ThreeDeePage implements OnInit {
         excedList : this.excedArray,
         totalforAll: this.waitingListTotal
     }
-    let firebaseRef = this.fireStore.collection("legar");
+    let firebaseRef = this.fireStore.collection("legarthreeD");
     firebaseRef.add(Object.assign({}, this.legar));
     this.resetform();
+    this.toast.success("save successfully",this.legar.customerName);
 
   }
 
@@ -137,7 +147,7 @@ export class ThreeDeePage implements OnInit {
     if (this.number == null && this.amount == 0)
       return;
     switch (this.selectedFormat) {
-      case '*': {
+      case 'd': {
         this.addtoLeger(this.number, this.amount);
         break;
       }
@@ -199,12 +209,14 @@ export class ThreeDeePage implements OnInit {
   }
   onEnterCustomer(value){ //PASS
     this.customers.push(value);
+    this.toast.success("Add successfully",value+"");
   }
   onEnterRestritedValue(value){ //PASS
-    console.log(value)
-    
+    console.log(value) 
   this.restricedValue = value;
-  console.log(this.restricedValue)
+  console.log(this.restricedValue);
+  this.toast.success("Add successfully",this.restricedValue+"");
+  
   }
   onChangeSelectedCustomer(event) { //PASS
    this.customer = event;

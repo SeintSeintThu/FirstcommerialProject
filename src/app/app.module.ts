@@ -7,7 +7,8 @@ import  {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { CustomerService } from './pages/service/customer.service';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { CustomerService } from './pages/service/customer.service';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule 
+    AngularFirestoreModule ,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
   CustomerService

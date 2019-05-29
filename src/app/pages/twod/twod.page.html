@@ -102,11 +102,28 @@
     </div><br><br>
 <div class="row">  
     <div class="col s3">
-        <input id="last_name" type="text" class="validate">
+        <input id="last_name" type="text" class="validate" [(ngModel)]="searchValue">
         <label class="zawgyi" for="last_name">ရွာရန္</label>
     </div>
-    <div class="col s3 input-field">
-        <a (click)= findRecord() class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi">နိတ္ရန္</a>
+    <div class="col-1 s3 input-field">
+        <a (click)= searchRecord() class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi">နိတ္ရန္</a>
+    </div>
+    <div class="col s3 zawgyi">
+        <table>
+            <thead>
+                <tr>
+                    <th>နံပါတ္</th>
+                    <th>ပမာဏ <i class="font2">(%)</i></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let info of searchList">
+                    <td>{{info.number}}</td>
+                    <td class="font1">{{info.amount}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="col s3 input-field">
         <a (click)= saveRecord() class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi">သိမ္းရန္</a>
@@ -119,34 +136,34 @@
     <table *ngIf ="row1 && row2 && row3 && row4 && row5 && row6 && row7 && row8 && row9 && row10" class="centered" [(ngModel)]="row1">
         <tbody>
             <tr>
-                <td *ngFor="let row of row1">{{row.number}} :<i class="font2">{{row.amount}} <a href=#><i class="tiny material-icons">create</i></a></i></td>
+                <td *ngFor="let row of row1">{{row.number}} :<i class="font2">{{row.amount}} </i></td>
             </tr>
               <tr> 
-                <td *ngFor="let row of row2">{{row.number}} : <i class="font2">{{row.amount}} <a href=#><i class="tiny material-icons">create</i></a></i></td>
+                <td *ngFor="let row of row2">{{row.number}} : <i class="font2">{{row.amount}} </i></td>
             </tr>
               <tr>
-                <td *ngFor="let row of row3">{{row.number}} : <i class="font1">{{row.amount}} <a href=#><i class="tiny material-icons">create</i></a></i></td>
+                <td *ngFor="let row of row3">{{row.number}} : <i class="font1">{{row.amount}} </i></td>
             </tr>
               <tr>
-                <td *ngFor="let row of row4">{{row.number}} :<i class="font1">{{row.amount}} <a href=#><i class="tiny material-icons">create</i></a></i></td>
+                <td *ngFor="let row of row4">{{row.number}} :<i class="font1">{{row.amount}} </i></td>
             </tr>
               <tr>
-                <td *ngFor="let row of row5">{{row.number}} :<i class="font1">{{row.amount}} <a href=#><i class="tiny material-icons">create</i></a></i></td>
+                <td *ngFor="let row of row5">{{row.number}} :<i class="font1">{{row.amount}} </i></td>
             </tr>
               <tr>
-                <td *ngFor="let row of row6">{{row.number}} : <i class="font1">{{row.amount}} <a href=#><i class="tiny material-icons">create</i></a></i></td>
+                <td *ngFor="let row of row6">{{row.number}} : <i class="font1">{{row.amount}}</i></td>
             </tr>
               <tr>
-                <td  *ngFor="let row of row7">{{row.number}} :<i class="font1">{{row.amount}} <a href=#><i class="tiny material-icons">create</i></a></i></td>
+                <td  *ngFor="let row of row7">{{row.number}} :<i class="font1">{{row.amount}} </i></td>
             </tr>
               <tr>
-                <td  *ngFor="let row of row8">{{row.number}}: <i class="font1">{{row.amount}} <a href=#><i class="tiny material-icons">create</i></a></i></td>
+                <td  *ngFor="let row of row8">{{row.number}}: <i class="font1">{{row.amount}} </i></td>
             </tr>
               <tr>
-                <td *ngFor="let row of row9">{{row.number}}: <i class="font1">{{row.amount}} <a href=#><i class="tiny material-icons">create</i></a></i></td>
+                <td *ngFor="let row of row9">{{row.number}}: <i class="font1">{{row.amount}} </i></td>
             </tr>
               <tr>
-                <td *ngFor="let row of row10">{{row.number}} :<i class="font1">{{row.amount}} <a href=#><i class="tiny material-icons">create</i></a></i></td>   
+                <td *ngFor="let row of row10">{{row.number}} :<i class="font1">{{row.amount}}</i></td>   
         </tbody>
     </table>
     
