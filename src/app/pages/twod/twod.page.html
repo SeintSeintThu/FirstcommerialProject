@@ -39,9 +39,9 @@
 
     </div>
 </div><br><br><br>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-            <div class="input-field col s3 zawgyi">
+            <div class="input-field col s4 zawgyi">
                     <table>
                         <thead>
                             <tr>
@@ -61,7 +61,7 @@
                         </tbody>
                     </table>
             </div>
-        <div class="col s2">
+        <div class="col s1">
             <input id="last_name" type="text" class="validate" [(ngModel)]="number" >
             <label class="zawgyi" for="last_name">နံပါတ္သြင္းရန္</label>
         </div>
@@ -75,12 +75,12 @@
                 <label class="zawgyi" for="last_name">ေငြပမာဏ</label>
         </div>
        
-        <div class="input-field col s3 zawgyi">
+        <div class="input-field col s4 zawgyi">
                 <table>
                     <thead>
                         <tr>
                             <th>နံပါတ္</th>
-                            <th>ပမာဏ <i class="font2">(%)</i></th>
+                            <th><i class="font2">(%)</i></th>
                         </tr>
                     </thead>
     
@@ -90,7 +90,7 @@
                             <td class="font1">{{info.amount}}</td>
                         </tr>
                         <tr>
-                            <td>Total :{{excedListTotal}}</td>
+                            <td>Total : {{excedListTotal}}</td>
                         </tr>
                     </tbody>
                 </table>
