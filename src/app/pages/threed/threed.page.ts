@@ -69,6 +69,18 @@ export class ThreeDeePage implements OnInit {
     this.waitingArray =[];
     this.excedArray = [];
     this.makeupLegarMap();
+    this.getCustomers();
+  }
+  getCustomers(){
+    let recordRef = this.fireStore.collection('customer');
+    recordRef.get()
+      .subscribe(snapshot => {
+        snapshot.forEach(doc => {
+          console.log(doc.id, '=>', doc.data());
+          this.customers.push(doc.data().name);
+        });
+      });
+    console.log(this.customers);
   }
   resetform(form?: NgForm) {
     if (form != null)

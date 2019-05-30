@@ -57,25 +57,26 @@ export class TwoDeePage implements OnInit {
   searchList = [];
   searchValue :string;
   @Input() isChecked = false;
+  records = [];
+  afterSearch = [];
+  foundIds =  [];
+  customers =[];
 
   doubles: number[] = [11, 22, 33, 44, 55, 66, 77, 88, 99];
   powers: number[] = [16, 27, 38, 49, 50];
   natkhats: string[] = ['18', '24', '35', '07', '96'];
   numberforSeries: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  customers: Array<string> = [
-    "သန္လ်င္",
-    "ဗိုလ္တစ္ေထာင္",
-    "ဆူးေယ"
-  ]
+  //customers: Array<string> = [];
   formats: Set<Format> = null;
 
   ngOnInit() {
     this.now = new Date().toLocaleTimeString();
     this.resetform();
     this.waitingArray =[];
-  this.excedArray =[];
+    this.excedArray =[];
     this.makeupLegarMap();
     this.searchList =[];
+    this.getCustomers();
 
   }
   resetform(form?: NgForm) {
@@ -144,9 +145,11 @@ export class TwoDeePage implements OnInit {
     }
     let firebaseRef = this.fireStore.collection("legartwoD");
     firebaseRef.add(Object.assign({}, this.legar));
+
+    let firebaseRefcustomer = this.fireStore.collection("customer");
+         firebaseRefcustomer.add(Object.assign({}, this.customer));
     this.resetform();
     this.toast.success("save successfully",this.legar.customerName);
-
   }
 
   makeUsage(number,amount) {
@@ -156,11 +159,11 @@ export class TwoDeePage implements OnInit {
     if (this.number == null && this.amount == 0)
       return;
     switch (this.selectedFormat) {
-      case 'd': {
+      case '.': {
         this.addtoLeger(this.number, this.amount)
         break;
       }
-      case 'r': {
+      case '+': {
         let firstNumber = ~~(this.number / 10);//2
         let secondNumber = this.number % 10;//3
         console.log(firstNumber);
@@ -231,6 +234,53 @@ export class TwoDeePage implements OnInit {
     this.customers.push(value);
     this.toast.success("Add successfully",value+"");
   }
+  updateRecord(value){
+  if (value.trim() === '') {
+    console.log('Type a number');
+    this.afterSearch.pop();
+    this.afterSearch = [];
+    this.foundIds =  [];
+  }
+  console.log(this.records)
+  this.records.forEach(element => {
+      console.log(element);
+        if (element.customerName === value){
+
+            console.log(this.foundIds);
+             }   
+    });
+}
+  getCustomers(){
+  let recordRef = this.fireStore.collection('customer');
+  recordRef.get()
+    .subscribe(snapshot => {
+      snapshot.forEach(doc => {
+        console.log(doc.id, '=>', doc.data());
+        this.customers.push(doc.data().name);
+      });
+    });
+  console.log(this.customers);
+}
+  getRecords(){
+    this.afterSearch = [];
+    let recordRef = this.fireStore.collection('legartwoD');
+    recordRef.get()
+      .subscribe(snapshot => {
+        snapshot.forEach(doc => {
+          let record = {
+            id: doc.id,
+            object: doc.data()
+          }
+          console.log(doc.id, '=>', doc.data());
+          this.records.push(record);
+
+        });
+      },
+        err => {
+          console.log('Error getting documents', err);
+        });
+    console.log(this.records);
+  }
   onEnterRestritedValue(value) { //PASS
     console.log(value)
     this.restricedValue = value;
@@ -239,6 +289,9 @@ export class TwoDeePage implements OnInit {
   }
   onChangeSelectedCustomer(event) { //PASS
     this.customer = event;
+    this.customers.push(this.customer);
+   // this.getRecords();
+   // this.updateRecord(event);
   }
   makeupLegarMap() {
     for (let i = 0; i < 10; i++) {
