@@ -53,11 +53,7 @@ export class ThreeDeePage implements OnInit {
   row8 =[];
   row9 =[];
   row10 =[];
-  customers: Array<string> = [
-    "သန္လ်င္",
-    "ဗိုလ္တစ္ေထာင္",
-    "ဆူးေယ"
-  ]
+  customers =[];
   excedListTotal=0;
   waitingListTotal=0;
   waitingArray = [];
@@ -96,6 +92,7 @@ export class ThreeDeePage implements OnInit {
     }
   }
   searchRecord(){
+    this.searchList.pop();
     this.searchList = [];
      this.waitingList.forEach(record =>{
       if(record.number === this.searchValue){
@@ -147,6 +144,8 @@ export class ThreeDeePage implements OnInit {
     }
     let firebaseRef = this.fireStore.collection("legarthreeD");
     firebaseRef.add(Object.assign({}, this.legar));
+    let firebaseRefcustomer = this.fireStore.collection("customer");
+    firebaseRefcustomer.add(Object.assign({}, this.customer));
     this.resetform();
     this.toast.success("save successfully",this.legar.customerName);
 
@@ -159,11 +158,11 @@ export class ThreeDeePage implements OnInit {
     if (this.number == null && this.amount == 0)
       return;
     switch (this.selectedFormat) {
-      case 'd': {
+      case '.': {
         this.addtoLeger(this.number, this.amount);
         break;
       }
-      case 'r': {
+      case '+': {
         let firstNumber = ~~(this.number / 100);//3
         console.log(firstNumber)
         let secondNumber = (~~(this.number / 10)) % 10;//32
@@ -201,6 +200,15 @@ export class ThreeDeePage implements OnInit {
         this.addtoLeger(next*10+"", this.amount);
         for (let number of this.numberforSeries)
             this.addtoLeger((next * 10) + number + "", this.amount);
+        break;
+      }
+      case 'm': {
+        console.log('this.arrow_downward')
+        let firstNumber = ~~(this.number / 10);//2
+        let secondNumber = this.number % 10;
+        this.addtoLeger(firstNumber +"0"+ secondNumber, this.amount);
+        for (let number of this.numberforSeries)
+        this.addtoLeger(firstNumber+""+number+""+secondNumber, this.amount);
         break;
       }
       case 'f': {
