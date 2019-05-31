@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'login-page',
@@ -8,9 +10,19 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+    private toast : ToastrService) { }
+   userName : string ;
+   password : string ;
 
   ngOnInit() {
+  }
+  check(){
+    if(this.userName === 'admin' && this.password === 'admin')
+       this.router.navigate(['/home/']);
+    else 
+       this.toast.error("Please Try again..")
+    
   }
 
 }
