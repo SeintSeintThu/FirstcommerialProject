@@ -95,6 +95,7 @@ export class TwoDeePage implements OnInit {
 
   searchRecord(){
     this.searchList.pop();
+    this.searchList =[];
      this.waitingList.forEach(record =>{
       if(record.number === this.searchValue){
         let recordNew = {
