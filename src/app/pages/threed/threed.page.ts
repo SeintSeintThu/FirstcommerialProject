@@ -58,6 +58,9 @@ export class ThreeDeePage implements OnInit {
   waitingListTotal=0;
   waitingArray = [];
   excedArray = [];
+  makeDate : Date;
+  addValue : string; 
+  
 
   ngOnInit() {
     this.now = new Date().toLocaleTimeString();
@@ -136,7 +139,7 @@ export class ThreeDeePage implements OnInit {
 
     this.legar = {
         customerName: this.customer,
-        now : this.now,
+        now : this.makeDate,
         restricedAmount : this.restricedValue,
         waitingList : this.waitingArray,
         excedList : this.excedArray,
@@ -150,6 +153,18 @@ export class ThreeDeePage implements OnInit {
     this.toast.success("save successfully",this.legar.customerName);
 
   }
+  onEnterForm(form){
+    console.log(form);
+    let formArray =[];
+      formArray = form.split(('.'));
+        console.log(formArray);
+      this.number = formArray[0];
+      this.selectedFormat = formArray[1];
+      this.amount = formArray[2];
+      console.log(this.number +":"+ this.selectedFormat+":" + this.amount);
+      this.makeUsage(this.number,this.amount);
+      this.addValue ="";
+    }
 
   makeUsage(number,amount) {
     this.number = number;
@@ -581,6 +596,29 @@ export class ThreeDeePage implements OnInit {
         })
 
   }
+  onChangeStartDate(event){
+    this.makeDate = event;
+    console.log(this.makeDate);
+  }
+  removeUsage(usages, object) {
+ 
+    console.log(usages + ":" + object);
+console.log(this.excedList);
+// this.waitingList.reduce(object);
+this.excedList.splice(object,1)
+  console.log(this.excedList)
+  this.excedListTotal  = this.excedListTotal - object.amount;
+
+}
+removeUsageWaitingList(usages, object)
+{
+console.log(usages + ":" + object);
+console.log(this.waitingList);
+// this.waitingList.reduce(object);
+this.waitingList.splice(object,1)
+  console.log(this.waitingList)
+  this.waitingListTotal  = this.waitingListTotal - object.amount;
+ }
 }
 
 

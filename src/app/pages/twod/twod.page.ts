@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { NgForm, FormBuilder } from '@angular/forms';
 import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 
@@ -61,6 +61,9 @@ export class TwoDeePage implements OnInit {
   afterSearch = [];
   foundIds =  [];
   customers =[];
+  makeDate : Date;
+  addValue : string; 
+  
 
   doubles: number[] = [11, 22, 33, 44, 55, 66, 77, 88, 99];
   powers: number[] = [16, 27, 38, 49, 50];
@@ -70,7 +73,7 @@ export class TwoDeePage implements OnInit {
   formats: Set<Format> = null;
 
   ngOnInit() {
-    this.now = new Date().toLocaleTimeString();
+    this.now = new Date().toDateString();
     this.resetform();
     this.waitingArray =[];
     this.excedArray =[];
@@ -138,7 +141,7 @@ export class TwoDeePage implements OnInit {
 
     this.legar = {
         customerName: this.customer,
-        now : this.now,
+        now : this.makeDate,
         restricedAmount : this.restricedValue,
         waitingList : this.waitingArray,
         excedList : this.excedArray,
@@ -160,7 +163,7 @@ export class TwoDeePage implements OnInit {
     if (this.number == null && this.amount == 0)
       return;
     switch (this.selectedFormat) {
-      case '.': {
+      case 'd': {
         this.addtoLeger(this.number, this.amount)
         break;
       }
@@ -224,7 +227,19 @@ export class TwoDeePage implements OnInit {
   }
 
   //For New
- 
+  onEnterForm(form){
+    console.log(form);
+    let formArray =[];
+      formArray = form.split(('.'));
+        console.log(formArray);
+      this.number = formArray[0];
+      this.selectedFormat = formArray[1];
+      this.amount = formArray[2];
+      console.log(this.number +":"+ this.selectedFormat+":" + this.amount);
+      this.makeUsage(this.number,this.amount);
+      this.addValue ="";
+
+    }
   onEnterAmount(amount) { //PASS
     this.amount = amount;
     console.log(this.number + this.selectedFormat + this.amount);
@@ -629,6 +644,29 @@ export class TwoDeePage implements OnInit {
         })
 
   }
+  onChangeStartDate(event){
+    this.makeDate = event;
+    console.log(this.makeDate);
+  }
+  removeUsage(usages, object) {
+ 
+        console.log(usages + ":" + object);
+    console.log(this.excedList);
+   // this.waitingList.reduce(object);
+    this.excedList.splice(object,1)
+      console.log(this.excedList)
+      this.excedListTotal  = this.excedListTotal - object.amount;
+
+  }
+  removeUsageWaitingList(usages, object)
+  {
+    console.log(usages + ":" + object);
+    console.log(this.waitingList);
+   // this.waitingList.reduce(object);
+    this.waitingList.splice(object,1)
+      console.log(this.waitingList)
+      this.waitingListTotal  = this.waitingListTotal - object.amount;
+     }
 
 }
 

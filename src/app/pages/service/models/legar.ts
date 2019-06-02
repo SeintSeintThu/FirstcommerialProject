@@ -1,5 +1,5 @@
 export class Legar{
-    now :string;
+    now :Date;
     customerName :string;
     waitingList  = [];
     excedList = [];

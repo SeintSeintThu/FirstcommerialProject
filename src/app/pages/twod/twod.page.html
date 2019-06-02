@@ -11,13 +11,16 @@
 </div><br><br>
 <div class="container mb-0 text-center">
     <div class="row">
-       
-        <div class="col s3">
-            <h4 class="zawgyi">၂လံုး</h4>
+            <div class="col s3">
+                    <h4 class="zawgyi">၂လံုး</h4>
+                </div>
+            <div class="col s3">
+                <label>Start Date</label>
+                <input type="date" class="formControl" id="makeDate" name= "makeDate" [(ngModel)]="makeDate" (ngModelChange)="onChangeStartDate($event)" [value]="makeDate" required>   
         </div>
-        <div class="col s3">
+        <!-- <div class="col s3">
             <h6 class="zawgyi">{{now}}</h6>
-        </div>
+        </div> -->
         <div class="col s3">
             <label class="zawgyi" for="last_name">နာမည္ အသစ္</label>
             <input id="search_name" type="text" class="validate" #id (keyup.enter)="onEnterCustomer(id.value)">
@@ -47,6 +50,7 @@
                             <tr>
                                 <th>နံပါတ္</th>
                                 <th>ပမာဏ</th>
+                                <th>ျပင္ရန္</th>
                             </tr>
                         </thead>
         
@@ -54,6 +58,7 @@
                             <tr *ngFor="let info of waitingList">
                                 <td>{{info.number}}</td>
                                 <td class="font1">{{info.amount}}</td>
+                                <td><a class="material-icons"  (click) ="removeUsageWaitingList(waitingList,info)">delete</a></td>
                             </tr>
                             <tr>
                                 <td>Total : {{waitingListTotal}}</td>
@@ -61,7 +66,7 @@
                         </tbody>
                     </table>
             </div>
-        <div class="col s1">
+        <!-- <div class="col s1">
             <input id="last_name" type="text" class="validate" [(ngModel)]="number" >
             <label class="zawgyi" for="last_name">နံပါတ္သြင္းရန္</label>
         </div>
@@ -72,7 +77,11 @@
         
         <div class="col s1">
                 <input id="last_name" type="text" class="validate"#amount (keyup.enter)="onEnterAmount(amount.value)">
-                <label class="zawgyi" for="last_name">ေငြပမာဏ</label>
+                <label class="zawgyi" for="last_name"></label>
+        </div> -->
+        <div class="col s1">
+            <input id="last_name" type="text" class="validate" #form (keyup.enter)="onEnterForm(form.value)" [(ngModel)] ="addValue">
+            <label class="zawgyi" for="last_name">နံပါတ္သြင္းရန္</label>
         </div>
        
         <div class="input-field col s4 zawgyi">
@@ -82,6 +91,7 @@
                             <th>နံပါတ္</th>
 
                             <th>ပမာဏ(%)</th>
+                            <th>ျပင္ရန္</th>
 
                         </tr>
                     </thead>
@@ -90,6 +100,7 @@
                         <tr *ngFor="let info of excedList">
                             <td>{{info.number}}</td>
                             <td class="font1">{{info.amount}}</td>
+                            <td><a class="material-icons"  (click) ="removeUsage(excedList,info)">delete</a></td>
                         </tr>
                         <tr>
                             <td>Total : {{excedListTotal}}</td>
@@ -123,6 +134,7 @@
                 <tr *ngFor="let info of searchList">
                     <td>{{info.number}}</td>
                     <td class="font1">{{info.amount}}</td>
+                   
                 </tr>
             </tbody>
         </table>

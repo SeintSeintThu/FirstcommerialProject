@@ -169,7 +169,8 @@
             <h4 class="zawgyi">၃လံုး</h4>
         </div>
         <div class="col s3">
-            <h6 class="zawgyi">{{now}}</h6>
+                <label>Start Date</label>
+                <input type="date" class="formControl" id="makeDate" name= "makeDate" [(ngModel)]="makeDate" (ngModelChange)="onChangeStartDate($event)" [value]="makeDate" required>   
         </div>
         <div class="col s3">
             <label class="zawgyi" for="last_name">နာမည္ အသစ္</label>
@@ -200,6 +201,7 @@
                             <tr>
                                 <th>နံပါတ္</th>
                                 <th>ပမာဏ</th>
+                                <th>ျပင္ရန္</th>
                             </tr>
                         </thead>
         
@@ -207,6 +209,7 @@
                             <tr *ngFor="let info of waitingList">
                                 <td>{{info.number}}</td>
                                 <td class="font1">{{info.amount}}</td>
+                                <td><a class="material-icons"  (click) ="removeUsageWaitingList(waitingList,info)">delete</a></td>
                             </tr>
                             <tr>
                                 <td>Total : {{waitingListTotal}}</td>
@@ -214,7 +217,7 @@
                         </tbody>
                     </table>
             </div>
-        <div class="col s2">
+        <!-- <div class="col s2">
             <input id="last_name" type="text" class="validate" [(ngModel)]="number" >
             <label class="zawgyi" for="last_name">နံပါတ္သြင္းရန္</label>
         </div>
@@ -226,14 +229,18 @@
         <div class="col s1">
                 <input id="last_name" type="text" class="validate"#amount (keyup.enter)="onEnterAmount(amount.value)">
                 <label class="zawgyi" for="last_name">ေငြပမာဏ</label>
-        </div>
-       
+        </div> -->
+        <div class="col s1">
+                <input id="last_name" type="text" class="validate" #form (keyup.enter)="onEnterForm(form.value)" [(ngModel)] ="addValue">
+                <label class="zawgyi" for="last_name">နံပါတ္သြင္းရန္</label>
+            </div>
         <div class="input-field col s3 zawgyi">
                 <table>
                     <thead>
                         <tr>
                             <th>နံပါတ္</th>
                             <th>ပမာဏ <i class="font2">(%)</i></th>
+                            <th>ျပင္ရန္</th>
                         </tr>
                     </thead>
     
@@ -241,6 +248,7 @@
                         <tr *ngFor="let info of excedList">
                             <td>{{info.number}}</td>
                             <td class="font1">{{info.amount}}</td>
+                            <td><a class="material-icons"  (click) ="removeUsage(excedList,info)">delete</a></td>
                         </tr>
                         <tr>
                             <td>Total :{{excedListTotal}}</td>
