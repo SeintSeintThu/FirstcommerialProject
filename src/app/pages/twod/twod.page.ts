@@ -21,7 +21,7 @@ export class TwoDeePage implements OnInit {
 
   constructor(
     private fireStore: AngularFirestore,
-    private toast : ToastrService
+    private toast: ToastrService
   ) { }
 
 
@@ -51,19 +51,19 @@ export class TwoDeePage implements OnInit {
   row9 = [];
   row10 = [];
   waitingListTotal: number = 0;
-  excedListTotal: number =0;
+  excedListTotal: number = 0;
   waitingArray = [];
-  excedArray= [];
+  excedArray = [];
   searchList = [];
-  searchValue :string;
+  searchValue: string;
   @Input() isChecked = false;
   records = [];
   afterSearch = [];
-  foundIds =  [];
-  customers =[];
-  makeDate : Date;
-  addValue : string; 
-  
+  foundIds = [];
+  customers = [];
+  makeDate: Date;
+  addValue: string;
+
 
   doubles: number[] = [11, 22, 33, 44, 55, 66, 77, 88, 99];
   powers: number[] = [16, 27, 38, 49, 50];
@@ -75,113 +75,113 @@ export class TwoDeePage implements OnInit {
   ngOnInit() {
     this.now = new Date().toDateString();
     this.resetform();
-    this.waitingArray =[];
-    this.excedArray =[];
+    this.waitingArray = [];
+    this.excedArray = [];
     this.makeupLegarMap();
-    this.searchList =[];
+    this.searchList = [];
     this.getCustomers();
 
   }
   resetform() {
-    
-      this.customer = "";
-      this.makeDate = null;
-      this.restricedValue =0;
-      this.now = null;
-      this.waitingList = [];
-      this.excedList =[];
-      this.waitingArray =[];
-      this.excedArray = [];
-      this.excedListTotal =0;
-      this.waitingListTotal = 0;
+
+    this.customer = "";
+    this.makeDate = null;
+    this.restricedValue = 0;
+    this.now = null;
+    this.waitingList = [];
+    this.excedList = [];
+    this.waitingArray = [];
+    this.excedArray = [];
+    this.excedListTotal = 0;
+    this.waitingListTotal = 0;
 
   }
 
-  searchRecord(){
+  searchRecord() {
     this.searchList.pop();
-    this.searchList =[];
+    this.searchList = [];
     console.log(this.searchValue);
-    this.waitingList.forEach(record =>{
-    if (this.searchList.length != 0) {
-      console.log("In If")
-      console.log(this.searchList)
-      for (let i = 0; i < this.searchList.length; i++) {
-        console.log(i)
-        if (this.searchList[i].number === record.number) {
-          this.searchList[i].amount = record.amount;
-          break;
-        }
-        else {
-          console.log(i);
-          console.log(this.searchList[i].number === record.number)
-          if (i === this.searchList.length - 1) {
-            console.log("In true")
-            let record1 = {
-              number: record.number,
-              amount: record.amount
-            }
-
-            this.searchList.push(record1)
+    this.waitingList.forEach(record => {
+      if (this.searchList.length != 0) {
+        console.log("In If")
+        console.log(this.searchList)
+        for (let i = 0; i < this.searchList.length; i++) {
+          console.log(i)
+          if (this.searchList[i].number === record.number) {
+            this.searchList[i].amount = record.amount;
             break;
           }
           else {
-            console.log("Before continue")
-            continue;
-          }
-        }
+            console.log(i);
+            console.log(this.searchList[i].number === record.number)
+            if (i === this.searchList.length - 1) {
+              console.log("In true")
+              let record1 = {
+                number: record.number,
+                amount: record.amount
+              }
 
+              this.searchList.push(record1)
+              break;
+            }
+            else {
+              console.log("Before continue")
+              continue;
+            }
+          }
+
+        }
       }
-    }
-    else {
-      console.log("In waiting table")
-      let recordNew = {
-        number: record.number,
-        amount: 0
+      else {
+        console.log("In waiting table")
+        let recordNew = {
+          number: record.number,
+          amount: 0
+        }
+        this.searchList.push(recordNew)
       }
-      this.searchList.push(recordNew)
-    }
-  });
-   }
-  saveRecord() {    
-    this.waitingList.forEach(item=>{
+    });
+  }
+  saveRecord() {
+    this.waitingList.forEach(item => {
       console.log(item);
       let usageOne = {
         number: item.number,
         amount: item.amount,
-        total : this.waitingListTotal
+        total: this.waitingListTotal
       }
       this.waitingArray.push(usageOne);
     });
 
-    this.excedList.forEach(item=>{
+    this.excedList.forEach(item => {
       console.log(item);
       let usageOne = {
         number: item.number,
         amount: item.amount,
-        total : this.waitingListTotal
+        total: this.waitingListTotal
       }
       this.excedArray.push(usageOne);
     });
 
     this.legar = {
-        customerName: this.customer,
-        now : this.makeDate,
-        restricedAmount : this.restricedValue,
-        waitingList : this.waitingArray,
-        excedList : this.excedArray,
-        totalforAll: this.waitingListTotal
+      customerName: this.customer,
+      now: this.makeDate,
+      restricedAmount: this.restricedValue,
+      waitingList: this.waitingArray,
+      excedList: this.excedArray,
+      totalforAll: this.waitingListTotal
     }
     let firebaseRef = this.fireStore.collection("legartwoD");
     firebaseRef.add(Object.assign({}, this.legar));
 
     let firebaseRefcustomer = this.fireStore.collection("customer");
-         firebaseRefcustomer.add(Object.assign({}, this.customer));
+    firebaseRefcustomer.add(Object.assign({}, this.customer));
     this.resetform();
-    this.toast.success("save successfully",this.legar.customerName);
-    
+    this.toast.success("save successfully", this.legar.customerName);
+
   }
 
-  makeUsage(number,amount) {
+  makeUsage(number, amount) {
     this.number = number;
     this.amount = amount;
     console.log(this.selectedFormat)
@@ -197,9 +197,9 @@ export class TwoDeePage implements OnInit {
         let secondNumber = this.number % 10;//3
         console.log(firstNumber);
         console.log(secondNumber);
-        let next :number = (secondNumber) * 10 + firstNumber;
+        let next: number = (secondNumber) * 10 + firstNumber;
         console.log(next);
-        
+
         this.addtoLeger(this.number, this.amount);
         this.addtoLeger(next, this.amount);
 
@@ -211,7 +211,7 @@ export class TwoDeePage implements OnInit {
       }
       case '*': {
         console.log("In double");
-        let next :number = +(this.number) * 10 + + this.number;
+        let next: number = +(this.number) * 10 + + this.number;
         console.log(next);
         this.addtoLeger(next, this.amount);
         break;
@@ -220,7 +220,7 @@ export class TwoDeePage implements OnInit {
         console.log("In natkhat");
         if (this.number == 0) {
           for (let natkhat of this.natkhats)
-          this.addtoLeger(natkhat, this.amount);
+            this.addtoLeger(natkhat, this.amount);
         }
 
         break;
@@ -228,7 +228,7 @@ export class TwoDeePage implements OnInit {
       case 'p': {
         if (this.number == 0) {
           for (let power of this.powers)
-          this.addtoLeger(power, this.amount);
+            this.addtoLeger(power, this.amount);
         }
         break;
       }
@@ -237,7 +237,7 @@ export class TwoDeePage implements OnInit {
         let next = this.number % 10;
         this.addtoLeger(next * 10, this.amount);
         for (let number of this.numberforSeries)
-            this.addtoLeger((next * 10) + number, this.amount);
+          this.addtoLeger((next * 10) + number, this.amount);
         break;
       }
       case 'f': {
@@ -245,64 +245,64 @@ export class TwoDeePage implements OnInit {
         let next = this.number % 10;
         this.addtoLeger("0" + next, this.amount);
         for (let number of this.numberforSeries)
-        this.addtoLeger(number + "" + next, this.amount);
+          this.addtoLeger(number + "" + next, this.amount);
         break;
       }
     }
   }
 
   //For New
-  onEnterForm(form){
+  onEnterForm(form) {
     console.log(form);
-    let formArray =[];
-      formArray = form.split(('.'));
-        console.log(formArray);
-      this.number = formArray[0];
-      this.selectedFormat = formArray[1];
-      this.amount = formArray[2];
-      console.log(this.number +":"+ this.selectedFormat+":" + this.amount);
-      this.makeUsage(this.number,this.amount);
-      this.addValue ="";
+    let formArray = [];
+    formArray = form.split(('/'));
+    console.log(formArray);
+    this.number = formArray[0];
+    this.selectedFormat = formArray[1];
+    this.amount = formArray[2];
+    console.log(this.number + ":" + this.selectedFormat + ":" + this.amount);
+    this.makeUsage(this.number, this.amount);
+    this.addValue = "";
 
-    }
+  }
   onEnterAmount(amount) { //PASS
     this.amount = amount;
     console.log(this.number + this.selectedFormat + this.amount);
-    this.makeUsage(this.number,this.amount)
+    this.makeUsage(this.number, this.amount)
     //this.addtoLeger(this.number, this.amount)
   }
   onEnterCustomer(value) { //PASS
     this.customers.push(value);
-    this.toast.success("Add successfully",value+"");
+    this.toast.success("Add successfully", value + "");
   }
-  updateRecord(value){
-  if (value.trim() === '') {
-    console.log('Type a number');
-    this.afterSearch.pop();
-    this.afterSearch = [];
-    this.foundIds =  [];
-  }
-  console.log(this.records)
-  this.records.forEach(element => {
+  updateRecord(value) {
+    if (value.trim() === '') {
+      console.log('Type a number');
+      this.afterSearch.pop();
+      this.afterSearch = [];
+      this.foundIds = [];
+    }
+    console.log(this.records)
+    this.records.forEach(element => {
       console.log(element);
-        if (element.customerName === value){
+      if (element.customerName === value) {
 
-            console.log(this.foundIds);
-             }   
+        console.log(this.foundIds);
+      }
     });
-}
-  getCustomers(){
-  let recordRef = this.fireStore.collection('customer');
-  recordRef.get()
-    .subscribe(snapshot => {
-      snapshot.forEach(doc => {
-        console.log(doc.id, '=>', doc.data());
-        this.customers.push(doc.data().name);
+  }
+  getCustomers() {
+    let recordRef = this.fireStore.collection('customer');
+    recordRef.get()
+      .subscribe(snapshot => {
+        snapshot.forEach(doc => {
+          console.log(doc.id, '=>', doc.data());
+          this.customers.push(doc.data().name);
+        });
       });
-    });
-  console.log(this.customers);
-}
-  getRecords(){
+    console.log(this.customers);
+  }
+  getRecords() {
     this.afterSearch = [];
     let recordRef = this.fireStore.collection('legartwoD');
     recordRef.get()
@@ -326,13 +326,13 @@ export class TwoDeePage implements OnInit {
     console.log(value)
     this.restricedValue = value;
     console.log(this.restricedValue)
-    this.toast.success("Add successfully",this.restricedValue+"");
+    this.toast.success("Add successfully", this.restricedValue + "");
   }
   onChangeSelectedCustomer(event) { //PASS
     this.customer = event;
     this.customers.push(this.customer);
-   // this.getRecords();
-   // this.updateRecord(event);
+    // this.getRecords();
+    // this.updateRecord(event);
   }
   makeupLegarMap() {
     for (let i = 0; i < 10; i++) {
@@ -603,15 +603,14 @@ export class TwoDeePage implements OnInit {
       this.waitingList.push(record)
     }
     //for total
-      console.log(this.waitingList.length)
-      this.waitingListTotal =0;
-      this.waitingList.forEach(record=>
-        {  
-          console.log(this.waitingListTotal)
-          console.log(record.amount)
-          this.waitingListTotal = + this.waitingListTotal + + record.amount;
-          console.log(this.waitingListTotal)
-        });
+    console.log(this.waitingList.length)
+    this.waitingListTotal = 0;
+    this.waitingList.forEach(record => {
+      console.log(this.waitingListTotal)
+      console.log(record.amount)
+      this.waitingListTotal = + this.waitingListTotal + + record.amount;
+      console.log(this.waitingListTotal)
+    });
   }
 
   addtoCuttingTable() {
@@ -661,124 +660,112 @@ export class TwoDeePage implements OnInit {
 
       }
     });
-      //for total
-      this.excedListTotal = 0;
-      this.excedList.forEach(record1=>
-        {
-          this.excedListTotal = + this.excedListTotal + + record1.amount;
-        })
+    //for total
+    this.excedListTotal = 0;
+    this.excedList.forEach(record1 => {
+      this.excedListTotal = + this.excedListTotal + + record1.amount;
+    })
 
   }
-  onChangeStartDate(event){
+  onChangeStartDate(event) {
     this.makeDate = event;
     console.log(this.makeDate);
   }
-  removeUsage(usages, object) {
- 
-      console.log(usages + ":" + object);
-    console.log(this.excedList);
-   // this.waitingList.reduce(object);
-    this.excedList.splice(object,1)
-      console.log(this.excedList)
-      this.excedListTotal  = this.excedListTotal - object.amount;
-      this.addtoLeger(object.number,0);
+
+  removeUsageWaitingList(usages, object) {
+    console.log("Reached")
+    console.log(usages + ":" + object);
+    console.log(this.waitingList);
+    // this.waitingList.reduce(object);
+    this.waitingList.splice(object, 1)
+    console.log(this.waitingList)
+    this.waitingListTotal = this.waitingListTotal - object.amount;
+    this.updateLeger(object.number, 0);
+  }
+  updateLeger(number, amount) {
+    let firstNumber = ~~(number / 10);
+    switch (firstNumber) {
+      case 0: {
+        this.row1.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+        })
+        break;
+
+      }
+      case 1: {
+        this.row2.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+        })
+        break;
+      }
+      case 2: {
+        this.row3.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+        })
+        break;
+
+      }
+      case 3: {
+        this.row4.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+        })
+        break;
+
+      }
+      case 4: {
+        this.row5.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+        })
+        break;
+      }
+      case 5: {
+        this.row6.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+        })
+        break;
+      }
+      case 6: {
+        this.row7.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+        });
+        break;
+      }
+      case 7: {
+        this.row8.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+        });
+        break;
+
+      }
+      case 8: {
+        this.row9.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+        })
+        break;
+
+      }
+      case 9: {
+        this.row10.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+        })
+        break;
+
+      }
+
+    }
 
 
   }
-  removeUsageWaitingList(usages, object)
-  { console.log("Reached")
-    console.log(usages + ":" + object);
-    console.log(this.waitingList);
-   // this.waitingList.reduce(object);
-    this.waitingList.splice(object,1)
-      console.log(this.waitingList)
-      this.waitingListTotal  = this.waitingListTotal - object.amount;
-      this.updateLeger(object.number,0);
-     }
-     updateLeger(number, amount) {
-      let firstNumber = ~~(number / 10);
-      switch (firstNumber) {
-        case 0: {
-          this.row1.forEach(item => {
-            if (item.number == number)
-              item.amount = amount;
-              })
-          break;
-  
-        }
-        case 1: {
-          this.row2.forEach(item => {
-            if (item.number == number)
-              item.amount = amount;
-              })
-          break;
-        }
-        case 2: {
-          this.row3.forEach(item => {
-            if (item.number == number)
-              item.amount = amount;
-              })
-          break;
-  
-        }
-        case 3: {
-          this.row4.forEach(item => {
-            if (item.number == number)
-              item.amount = amount;
-              })
-          break;
-  
-        }
-        case 4: {
-          this.row5.forEach(item => {
-            if (item.number == number)
-              item.amount = amount;
-              })
-          break;
-        }
-        case 5: {
-          this.row6.forEach(item => {
-            if (item.number == number)
-              item.amount = amount;
-              })
-          break;
-        }
-        case 6: {
-          this.row7.forEach(item => {
-              if (item.number == number)
-                item.amount = amount;
-                });
-            break;
-        }
-        case 7: {
-          this.row8.forEach(item => {
-            if (item.number == number)
-              item.amount = amount;
-              });
-          break;
-  
-        }
-        case 8: {
-          this.row9.forEach(item => {
-            if (item.number == number)
-              item.amount = amount;
-              })
-          break;
-  
-        }
-        case 9: {
-          this.row10.forEach(item => {
-            if (item.number == number)
-              item.amount = amount;
-              })
-          break;
-  
-        }
-  
-      }
-  
-  
-    }
 }
 
 

@@ -158,7 +158,7 @@ export class ThreeDeePage implements OnInit {
   onEnterForm(form){
     console.log(form);
     let formArray =[];
-      formArray = form.split(('.'));
+      formArray = form.split(('/'));
         console.log(formArray);
       this.number = formArray[0];
       this.selectedFormat = formArray[1];
@@ -602,16 +602,7 @@ export class ThreeDeePage implements OnInit {
     this.makeDate = event;
     console.log(this.makeDate);
   }
-  removeUsage(usages, object) {
- 
-    console.log(usages + ":" + object);
-console.log(this.excedList);
-// this.waitingList.reduce(object);
-this.excedList.splice(object,1)
-  console.log(this.excedList)
-  this.excedListTotal  = this.excedListTotal - object.amount;
 
-}
 removeUsageWaitingList(usages, object)
 {
 console.log(usages + ":" + object);
