@@ -82,41 +82,65 @@ export class TwoDeePage implements OnInit {
     this.getCustomers();
 
   }
-  resetform(form?: NgForm) {
-    if (form != null)
-      form.reset();
-    let formData = {
-      customerName: null,
-      phoneNumber: null,
-      township: null,
-      makeDate: null,
-      note: null,
-      usage: null,
-      total: 0
-    }
+  resetform() {
+    
+      this.customer = "";
+      this.makeDate = null;
+      this.restricedValue =0;
+      this.now = null;
+      this.waitingList = [];
+      this.excedList =[];
+      this.waitingArray =[];
+      this.excedArray = [];
+      this.excedListTotal =0;
+      this.waitingListTotal = 0;
+
   }
 
   searchRecord(){
     this.searchList.pop();
     this.searchList =[];
-     this.waitingList.forEach(record =>{
-      if(record.number === this.searchValue){
-        let recordNew = {
-          number: record.number,
-          amount: record.amount
+    console.log(this.searchValue);
+    this.waitingList.forEach(record =>{
+    if (this.searchList.length != 0) {
+      console.log("In If")
+      console.log(this.searchList)
+      for (let i = 0; i < this.searchList.length; i++) {
+        console.log(i)
+        if (this.searchList[i].number === record.number) {
+          this.searchList[i].amount = record.amount;
+          break;
         }
-        this.searchList.push(recordNew)
-      }
-      else 
-      {
-        let recordNew = {
-          number: this.searchValue,
-          amount: 0
+        else {
+          console.log(i);
+          console.log(this.searchList[i].number === record.number)
+          if (i === this.searchList.length - 1) {
+            console.log("In true")
+            let record1 = {
+              number: record.number,
+              amount: record.amount
+            }
+
+            this.searchList.push(record1)
+            break;
+          }
+          else {
+            console.log("Before continue")
+            continue;
+          }
         }
-        this.searchList.push(recordNew)
 
       }
-    });
+    }
+    else {
+      console.log("In waiting table")
+      let recordNew = {
+        number: record.number,
+        amount: 0
+      }
+      this.searchList.push(recordNew)
+    }
+  });
    }
   saveRecord() {    
     this.waitingList.forEach(item=>{
@@ -154,6 +178,7 @@ export class TwoDeePage implements OnInit {
          firebaseRefcustomer.add(Object.assign({}, this.customer));
     this.resetform();
     this.toast.success("save successfully",this.legar.customerName);
+    
   }
 
   makeUsage(number,amount) {

@@ -23,7 +23,7 @@
         </div> -->
         <div class="col s3">
             <label class="zawgyi" for="last_name">နာမည္ အသစ္</label>
-            <input id="search_name" type="text" class="validate" #id (keyup.enter)="onEnterCustomer(id.value)">
+            <input id="search_name" type="text" class="validate" #id (keyup.enter)="onEnterCustomer(id.value)" [(ngModel)]="customer">
         </div>
         <div class="input-field col s4">
             <select id="customerName" class="browser-default" name="customerName" [(ngModel)]="customer"
@@ -37,7 +37,7 @@
             <label class="zawgyi" for="last_name">ရာခိုင္နွုန္းခ်ိုးရန္</label>
         </div>  
         <div class="col s6">
-            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)">နိတ္ရန္</a>
+            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)" [(ngModel)]="restricedValue">နိတ္ရန္</a>
         </div>
 
     </div>

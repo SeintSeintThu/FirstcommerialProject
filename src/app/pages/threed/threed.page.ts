@@ -81,24 +81,26 @@ export class ThreeDeePage implements OnInit {
       });
     console.log(this.customers);
   }
-  resetform(form?: NgForm) {
-    if (form != null)
-      form.reset();
-    this.recordService.formData = {
-      customerName: null,
-      phoneNumber: null,
-      township: null,
-      makeDate: null,
-      note: null,
-      usage: null,
-      total: 0
-    }
-  }
+  resetform() {
+    
+    this.customer = "";
+      this.makeDate = null;
+      this.restricedValue =0;
+      this.now = null;
+      this.waitingList = [];
+      this.excedList =[];
+      this.waitingArray =[];
+      this.excedArray = [];
+      this.excedListTotal =0;
+      this.waitingListTotal = 0;
+      this.makeupLegarMap();
+
+}
   searchRecord(){
     this.searchList.pop();
     this.searchList = [];
      this.waitingList.forEach(record =>{
-      if(record.number === this.searchValue){
+      if(this.searchValue == record.number){
         let recordNew = {
           number: record.number,
           amount: record.amount
