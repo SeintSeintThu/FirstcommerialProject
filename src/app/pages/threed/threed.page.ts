@@ -620,7 +620,93 @@ console.log(this.waitingList);
 this.waitingList.splice(object,1)
   console.log(this.waitingList)
   this.waitingListTotal  = this.waitingListTotal - object.amount;
+  this.updateLeger(object.number,0)
  }
+
+ updateLeger(number, amount) {
+  let firstNumber = ~~(number / 10);
+  switch (firstNumber) {
+    case 0: {
+      this.row1.forEach(item => {
+        if (item.number == number)
+          item.amount = amount;
+          })
+      break;
+
+    }
+    case 1: {
+      this.row2.forEach(item => {
+        if (item.number == number)
+          item.amount = amount;
+          })
+      break;
+    }
+    case 2: {
+      this.row3.forEach(item => {
+        if (item.number == number)
+          item.amount = amount;
+          })
+      break;
+
+    }
+    case 3: {
+      this.row4.forEach(item => {
+        if (item.number == number)
+          item.amount = amount;
+          })
+      break;
+
+    }
+    case 4: {
+      this.row5.forEach(item => {
+        if (item.number == number)
+          item.amount = amount;
+          })
+      break;
+    }
+    case 5: {
+      this.row6.forEach(item => {
+        if (item.number == number)
+          item.amount = amount;
+          })
+      break;
+    }
+    case 6: {
+      this.row7.forEach(item => {
+          if (item.number == number)
+            item.amount = amount;
+            });
+        break;
+    }
+    case 7: {
+      this.row8.forEach(item => {
+        if (item.number == number)
+          item.amount = amount;
+          });
+      break;
+
+    }
+    case 8: {
+      this.row9.forEach(item => {
+        if (item.number == number)
+          item.amount = amount;
+          })
+      break;
+
+    }
+    case 9: {
+      this.row10.forEach(item => {
+        if (item.number == number)
+          item.amount = amount;
+          })
+      break;
+
+    }
+
+  }
+
+
+}
 }
 
 
