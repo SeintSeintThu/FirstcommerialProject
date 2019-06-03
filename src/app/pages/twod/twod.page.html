@@ -17,11 +17,8 @@
             <div class="col s3">
                 <label>Start Date</label>
                 <input type="date" class="formControl" id="makeDate" name= "makeDate" [(ngModel)]="makeDate" (ngModelChange)="onChangeStartDate($event)" [value]="makeDate" required>   
-        </div>
+            </div>
         <!-- <div class="col s3">
-            <h6 class="zawgyi">{{now}}</h6>
-        </div> -->
-        <div class="col s3">
             <label class="zawgyi" for="last_name">နာမည္ အသစ္</label>
             <input id="search_name" type="text" class="validate" #id (keyup.enter)="onEnterCustomer(id.value)" [(ngModel)]="customer">
         </div>
@@ -31,13 +28,16 @@
                 <option class="zawgyi" [value]="" disabled selected>--</option>
                 <option class="zawgyi" *ngFor="let customer of customers" [value]="customer">{{ customer }}</option>
             </select>
-        </div>
+        </div> -->
         <div class="col s3">
             <input id="last_name" #value type="text" class="validate" >
             <label class="zawgyi" for="last_name">ရာခိုင္နွုန္းခ်ိုးရန္</label>
         </div>  
         <div class="col s6">
             <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)" [(ngModel)]="restricedValue">နိတ္ရန္</a>
+        </div>
+        <div class="col s6">
+            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="resetform()">SA ရန္</a>
         </div>
 
     </div>

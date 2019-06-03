@@ -36,7 +36,7 @@ export class ThreeDeePage implements OnInit {
    * this is for new Design
    */
   now : string;
-  customer :string ; 
+ // customer :string ; 
   restricedValue :number;
   type  :string;
   waitingList = [];
@@ -53,7 +53,7 @@ export class ThreeDeePage implements OnInit {
   row8 =[];
   row9 =[];
   row10 =[];
-  customers =[];
+ // customers =[];
   excedListTotal=0;
   waitingListTotal=0;
   waitingArray = [];
@@ -68,22 +68,40 @@ export class ThreeDeePage implements OnInit {
     this.waitingArray =[];
     this.excedArray = [];
     this.makeupLegarMap();
-    this.getCustomers();
   }
-  getCustomers(){
-    let recordRef = this.fireStore.collection('customer');
-    recordRef.get()
-      .subscribe(snapshot => {
+
+  getLegarThreeD(now) {
+    console.log(now);
+    let recordRef = this.fireStore.collection('legarthreeD', ref =>
+      ref.where('now', '==', now)
+        .limit(1))
+      .snapshotChanges();
+      recordRef.subscribe(snapshot => {
         snapshot.forEach(doc => {
-          console.log(doc.id, '=>', doc.data());
-          this.customers.push(doc.data().name);
+          console.log(doc);
+          console.log(doc.payload.doc.id)
+         let legar = doc.payload.doc.data() as Legar;
+         console.log(legar);
+         this.makeupForm(legar);
         });
       });
-    console.log(this.customers);
   }
+  makeupForm(legar : Legar){
+    this.restricedValue = legar.restricedAmount;
+    this.makeDate=  legar.now;
+    this.excedList =legar.excedList;
+    this.waitingList = legar.waitingList;
+    this.waitingListTotal = legar.totalforWaitingList;
+    this.excedListTotal = legar.totalforExcedList;
+    this.waitingList.forEach(item =>
+      {
+          this.updateLeger(item.number ,item.amount)
+      });
+  }  
+ 
   resetform() {
     
-    this.customer = "";
+    //this.customer = "";
       this.makeDate = null;
       this.restricedValue =0;
       this.now = null;
@@ -140,19 +158,19 @@ export class ThreeDeePage implements OnInit {
     });
 
     this.legar = {
-        customerName: this.customer,
         now : this.makeDate,
         restricedAmount : this.restricedValue,
         waitingList : this.waitingArray,
         excedList : this.excedArray,
-        totalforAll: this.waitingListTotal
+        totalforWaitingList: this.waitingListTotal,
+        totalforExcedList : this.excedListTotal
     }
     let firebaseRef = this.fireStore.collection("legarthreeD");
     firebaseRef.add(Object.assign({}, this.legar));
     let firebaseRefcustomer = this.fireStore.collection("customer");
-    firebaseRefcustomer.add(Object.assign({}, this.customer));
+    firebaseRefcustomer.add(Object.assign({}, this.makeDate));
     this.resetform();
-    this.toast.success("save successfully",this.legar.customerName);
+    this.toast.success("save successfully",this.legar.now+"");
 
   }
   onEnterForm(form){
@@ -245,7 +263,7 @@ export class ThreeDeePage implements OnInit {
    this.makeUsage(this.number,this.amount);
   }
   onEnterCustomer(value){ //PASS
-    this.customers.push(value);
+   /// this.customers.push(value);
     this.toast.success("Add successfully",value+"");
   }
   onEnterRestritedValue(value){ //PASS
@@ -256,7 +274,7 @@ export class ThreeDeePage implements OnInit {
   
   }
   onChangeSelectedCustomer(event) { //PASS
-   this.customer = event;
+   //this.customer = event;
   }
   makeupLegarMap()
   { 
@@ -601,6 +619,7 @@ export class ThreeDeePage implements OnInit {
   onChangeStartDate(event){
     this.makeDate = event;
     console.log(this.makeDate);
+    this.getLegarThreeD(this.makeDate);
   }
 
 removeUsageWaitingList(usages, object)
@@ -699,5 +718,19 @@ this.waitingList.splice(object,1)
 
 }
 }
+
+/*
+getCustomers(){
+    let recordRef = this.fireStore.collection('customer');
+    recordRef.get()
+      .subscribe(snapshot => {
+        snapshot.forEach(doc => {
+          console.log(doc.id, '=>', doc.data());
+          this.customers.push(doc.data().name);
+        });
+      });
+    console.log(this.customers);
+  }
+*/
 
 

@@ -19,7 +19,7 @@ import {ToastrModule} from 'ngx-toastr';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule ,
+    AngularFirestoreModule.enablePersistence( ) ,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],

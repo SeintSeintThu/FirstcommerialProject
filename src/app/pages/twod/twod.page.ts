@@ -34,7 +34,6 @@ export class TwoDeePage implements OnInit {
    * this is for new Design
    */
   now: string;
-  customer: string;
   restricedValue: number;
   type: string;
   waitingList = [];
@@ -60,7 +59,7 @@ export class TwoDeePage implements OnInit {
   records = [];
   afterSearch = [];
   foundIds = [];
-  customers = [];
+  //customers = [];
   makeDate: Date;
   addValue: string;
 
@@ -79,12 +78,38 @@ export class TwoDeePage implements OnInit {
     this.excedArray = [];
     this.makeupLegarMap();
     this.searchList = [];
-    this.getCustomers();
 
   }
-  resetform() {
 
-    this.customer = "";
+  getLegarTwoD(now) {
+    console.log(now);
+    let recordRef = this.fireStore.collection('legartwoD', ref =>
+      ref.where('now', '==', now)
+        .limit(1))
+      .snapshotChanges();
+      recordRef.subscribe(snapshot => {
+        snapshot.forEach(doc => {
+          console.log(doc);
+          console.log(doc.payload.doc.id)
+         let legar = doc.payload.doc.data() as Legar;
+         console.log(legar);
+         this.makeupForm(legar);
+        });
+      });
+  }
+  makeupForm(legar : Legar){
+    this.restricedValue = legar.restricedAmount;
+    this.makeDate=  legar.now;
+    this.excedList =legar.excedList;
+    this.waitingList = legar.waitingList;
+    this.waitingListTotal = legar.totalforWaitingList;
+    this.excedListTotal = legar.totalforExcedList;
+    this.waitingList.forEach(item =>
+    {
+          this.updateLeger(item.number ,item.amount)
+      });
+  }
+  resetform() {
     this.makeDate = null;
     this.restricedValue = 0;
     this.now = null;
@@ -94,7 +119,7 @@ export class TwoDeePage implements OnInit {
     this.excedArray = [];
     this.excedListTotal = 0;
     this.waitingListTotal = 0;
-
+    this.makeupLegarMap();
   }
 
   searchRecord() {
@@ -102,45 +127,26 @@ export class TwoDeePage implements OnInit {
     this.searchList = [];
     console.log(this.searchValue);
     this.waitingList.forEach(record => {
-      if (this.searchList.length != 0) {
         console.log("In If")
         console.log(this.searchList)
-        for (let i = 0; i < this.searchList.length; i++) {
-          console.log(i)
-          if (this.searchList[i].number === record.number) {
-            this.searchList[i].amount = record.amount;
-            break;
-          }
-          else {
-            console.log(i);
-            console.log(this.searchList[i].number === record.number)
-            if (i === this.searchList.length - 1) {
-              console.log("In true")
-              let record1 = {
-                number: record.number,
-                amount: record.amount
-              }
-
-              this.searchList.push(record1)
-              break;
+          if (this.searchValue == record.number) {
+            let record1 = {
+              number: record.number,
+              amount: record.amount
             }
-            else {
-              console.log("Before continue")
-              continue;
-            }
+            this.searchList.push(record1);
           }
+    
+        });
 
-        }
-      }
-      else {
-        console.log("In waiting table")
-        let recordNew = {
-          number: record.number,
-          amount: 0
-        }
-        this.searchList.push(recordNew)
-      }
-    });
+      // else {
+      //   console.log("In waiting table")
+      //   let recordNew = {
+      //     number: record.number,
+      //     amount: 0
+      //   }
+      //   this.searchList.push(recordNew)
+      // }
   }
   saveRecord() {
     this.waitingList.forEach(item => {
@@ -164,20 +170,17 @@ export class TwoDeePage implements OnInit {
     });
 
     this.legar = {
-      customerName: this.customer,
       now: this.makeDate,
       restricedAmount: this.restricedValue,
       waitingList: this.waitingArray,
       excedList: this.excedArray,
-      totalforAll: this.waitingListTotal
+      totalforWaitingList: this.waitingListTotal,
+      totalforExcedList : this.excedListTotal
     }
     let firebaseRef = this.fireStore.collection("legartwoD");
     firebaseRef.add(Object.assign({}, this.legar));
-
-    let firebaseRefcustomer = this.fireStore.collection("customer");
-    firebaseRefcustomer.add(Object.assign({}, this.customer));
     this.resetform();
-    this.toast.success("save successfully", this.legar.customerName);
+    this.toast.success("save successfully", this.makeDate+"");
 
   }
 
@@ -188,7 +191,7 @@ export class TwoDeePage implements OnInit {
     if (this.number == null && this.amount == 0)
       return;
     switch (this.selectedFormat) {
-      case 'd': {
+      case '.': {
         this.addtoLeger(this.number, this.amount)
         break;
       }
@@ -272,7 +275,7 @@ export class TwoDeePage implements OnInit {
     //this.addtoLeger(this.number, this.amount)
   }
   onEnterCustomer(value) { //PASS
-    this.customers.push(value);
+   // this.customers.push(value);
     this.toast.success("Add successfully", value + "");
   }
   updateRecord(value) {
@@ -291,17 +294,7 @@ export class TwoDeePage implements OnInit {
       }
     });
   }
-  getCustomers() {
-    let recordRef = this.fireStore.collection('customer');
-    recordRef.get()
-      .subscribe(snapshot => {
-        snapshot.forEach(doc => {
-          console.log(doc.id, '=>', doc.data());
-          this.customers.push(doc.data().name);
-        });
-      });
-    console.log(this.customers);
-  }
+ 
   getRecords() {
     this.afterSearch = [];
     let recordRef = this.fireStore.collection('legartwoD');
@@ -329,8 +322,8 @@ export class TwoDeePage implements OnInit {
     this.toast.success("Add successfully", this.restricedValue + "");
   }
   onChangeSelectedCustomer(event) { //PASS
-    this.customer = event;
-    this.customers.push(this.customer);
+    //this.customer = event;
+    //this.customers.push(this.customer);
     // this.getRecords();
     // this.updateRecord(event);
   }
@@ -670,6 +663,7 @@ export class TwoDeePage implements OnInit {
   onChangeStartDate(event) {
     this.makeDate = event;
     console.log(this.makeDate);
+    this.getLegarTwoD(this.makeDate);
   }
 
   removeUsageWaitingList(usages, object) {
@@ -767,5 +761,17 @@ export class TwoDeePage implements OnInit {
 
   }
 }
+
+// getCustomers() {
+//   let recordRef = this.fireStore.collection('customer');
+//   recordRef.get()
+//     .subscribe(snapshot => {
+//       snapshot.forEach(doc => {
+//         console.log(doc.id, '=>', doc.data());
+//         this.customers.push(doc.data().name);
+//       });
+//     });
+//   console.log(this.customers);
+// }
 
 

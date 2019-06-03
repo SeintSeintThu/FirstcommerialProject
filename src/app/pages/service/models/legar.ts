@@ -1,9 +1,10 @@
 export class Legar{
     now :Date;
-    customerName :string;
+   // customerName :string;
     waitingList  = [];
     excedList = [];
     restricedAmount : number;
-    totalforAll : number;
+    totalforWaitingList : number;
+    totalforExcedList : number;
 
 }
