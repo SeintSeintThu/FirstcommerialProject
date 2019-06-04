@@ -191,7 +191,7 @@
             <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)"  [(ngModel)]="restricedValue">နိတ္ရန္</a>
         </div>
         <div class="col s6">
-            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="resetform()">SA ရန္</a>
+            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="resetForm()">SA ရန္</a>
         </div>
 
     </div>
@@ -216,6 +216,7 @@
                             </tr>
                             <tr>
                                 <td>Total : {{waitingListTotal}}</td>
+                                <td><a class="material-icons"  (click) ="removeUsageALLWaitingList()">delete</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -243,6 +244,7 @@
                         <tr>
                             <th>နံပါတ္</th>
                             <th>ပမာဏ <i class="font2">(%)</i></th>
+                            <th>ျပင္ရန္</th>
                         </tr>
                     </thead>
     
@@ -250,9 +252,11 @@
                         <tr *ngFor="let info of excedList">
                             <td>{{info.number}}</td>
                             <td class="font1">{{info.amount}}</td>
+                            <td><a class="material-icons"  (click) ="removeUsageExcedList(excedList,info)">delete</a></td>
                         </tr>
                         <tr>
                             <td>Total :{{excedListTotal}}</td>
+                            <td><a class="material-icons"  (click) ="removeUsageALLExcedList()">delete</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -264,12 +268,10 @@
     </div><br><br>
 <div class="row">  
     <div class="col s3">
-        <input id="last_name" type="text" class="validate" [(ngModel)]="searchValue" >
+        <input id="last_name" type="text" class="validate" #searchValue (keyup.enter)="searchRecord(searchValue.value)">
         <label class="zawgyi" for="last_name">ရွာရန္</label>
     </div>
-    <div class="col-1 s3 input-field">
-        <a (click)= searchRecord() class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi">နိတ္ရန္</a>
-    </div>
+
     <div class="col s3 zawgyi">
         <table>
             <thead>
@@ -298,10 +300,10 @@
     <table *ngIf ="row1 && row2 && row3 && row4 && row5 && row6 && row7 && row8 && row9 && row10" class="centered" [(ngModel)]="row1">
         <tbody>
             <tr class="tb-1">
-                <td *ngFor="let row of row1">{{row.number}} <i class="font2">{{row.amount}}</i></td>
+                <td *ngFor="let row of row1">{{row.number}} <i class="font1">{{row.amount}}</i></td>
             </tr>
               <tr> 
-                <td *ngFor="let row of row2">{{row.number}} <i class="font2">{{row.amount}} </i></td>
+                <td *ngFor="let row of row2">{{row.number}} <i class="font1">{{row.amount}} </i></td>
             </tr>
               <tr>
                 <td *ngFor="let row of row3">{{row.number}} <i class="font1">{{row.amount}}</i></td>
@@ -316,7 +318,7 @@
                 <td *ngFor="let row of row6">{{row.number}}  <i class="font1">{{row.amount}} </i></td>
             </tr>
               <tr>
-                <td  *ngFor="let row of row7">{{row.number}} <i class="font1">{{row.amount}} </i></td>
+                <td *ngFor="let row of row7">{{row.number}} <i class="font1">{{row.amount}} </i></td>
             </tr>
               <tr>
                 <td  *ngFor="let row of row8">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>

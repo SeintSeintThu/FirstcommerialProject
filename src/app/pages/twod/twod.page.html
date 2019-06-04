@@ -13,7 +13,7 @@
     <div class="row">
             <div class="col s3">
                     <h4 class="zawgyi">၂လံုး</h4>
-                </div>
+            </div>
             <div class="col s3">
                 <label>Start Date</label>
                 <input type="date" class="formControl" id="makeDate" name= "makeDate" [(ngModel)]="makeDate" (ngModelChange)="onChangeStartDate($event)" [value]="makeDate" required>   
@@ -33,11 +33,11 @@
             <input id="last_name" #value type="text" class="validate" >
             <label class="zawgyi" for="last_name">ရာခိုင္နွုန္းခ်ိုးရန္</label>
         </div>  
-        <div class="col s6">
+        <div class="col s3">
             <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)" [(ngModel)]="restricedValue">နိတ္ရန္</a>
         </div>
-        <div class="col s6">
-            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="resetform()">SA ရန္</a>
+        <div class="col s3">
+            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="resetForm()">SA ရန္</a>
         </div>
 
     </div>
@@ -62,6 +62,7 @@
                             </tr>
                             <tr>
                                 <td>Total : {{waitingListTotal}}</td>
+                                <td><a class="material-icons"  (click) ="removeUsageALLWaitingList()">delete</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -90,6 +91,7 @@
                         <tr>
                             <th>နံပါတ္</th>
                             <th>ပမာဏ(%)</th>
+                            <th>ျပင္ရန္</th>
 
                         </tr>
                     </thead>
@@ -98,10 +100,12 @@
                         <tr *ngFor="let info of excedList">
                             <td>{{info.number}}</td>
                             <td class="font1">{{info.amount}}</td>
+                            <td><a class="material-icons"  (click) ="removeUsageExcedList(excedList,info)">delete</a></td>
     
                         </tr>
                         <tr>
                             <td>Total : {{excedListTotal}}</td>
+                            <td><a class="material-icons"  (click) ="removeUsageALLExcedList()">delete</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -113,11 +117,8 @@
     </div><br><br>
 <div class="row">  
     <div class="col s3">
-        <input id="last_name" type="text" class="validate" [(ngModel)]="searchValue">
+        <input id="last_name" type="text" class="validate" #searchValue (keyup.enter)="searchRecord(searchValue.value)">
         <label class="zawgyi" for="last_name">ရွာရန္</label>
-    </div>
-    <div class="col-1 s3 input-field">
-        <a (click)= searchRecord() class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi">နိတ္ရန္</a>
     </div>
     <div class="col s3 zawgyi">
         <table>
@@ -175,7 +176,8 @@
                 <td *ngFor="let row of row9">{{row.number}}: <i class="font1">{{row.amount}} </i></td>
             </tr>
               <tr>
-                <td *ngFor="let row of row10">{{row.number}} :<i class="font1">{{row.amount}}</i></td>   
+                <td *ngFor="let row of row10">{{row.number}} :<i class="font1">{{row.amount}}</i></td>  
+            </tr> 
         </tbody>
     </table>
     

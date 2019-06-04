@@ -73,12 +73,12 @@ export class TwoDeePage implements OnInit {
 
   ngOnInit() {
     this.now = new Date().toDateString();
-    this.resetform();
     this.waitingArray = [];
     this.excedArray = [];
     this.makeupLegarMap();
     this.searchList = [];
-
+    this.waitingList = [];
+    this.excedList =[];
   }
 
   getLegarTwoD(now) {
@@ -107,29 +107,38 @@ export class TwoDeePage implements OnInit {
     this.waitingList.forEach(item =>
     {
           this.updateLeger(item.number ,item.amount)
-      });
+    });
   }
-  resetform() {
+  resetForm(){
+    console.log("Reached")
     this.makeDate = null;
     this.restricedValue = 0;
     this.now = null;
+    this.waitingList.forEach(item=>
+      {
+        this.updateLeger(item.number,0)
+      });
     this.waitingList = [];
     this.excedList = [];
     this.waitingArray = [];
     this.excedArray = [];
     this.excedListTotal = 0;
     this.waitingListTotal = 0;
-    this.makeupLegarMap();
+    this.restricedValue = 0;
+    //this.makeupLegarMap();
+   
   }
+ 
 
-  searchRecord() {
+  searchRecord(searchValue) {
     this.searchList.pop();
     this.searchList = [];
     console.log(this.searchValue);
+   // this.searchValue = searchValue;
     this.waitingList.forEach(record => {
         console.log("In If")
         console.log(this.searchList)
-          if (this.searchValue == record.number) {
+          if (searchValue == record.number) {
             let record1 = {
               number: record.number,
               amount: record.amount
@@ -138,15 +147,6 @@ export class TwoDeePage implements OnInit {
           }
     
         });
-
-      // else {
-      //   console.log("In waiting table")
-      //   let recordNew = {
-      //     number: record.number,
-      //     amount: 0
-      //   }
-      //   this.searchList.push(recordNew)
-      // }
   }
   saveRecord() {
     this.waitingList.forEach(item => {
@@ -179,12 +179,14 @@ export class TwoDeePage implements OnInit {
     }
     let firebaseRef = this.fireStore.collection("legartwoD");
     firebaseRef.add(Object.assign({}, this.legar));
-    this.resetform();
+    this.resetForm();
     this.toast.success("save successfully", this.makeDate+"");
 
   }
 
   makeUsage(number, amount) {
+    if(amount == 0)
+       return;
     this.number = number;
     this.amount = amount;
     console.log(this.selectedFormat)
@@ -249,6 +251,23 @@ export class TwoDeePage implements OnInit {
         this.addtoLeger("0" + next, this.amount);
         for (let number of this.numberforSeries)
           this.addtoLeger(number + "" + next, this.amount);
+        break;
+      }
+      case '#': {
+        console.log("In total");
+        for (let i=0;i<11;i++){
+          for (let j=i;j<11;j++){
+            let total = +j + + i;
+           if( total%10 == this.number){
+            if(i == j){
+              this.addtoLeger(i + "" + j, this.amount);
+              continue;
+            }
+          this.addtoLeger(i + "" + j, this.amount);
+          this.addtoLeger(j + "" + i, this.amount);
+           }
+          }
+        } 
         break;
       }
     }
@@ -435,7 +454,6 @@ export class TwoDeePage implements OnInit {
       this.row10.push(map)
       console.log(this.row10)
     }
-    console.log(this.legarMap)
   }
 
   addtoLeger(number, amount) {
@@ -609,7 +627,8 @@ export class TwoDeePage implements OnInit {
   addtoCuttingTable() {
     console.log(this.restricedValue)
     console.log(this.waitingList)
-    this.waitingList.forEach(record => {
+    if(this.restricedValue != 0){
+          this.waitingList.forEach(record => {
       if (record.amount > this.restricedValue) {
         let excedAmount = record.amount - this.restricedValue;
         if (this.excedList.length != 0) {
@@ -653,6 +672,7 @@ export class TwoDeePage implements OnInit {
 
       }
     });
+   }
     //for total
     this.excedListTotal = 0;
     this.excedList.forEach(record1 => {
@@ -674,6 +694,16 @@ export class TwoDeePage implements OnInit {
     this.waitingList.splice(object, 1)
     console.log(this.waitingList)
     this.waitingListTotal = this.waitingListTotal - object.amount;
+    this.updateLeger(object.number, 0);
+  }
+
+  removeUsageExcedList(usages, object) {
+    console.log("Reached")
+    console.log(usages + ":" + object);
+    console.log(this.excedList);
+    this.excedList.splice(object, 1);
+    console.log(this.waitingList)
+    this.excedListTotal = this.excedListTotal - object.amount;
     this.updateLeger(object.number, 0);
   }
   updateLeger(number, amount) {
@@ -759,6 +789,20 @@ export class TwoDeePage implements OnInit {
     }
 
 
+  }
+
+  removeUsageALLExcedList(){
+    this.excedList =[];
+    this.excedListTotal =0 ;
+    
+  }
+  removeUsageALLWaitingList(){
+    this.waitingList.forEach(item=>
+      {
+        this.updateLeger(item.number,0)
+      });
+    this.waitingList =[];
+    this.waitingListTotal=0;
   }
 }
 

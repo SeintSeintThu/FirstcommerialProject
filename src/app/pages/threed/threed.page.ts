@@ -64,7 +64,6 @@ export class ThreeDeePage implements OnInit {
 
   ngOnInit() {
     this.now = new Date().toLocaleTimeString();
-    this.resetform()
     this.waitingArray =[];
     this.excedArray = [];
     this.makeupLegarMap();
@@ -99,43 +98,42 @@ export class ThreeDeePage implements OnInit {
       });
   }  
  
-  resetform() {
-    
-    //this.customer = "";
-      this.makeDate = null;
-      this.restricedValue =0;
-      this.now = null;
-      this.waitingList = [];
-      this.excedList =[];
-      this.waitingArray =[];
-      this.excedArray = [];
-      this.excedListTotal =0;
-      this.waitingListTotal = 0;
-      this.makeupLegarMap();
-
-}
-  searchRecord(){
-    this.searchList.pop();
-    this.searchList = [];
-     this.waitingList.forEach(record =>{
-      if(this.searchValue == record.number){
-        let recordNew = {
-          number: record.number,
-          amount: record.amount
-        }
-        this.searchList.push(recordNew)
-      }
-      else 
+  resetForm(){
+    console.log("Reached")
+    this.makeDate = null;
+    this.restricedValue = 0;
+    this.now = null;
+    this.waitingList.forEach(item=>
       {
-        let recordNew = {
-          number: this.searchValue,
-          amount: 0
+        this.updateLeger(item.number,0)
+      });
+    this.waitingList = [];
+    this.excedList = [];
+    this.waitingArray = [];
+    this.excedArray = [];
+    this.excedListTotal = 0;
+    this.waitingListTotal = 0;
+    this.restricedValue = 0;
+    //this.makeupLegarMap();
+   
+  }
+searchRecord(searchValue) {
+  this.searchList.pop();
+  this.searchList = [];
+  console.log(this.searchValue);
+  this.waitingList.forEach(record => {
+      console.log("In If")
+      console.log(this.searchList)
+        if (searchValue == record.number) {
+          let record1 = {
+            number: record.number,
+            amount: record.amount
+          }
+          this.searchList.push(record1);
         }
-        this.searchList.push(recordNew)
-
-      }
-    });
-   }
+  
+      });
+}
   saveRecord() {
     this.waitingList.forEach(item=>{
       console.log(item);
@@ -169,7 +167,7 @@ export class ThreeDeePage implements OnInit {
     firebaseRef.add(Object.assign({}, this.legar));
     let firebaseRefcustomer = this.fireStore.collection("customer");
     firebaseRefcustomer.add(Object.assign({}, this.makeDate));
-    this.resetform();
+    this.resetForm();
     this.toast.success("save successfully",this.legar.now+"");
 
   }
@@ -717,6 +715,27 @@ this.waitingList.splice(object,1)
 
 
 }
+removeUsageExcedList(usages, object) {
+  console.log("Reached")
+  console.log(usages + ":" + object);
+  console.log(this.excedList);
+  this.excedList.splice(object, 1);
+  console.log(this.waitingList)
+  this.excedListTotal = this.excedListTotal - object.amount;
+  this.updateLeger(object.number, 0);
+}
+removeUsageALLExcedList(){
+  this.excedList =[];
+  this.excedListTotal =0 ;
+  
+}
+removeUsageALLWaitingList(){
+  this.waitingList.forEach(item=>
+    {
+      this.updateLeger(item.number,0)
+    });
+  this.waitingList =[];
+  this.waitingListTotal=0;
 }
 
 /*
@@ -732,5 +751,5 @@ getCustomers(){
     console.log(this.customers);
   }
 */
-
+}
 
