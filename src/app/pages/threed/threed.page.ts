@@ -620,19 +620,37 @@ searchRecord(searchValue) {
     this.getLegarThreeD(this.makeDate);
   }
 
-removeUsageWaitingList(usages, object)
-{
-console.log(usages + ":" + object);
-console.log(this.waitingList);
-// this.waitingList.reduce(object);
-this.waitingList.splice(object,1)
-  console.log(this.waitingList)
-  this.waitingListTotal  = this.waitingListTotal - object.amount;
-  this.updateLeger(object.number,0)
- }
+  removeUsageWaitingList(usages, object) {
+    console.log("Reached")
+    console.log(usages + ":" + object);     
+  this.waitingList.forEach(waitingItem =>
+    {
+      let index= 0;
+      if(waitingItem.number == object.number){
+        index = this.waitingList.indexOf(object);
+        this.waitingList.splice(index, 1)
+    }
+    });
+    /*
+    Update in exced list
+    */
+    this.excedList.forEach(excedItem =>
+      {
+        let index2;
+        if(excedItem.number == object.number){
+        
+          index2 = this.excedList.indexOf(excedItem);
+          this.excedList.splice(index2, 1)
+          this.excedListTotal = this.excedListTotal - excedItem.amount; 
+         }
+      });
+    this.waitingListTotal = this.waitingListTotal - object.amount;
+    this.updateLeger(object.number, 0);
+  }
+
 
  updateLeger(number, amount) {
-  let firstNumber = ~~(number / 10);
+  let firstNumber = ~~(number / 100 );
   switch (firstNumber) {
     case 0: {
       this.row1.forEach(item => {

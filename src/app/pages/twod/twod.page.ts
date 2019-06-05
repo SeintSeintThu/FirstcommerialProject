@@ -255,6 +255,7 @@ export class TwoDeePage implements OnInit {
       }
       case '@': {
         console.log("In double");
+        this.addtoLeger(0+""+0, this.amount);
         for (let number of this.doubles)
           this.addtoLeger(number, this.amount);
         break;
@@ -274,6 +275,17 @@ export class TwoDeePage implements OnInit {
            }
           }
         } 
+        break;
+      }
+      case '$': {
+        console.log("In double series");
+        this.addtoLeger(this.number +""+ this.number, this.amount);
+        for (let number of this.numberforSeries){
+          if(number != this.number){
+          this.addtoLeger(this.number + ""+number, this.amount);
+          this.addtoLeger(number + ""+ this.number, this.amount);
+          }
+        }
         break;
       }
     }
@@ -696,10 +708,30 @@ export class TwoDeePage implements OnInit {
     console.log("Reached")
     console.log(usages + ":" + object);
     console.log(this.waitingList);
-    // this.waitingList.reduce(object);
-    this.waitingList.splice(object, 1)
+     
+  this.waitingList.forEach(waitingItem =>
+    {
+      let index= 0;
+      if(waitingItem.number == object.number){
+        index = this.waitingList.indexOf(object);
+        this.waitingList.splice(index, 1)
+    }
+    });
+    console.log(this.excedList)
+    this.excedList.forEach(excedItem =>
+      {
+        let index2;
+        if(excedItem.number == object.number){
+          console.log(object)
+          index2 = this.excedList.indexOf(excedItem);
+          console.log(index2)
+          this.excedList.splice(index2, 1)
+          this.excedListTotal = this.excedListTotal - excedItem.amount; 
+         }
+      });
     console.log(this.waitingList)
     this.waitingListTotal = this.waitingListTotal - object.amount;
+
     this.updateLeger(object.number, 0);
   }
 
