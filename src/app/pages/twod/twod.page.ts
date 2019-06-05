@@ -253,6 +253,12 @@ export class TwoDeePage implements OnInit {
           this.addtoLeger(number + "" + next, this.amount);
         break;
       }
+      case '@': {
+        console.log("In double");
+        for (let number of this.doubles)
+          this.addtoLeger(number, this.amount);
+        break;
+      }
       case '#': {
         console.log("In total");
         for (let i=0;i<11;i++){
