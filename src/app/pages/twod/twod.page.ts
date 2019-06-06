@@ -1,10 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { NgForm, FormBuilder } from '@angular/forms';
 import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 
 import { Format } from '../service/models/format';
-import { LegarMap } from '../service/models/legarmap';
-import { WebDriverLogger } from 'blocking-proxy/built/lib/webdriver_logger';
 import { Legar } from '../service/models/legar';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 
@@ -62,11 +59,12 @@ export class TwoDeePage implements OnInit {
   //customers = [];
   makeDate: Date;
   addValue: string;
+  amountTwo: number;
 
 
   doubles: number[] = [11, 22, 33, 44, 55, 66, 77, 88, 99];
-  powers: number[] = [16, 27, 38, 49, 50];
-  natkhats: string[] = ['18', '24', '35', '07', '96'];
+  powers: string[] = ['16', '27', '38', '49', '50','61','72','83','94','05'];
+  natkhats: string[] = ['18', '24', '35', '07', '96','81','42','53','70','69'];
   numberforSeries: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   //customers: Array<string> = [];
   formats: Set<Format> = null;
@@ -206,7 +204,10 @@ export class TwoDeePage implements OnInit {
         console.log(next);
 
         this.addtoLeger(this.number, this.amount);
-        this.addtoLeger(next, this.amount);
+        if(this.amountTwo)
+        this.addtoLeger(next, this.amountTwo);
+        else 
+        this.addtoLeger(next, this.amount );
 
         // if(this.amount2)
         // this.addtoLeger(next, this.amount2)
@@ -223,18 +224,16 @@ export class TwoDeePage implements OnInit {
       }
       case 'n': {
         console.log("In natkhat");
-        if (this.number == 0) {
           for (let natkhat of this.natkhats)
             this.addtoLeger(natkhat, this.amount);
-        }
+        
 
         break;
       }
       case 'p': {
-        if (this.number == 0) {
           for (let power of this.powers)
             this.addtoLeger(power, this.amount);
-        }
+        
         break;
       }
       case 'b': {
@@ -300,6 +299,7 @@ export class TwoDeePage implements OnInit {
     this.number = formArray[0];
     this.selectedFormat = formArray[1];
     this.amount = formArray[2];
+    this.amountTwo = formArray[3];
     console.log(this.number + ":" + this.selectedFormat + ":" + this.amount);
     this.makeUsage(this.number, this.amount);
     this.addValue = "";

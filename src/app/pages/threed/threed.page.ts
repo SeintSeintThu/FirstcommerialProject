@@ -28,7 +28,7 @@ export class ThreeDeePage implements OnInit {
   searchValue:number;
   @Input() isChecked = false;
 
-  doubles: number[] = [11, 22, 33, 44, 55, 66, 77, 88, 99];
+  doubles: string[] = ['000','111', '222', '333', '444', '555', '666', '777', '888', '999'];
   powers: number[] = [16, 27, 38, 49, 50];
   natkhats: string[] = ['18', '24', '35', '07', '96'];
   numberforSeries: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -60,6 +60,7 @@ export class ThreeDeePage implements OnInit {
   excedArray = [];
   makeDate : Date;
   addValue : string; 
+  amountTwo : number;
   
 
   ngOnInit() {
@@ -179,6 +180,7 @@ searchRecord(searchValue) {
       this.number = formArray[0];
       this.selectedFormat = formArray[1];
       this.amount = formArray[2];
+      this.amountTwo = formArray[3];
       console.log(this.number +":"+ this.selectedFormat+":" + this.amount);
       this.makeUsage(this.number,this.amount);
       this.addValue ="";
@@ -228,11 +230,10 @@ searchRecord(searchValue) {
         break;
       }
       case 'b': {
-        console.log('this.arrow_back')
-        let next = this.number % 10;
-        this.addtoLeger(next*10+"", this.amount);
+        console.log('this.arrow_back');
+        this.addtoLeger(this.number+"0", this.amount);
         for (let number of this.numberforSeries)
-            this.addtoLeger((next * 10) + number + "", this.amount);
+            this.addtoLeger(this.number+""+ number + "", this.amount);
         break;
       }
       case 'm': {
@@ -244,12 +245,17 @@ searchRecord(searchValue) {
         this.addtoLeger(firstNumber+""+number+""+secondNumber, this.amount);
         break;
       }
+      case '@': {
+        console.log("In double");
+        for (let number of this.doubles)
+          this.addtoLeger(number, this.amount);
+        break;
+      }
       case 'f': {
         console.log("In arrow_forward");
-        let next = this.number % 10;
-        this.addtoLeger("0" + next, this.amount);
+        this.addtoLeger("0" + this.number, this.amount);
         for (let number of this.numberforSeries)
-          this.addtoLeger(number + "" + next, this.amount);
+          this.addtoLeger(number + "" + this.number, this.amount);
         break;
       }
     }
