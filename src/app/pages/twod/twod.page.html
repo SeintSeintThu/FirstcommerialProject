@@ -37,7 +37,7 @@
             <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)" [(ngModel)]="restricedValue">နိတ္ရန္</a>
         </div>
         <div class="col s3">
-            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="resetForm()">SA ရန္</a>
+            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="resetForm()">စရန္</a>
         </div>
 
     </div>
@@ -58,7 +58,7 @@
                             <tr *ngFor="let info of waitingList">
                                 <td>{{info.number}}</td>
                                 <td class="font1">{{info.amount}}</td>
-                                <td><a class="material-icons"  (click) ="removeUsageWaitingList(waitingList,info)">delete</a></td>
+                                <td><a class="material-icons"  (click) ="tgi (waitingList,info)">delete</a></td>
                             </tr>
                             <tr>
                                 <td>Total : {{waitingListTotal}}</td>

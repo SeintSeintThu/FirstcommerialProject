@@ -191,7 +191,7 @@
             <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="onEnterRestritedValue(value.value)"  [(ngModel)]="restricedValue">နိတ္ရန္</a>
         </div>
         <div class="col s6">
-            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="resetForm()">SA ရန္</a>
+            <a class="waves-effect waves-light btn-sm brown darken-1 white-text zawgyi" (click) ="resetForm()">စရန္</a>
         </div>
 
     </div>
@@ -300,34 +300,283 @@
     <table *ngIf ="row1 && row2 && row3 && row4 && row5 && row6 && row7 && row8 && row9 && row10" class="centered" [(ngModel)]="row1">
         <tbody>
             <tr class="tb-1">
-                <td *ngFor="let row of row1">{{row.number}} <i class="font1">{{row.amount}}</i></td>
+                <td *ngFor="let row of row1">{{row.number}} <br><i class="font1">{{row.amount}}</i></td>
             </tr>
-              <tr> 
-                <td *ngFor="let row of row2">{{row.number}} <i class="font1">{{row.amount}} </i></td>
+              <tr class="tb-1"> 
+                <td *ngFor="let row of row2">{{row.number}} <br><i class="font1">{{row.amount}} </i></td>
             </tr>
-              <tr>
-                <td *ngFor="let row of row3">{{row.number}} <i class="font1">{{row.amount}}</i></td>
+              <tr class="tb-1">
+                <td *ngFor="let row of row3">{{row.number}} <br><i class="font1">{{row.amount}}</i></td>
             </tr>
-              <tr>
-                <td *ngFor="let row of row4">{{row.number}} <i class="font1">{{row.amount}} </i></td>
+              <tr class="tb-1">
+                <td *ngFor="let row of row4">{{row.number}} <br><i class="font1">{{row.amount}} </i></td>
             </tr>
-              <tr>
-                <td *ngFor="let row of row5">{{row.number}} <i class="font1">{{row.amount}} </i></td>
+              <tr class="tb-1">
+                <td *ngFor="let row of row5">{{row.number}} <br><i class="font1">{{row.amount}} </i></td>
             </tr>
-              <tr>
-                <td *ngFor="let row of row6">{{row.number}}  <i class="font1">{{row.amount}} </i></td>
+              <tr class="tb-1">
+                <td *ngFor="let row of row6">{{row.number}} <br> <i class="font1">{{row.amount}} </i></td>
             </tr>
-              <tr>
-                <td *ngFor="let row of row7">{{row.number}} <i class="font1">{{row.amount}} </i></td>
+              <tr class="tb-1">
+                <td *ngFor="let row of row7">{{row.number}}<br> <i class="font1">{{row.amount}} </i></td>
             </tr>
-              <tr>
+              <tr class="tb-1">
                 <td  *ngFor="let row of row8">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>
             </tr>
-              <tr>
+              <tr class="tb-1">
                 <td *ngFor="let row of row9">{{row.number}}<br><i class="font1">{{row.amount}} </i></td>
             </tr>
-              <tr>
+              <tr class="tb-1">
                 <td *ngFor="let row of row10">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+
+                <tr class="tb-1">
+                    <td *ngFor="let row of row11">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row12">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">   
+                    <td *ngFor="let row of row13">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row14">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row15">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row16">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row17">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row18">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row19">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row20">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row21">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row22">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row23">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row24">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row25">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row26">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row27">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row28">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row29">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row30">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row31">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row32">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1"> 
+                    <td *ngFor="let row of row33">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row34">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row35">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row36">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row37">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row38">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> 
+                <tr class="tb-1">
+                    <td *ngFor="let row of row39">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row40">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row41">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row42">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row43">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row44">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row45">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row46">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row47">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> 
+                <tr class="tb-1">
+                    <td *ngFor="let row of row48">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row49">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row50">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row51">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row52">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row53">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row54">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row55">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row56">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row57">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row58">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row59">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row60">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row61">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row62">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row63">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row64">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row65">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row66">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row67">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row68">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row69">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row70">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                 <tr class="tb-1"> 
+                    <td *ngFor="let row of row71">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row72">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row73">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> 
+                <tr class="tb-1">
+                    <td *ngFor="let row of row74">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> 
+                <tr class="tb-1">
+                    <td *ngFor="let row of row75">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> <tr class="tb-1">
+                    <td *ngFor="let row of row76">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row77">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row78">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> <tr class="tb-1">
+                    <td *ngFor="let row of row79">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row80">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row81">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row82">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row83">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> <tr class="tb-1">
+                    <td *ngFor="let row of row84">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row85">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> <tr class="tb-1">
+                    <td *ngFor="let row of row86">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row87">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row88">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> <tr class="tb-1">
+                    <td *ngFor="let row of row89">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row90">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row91">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row92">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row93">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row94">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> <tr class="tb-1">
+                    <td *ngFor="let row of row95">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row96">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row97">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>  <tr class="tb-1">
+                    <td *ngFor="let row of row98">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr> 
+                 <tr class="tb-1">
+                    <td *ngFor="let row of row99">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
+                <tr class="tb-1">
+                    <td *ngFor="let row of row100">{{row.number}}<br><i class="font1">{{row.amount}}</i></td>   
+                </tr>
         </tbody>
     </table>
     

@@ -416,293 +416,1350 @@ export class ThreeDeePage implements OnInit {
     for (let i = 90; i < 100; i++)
       this.addandMakeMap("0" + i, this.row10);
       for (let i = 100; i < 110; i++)
-      this.addandMakeMap( i, this.row11)
+      this.addandMakeMap( i, this.row11);
     for (let i = 110; i < 120; i++)
-      this.addandMakeMap("0" + i, this.row12);
+      this.addandMakeMap(i, this.row12);
     for (let i = 120; i < 130; i++)
-      this.addandMakeMap("0" + i, this.row3);
+      this.addandMakeMap( i, this.row13);
     for (let i = 130; i < 140; i++)
-      this.addandMakeMap("0" + i, this.row4);
+      this.addandMakeMap(i, this.row14);
     for (let i = 140; i < 150; i++)
-      this.addandMakeMap("0" + i, this.row5);
+      this.addandMakeMap( i, this.row15);
     for (let i = 150; i < 160; i++)
-      this.addandMakeMap("0" + i, this.row6);
+      this.addandMakeMap(i, this.row16);
     for (let i = 160; i < 170; i++)
-      this.addandMakeMap("0" + i, this.row7);
+      this.addandMakeMap(i, this.row17);
     for (let i = 170; i < 180; i++)
-      this.addandMakeMap("0" + i, this.row8);
+      this.addandMakeMap( i, this.row18);
     for (let i = 180; i < 190; i++)
-      this.addandMakeMap("0" + i, this.row9);
+      this.addandMakeMap(i, this.row19);
+      for (let i = 190; i < 200; i++)
+      this.addandMakeMap(i, this.row20);
     for (let i = 200; i < 210; i++)
-      this.addandMakeMap("0" + i, this.row10);
+      this.addandMakeMap( i, this.row21);
       for (let i = 210; i < 220; i++)
-      this.addandMakeMap("00" + i, this.row1)
+      this.addandMakeMap( i, this.row22)
     for (let i = 220; i < 230; i++)
-      this.addandMakeMap("0" + i, this.row3);
+      this.addandMakeMap(i, this.row23);
     for (let i = 230; i < 240; i++)
-      this.addandMakeMap("0" + i, this.row4);
+      this.addandMakeMap( i, this.row24);
     for (let i = 240; i < 250; i++)
-      this.addandMakeMap("0" + i, this.row5);
+      this.addandMakeMap(i, this.row25);
     for (let i = 250; i < 260; i++)
-      this.addandMakeMap("0" + i, this.row6);
+      this.addandMakeMap(i, this.row26);
     for (let i = 260; i < 270; i++)
-      this.addandMakeMap("0" + i, this.row7);
+      this.addandMakeMap(i, this.row27);
     for (let i = 270; i < 280; i++)
-      this.addandMakeMap("0" + i, this.row8);
+      this.addandMakeMap( i, this.row28);
     for (let i = 280; i < 290; i++)
-      this.addandMakeMap("0" + i, this.row9);
-    for (let i = 300; i < 310; i++)
-      this.addandMakeMap("0" + i, this.row10);
-    for (let i = 320; i < 330; i++)
-      this.addandMakeMap("0" + i, this.row3);
+      this.addandMakeMap(i, this.row29);
+    for (let i = 290; i < 300; i++)
+      this.addandMakeMap( i, this.row30);
+      for (let i = 300; i < 310; i++)
+      this.addandMakeMap( i, this.row31);
+    for (let i = 310; i < 320; i++)
+      this.addandMakeMap(i, this.row32);
+      for (let i = 320; i < 330; i++)
+      this.addandMakeMap(i, this.row33);
     for (let i = 330; i < 340; i++)
-      this.addandMakeMap("0" + i, this.row4);
+      this.addandMakeMap( i, this.row34);
     for (let i = 340; i < 350; i++)
-      this.addandMakeMap("0" + i, this.row5);
+      this.addandMakeMap( i, this.row35);
     for (let i = 350; i < 360; i++)
-      this.addandMakeMap("0" + i, this.row6);
+      this.addandMakeMap( i, this.row36);
     for (let i = 360; i < 370; i++)
-      this.addandMakeMap("0" + i, this.row7);
+      this.addandMakeMap(i, this.row37);
     for (let i = 370; i < 380; i++)
-      this.addandMakeMap("0" + i, this.row8);
+      this.addandMakeMap( i, this.row38);
     for (let i = 380; i < 390; i++)
-      this.addandMakeMap("0" + i, this.row9);
+      this.addandMakeMap( i, this.row39);
     for (let i = 390; i < 400; i++)
-      this.addandMakeMap("0" + i, this.row10);
+      this.addandMakeMap(i, this.row40);
+      for (let i = 400; i < 410; i++)
+      this.addandMakeMap( i, this.row41);
     for (let i = 410; i < 420; i++)
-      this.addandMakeMap("0" + i, this.row2);
+      this.addandMakeMap(i, this.row42);
     for (let i = 420; i < 430; i++)
-      this.addandMakeMap("0" + i, this.row3);
+      this.addandMakeMap(i, this.row43);
     for (let i = 430; i < 440; i++)
-      this.addandMakeMap("0" + i, this.row4);
+      this.addandMakeMap( i, this.row44);
     for (let i = 440; i < 450; i++)
-      this.addandMakeMap("0" + i, this.row5);
+      this.addandMakeMap( i, this.row45);
     for (let i = 450; i < 460; i++)
-      this.addandMakeMap("0" + i, this.row6);
+      this.addandMakeMap( i, this.row46);
     for (let i = 460; i < 470; i++)
-      this.addandMakeMap("0" + i, this.row7);
+      this.addandMakeMap( i, this.row47);
     for (let i = 470; i < 480; i++)
-      this.addandMakeMap("0" + i, this.row8);
+      this.addandMakeMap( i, this.row48);
     for (let i = 480; i < 490; i++)
-      this.addandMakeMap("0" + i, this.row9);
+      this.addandMakeMap(i, this.row49);
     for (let i = 490; i < 500; i++)
-      this.addandMakeMap("0" + i, this.row10);
+      this.addandMakeMap(i, this.row50);
+      for (let i = 500; i < 510; i++)
+      this.addandMakeMap(i, this.row51);
     for (let i = 510; i < 520; i++)
-      this.addandMakeMap("0" + i, this.row2);
+      this.addandMakeMap( i, this.row52);
     for (let i = 520; i < 530; i++)
-      this.addandMakeMap("0" + i, this.row3);
+      this.addandMakeMap( i, this.row53);
     for (let i = 530; i < 540; i++)
-      this.addandMakeMap("0" + i, this.row4);
+      this.addandMakeMap( i, this.row54);
     for (let i = 540; i <550; i++)
-      this.addandMakeMap("0" + i, this.row5);
-    for (let i = 50; i < 60; i++)
-      this.addandMakeMap("0" + i, this.row6);
-    for (let i = 60; i < 70; i++)
-      this.addandMakeMap("0" + i, this.row7);
-    for (let i = 70; i < 80; i++)
-      this.addandMakeMap("0" + i, this.row8);
-    for (let i = 80; i < 90; i++)
-      this.addandMakeMap("0" + i, this.row9);
-    for (let i = 90; i < 100; i++)
-      this.addandMakeMap("0" + i, this.row10);
-      for (let i = 0; i < 10; i++)
-      this.addandMakeMap("00" + i, this.row1)
-    for (let i = 10; i < 20; i++)
-      this.addandMakeMap("0" + i, this.row2);
-    for (let i = 20; i < 30; i++)
-      this.addandMakeMap("0" + i, this.row3);
-    for (let i = 30; i < 40; i++)
-      this.addandMakeMap("0" + i, this.row4);
-    for (let i = 40; i < 50; i++)
-      this.addandMakeMap("0" + i, this.row5);
-    for (let i = 50; i < 60; i++)
-      this.addandMakeMap("0" + i, this.row6);
-    for (let i = 60; i < 70; i++)
-      this.addandMakeMap("0" + i, this.row7);
-    for (let i = 70; i < 80; i++)
-      this.addandMakeMap("0" + i, this.row8);
-    for (let i = 80; i < 90; i++)
-      this.addandMakeMap("0" + i, this.row9);
-    for (let i = 90; i < 100; i++)
-      this.addandMakeMap("0" + i, this.row10);
-      for (let i = 0; i < 10; i++)
-      this.addandMakeMap("00" + i, this.row1)
-    for (let i = 10; i < 20; i++)
-      this.addandMakeMap("0" + i, this.row2);
-    for (let i = 20; i < 30; i++)
-      this.addandMakeMap("0" + i, this.row3);
-    for (let i = 30; i < 40; i++)
-      this.addandMakeMap("0" + i, this.row4);
-    for (let i = 40; i < 50; i++)
-      this.addandMakeMap("0" + i, this.row5);
-    for (let i = 50; i < 60; i++)
-      this.addandMakeMap("0" + i, this.row6);
-    for (let i = 60; i < 70; i++)
-      this.addandMakeMap("0" + i, this.row7);
-    for (let i = 70; i < 80; i++)
-      this.addandMakeMap("0" + i, this.row8);
-    for (let i = 80; i < 90; i++)
-      this.addandMakeMap("0" + i, this.row9);
-    for (let i = 90; i < 100; i++)
-      this.addandMakeMap("0" + i, this.row10);
-      for (let i = 0; i < 10; i++)
-      this.addandMakeMap("00" + i, this.row1)
-    for (let i = 10; i < 20; i++)
-      this.addandMakeMap("0" + i, this.row2);
-    for (let i = 20; i < 30; i++)
-      this.addandMakeMap("0" + i, this.row3);
-    for (let i = 30; i < 40; i++)
-      this.addandMakeMap("0" + i, this.row4);
-    for (let i = 40; i < 50; i++)
-      this.addandMakeMap("0" + i, this.row5);
-    for (let i = 50; i < 60; i++)
-      this.addandMakeMap("0" + i, this.row6);
-    for (let i = 60; i < 70; i++)
-      this.addandMakeMap("0" + i, this.row7);
-    for (let i = 70; i < 80; i++)
-      this.addandMakeMap("0" + i, this.row8);
-    for (let i = 80; i < 90; i++)
-      this.addandMakeMap("0" + i, this.row9);
-    for (let i = 90; i < 100; i++)
-      this.addandMakeMap("0" + i, this.row10);
-      for (let i = 0; i < 10; i++)
-      this.addandMakeMap("00" + i, this.row1)
-    for (let i = 10; i < 20; i++)
-      this.addandMakeMap("0" + i, this.row2);
-    for (let i = 20; i < 30; i++)
-      this.addandMakeMap("0" + i, this.row3);
-    for (let i = 30; i < 40; i++)
-      this.addandMakeMap("0" + i, this.row4);
-    for (let i = 40; i < 50; i++)
-      this.addandMakeMap("0" + i, this.row5);
-    for (let i = 50; i < 60; i++)
-      this.addandMakeMap("0" + i, this.row6);
-    for (let i = 60; i < 70; i++)
-      this.addandMakeMap("0" + i, this.row7);
-    for (let i = 70; i < 80; i++)
-      this.addandMakeMap("0" + i, this.row8);
-    for (let i = 80; i < 90; i++)
-      this.addandMakeMap("0" + i, this.row9);
-    for (let i = 90; i < 100; i++)
-      this.addandMakeMap("0" + i, this.row10);
+      this.addandMakeMap(i, this.row55);
+    for (let i = 550; i < 560; i++)
+      this.addandMakeMap( i, this.row56);
+    for (let i = 560; i < 570; i++)
+      this.addandMakeMap( i, this.row57);
+    for (let i = 570; i < 580; i++)
+      this.addandMakeMap( i, this.row58);
+    for (let i = 580; i < 590; i++)
+      this.addandMakeMap(i, this.row59);
+    for (let i = 590; i < 600; i++)
+      this.addandMakeMap(i, this.row60);
+      for (let i = 600; i < 610; i++)
+      this.addandMakeMap(i, this.row61)
+    for (let i = 610; i < 620; i++)
+      this.addandMakeMap(i, this.row62);
+    for (let i = 620; i < 630; i++)
+      this.addandMakeMap(i, this.row63);
+    for (let i = 630; i < 640; i++)
+      this.addandMakeMap( i, this.row64);
+    for (let i = 640; i < 650; i++)
+      this.addandMakeMap(i, this.row65);
+    for (let i = 650; i < 660; i++)
+      this.addandMakeMap( i, this.row66);
+    for (let i = 660; i < 670; i++)
+      this.addandMakeMap( i, this.row67);
+    for (let i = 670; i < 680; i++)
+      this.addandMakeMap( i, this.row68);
+    for (let i = 680; i < 690; i++)
+      this.addandMakeMap( i, this.row69);
+    for (let i = 690; i < 700; i++)
+      this.addandMakeMap(i, this.row70);
+      for (let i = 700; i < 710; i++)
+      this.addandMakeMap(i, this.row71)
+    for (let i = 710; i < 720; i++)
+      this.addandMakeMap(i, this.row72);
+    for (let i = 720; i < 730; i++)
+      this.addandMakeMap(i, this.row73);
+    for (let i = 730; i < 740; i++)
+      this.addandMakeMap(i, this.row74);
+    for (let i = 740; i < 750; i++)
+      this.addandMakeMap( i, this.row75);
+    for (let i = 750; i < 760; i++)
+      this.addandMakeMap(i, this.row76);
+    for (let i = 760; i < 770; i++)
+      this.addandMakeMap(i, this.row77);
+    for (let i = 770; i < 780; i++)
+      this.addandMakeMap( i, this.row78);
+    for (let i = 780; i < 790; i++)
+      this.addandMakeMap(i, this.row79);
+    for (let i = 790; i < 800; i++)
+      this.addandMakeMap(i, this.row80);
+      for (let i = 800; i < 810; i++)
+      this.addandMakeMap( i, this.row81)
+    for (let i = 810; i < 820; i++)
+      this.addandMakeMap(i, this.row82);
+    for (let i = 820; i < 830; i++)
+      this.addandMakeMap(i, this.row83);
+    for (let i = 830; i < 840; i++)
+      this.addandMakeMap( i, this.row84);
+    for (let i = 840; i < 850; i++)
+      this.addandMakeMap( i, this.row85);
+    for (let i = 850; i < 860; i++)
+      this.addandMakeMap( i, this.row86);
+    for (let i = 860; i < 870; i++)
+      this.addandMakeMap(i, this.row87);
+    for (let i = 870; i < 880; i++)
+      this.addandMakeMap( i, this.row88);
+    for (let i = 880; i < 890; i++)
+      this.addandMakeMap(i, this.row89);
+    for (let i = 890; i < 900; i++)
+      this.addandMakeMap(i, this.row90);
+      for (let i =900; i < 910; i++)
+      this.addandMakeMap( i, this.row91)
+    for (let i = 910; i < 920; i++)
+      this.addandMakeMap(i, this.row92);
+    for (let i = 920; i < 930; i++)
+      this.addandMakeMap(i, this.row93);
+    for (let i = 930; i < 940; i++)
+      this.addandMakeMap( i, this.row94);
+    for (let i = 940; i < 950; i++)
+      this.addandMakeMap(i, this.row95);
+    for (let i = 950; i < 960; i++)
+      this.addandMakeMap( i, this.row96);
+    for (let i = 960; i < 970; i++)
+      this.addandMakeMap(i, this.row97);
+    for (let i = 970; i < 980; i++)
+      this.addandMakeMap( i, this.row98);
+    for (let i = 980; i < 990; i++)
+      this.addandMakeMap( i, this.row99);
+    for (let i = 990; i < 1000; i++)
+      this.addandMakeMap( i, this.row100);
 
   }
 addtoLeger(number, amount) {
-  let firstNumber = ~~(number / 100);
-  switch (firstNumber) {
+  let firstNumber = ~~(this.number / 100);//3
+    console.log(firstNumber)
+        let secondNumber = (~~(this.number / 10)) % 10;
+        console.log(secondNumber);
+  switch (firstNumber ) {
     case 0: {
-      this.row1.forEach(item => {
-        if (item.number == number) {
-          item.amount = +item.amount + +amount;
-          this.addtoWaitingTable(item.number, item.amount);
-          this.addtoCuttingTable();
+      switch (secondNumber ) {
+        case 0: {
+          this.row1.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
         }
-      })
-      break;
-
+        case 1: {
+          this.row2.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 2: {
+          this.row3.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 3: {
+          this.row4.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 4: {
+          this.row5.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 5: {
+          this.row6.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 6: {
+          this.row7.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 7: {
+          this.row8.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 8: {
+          this.row9.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 9: {
+          this.row10.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+    
+      }
+      
     }
     case 1: {
-      this.row2.forEach(item => {
-        if (item.number == number) {
-          item.amount = +item.amount + +amount;
-          this.addtoWaitingTable(item.number, item.amount);
-          this.addtoCuttingTable();
+      switch (secondNumber ) {
+        case 0: {
+          this.row11.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
         }
-
-      })
-      break;
-
+        case 1: {
+          this.row12.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 2: {
+          this.row13.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 3: {
+          this.row14.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 4: {
+          this.row15.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 5: {
+          this.row16.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 6: {
+          this.row17.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 7: {
+          this.row18.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 8: {
+          this.row19.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 9: {
+          this.row20.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+    
+      }
     }
     case 2: {
-      this.row3.forEach(item => {
-        if (item.number == number) {
-          item.amount = +item.amount + +amount;
-          this.addtoWaitingTable(item.number, item.amount);
-          this.addtoCuttingTable();
+      switch (secondNumber ) {
+        case 0: {
+          this.row21.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
         }
-      })
-      break;
-
+        case 1: {
+          this.row22.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 2: {
+          this.row23.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 3: {
+          this.row24.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 4: {
+          this.row25.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 5: {
+          this.row26.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 6: {
+          this.row27.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 7: {
+          this.row28.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 8: {
+          this.row29.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 9: {
+          this.row30.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+    
+      }
     }
     case 3: {
-      this.row4.forEach(item => {
-        if (item.number == number) {
-          item.amount = +item.amount + +amount;
-          this.addtoWaitingTable(item.number, item.amount);
-          this.addtoCuttingTable();
+      switch (secondNumber ) {
+        case 0: {
+          this.row31.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
         }
-      })
-      break;
+        case 1: {
+          this.row32.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 2: {
+          this.row33.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 3: {
+          this.row34.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 4: {
+          this.row35.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 5: {
+          this.row36.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 6: {
+          this.row37.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 7: {
+          this.row38.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 8: {
+          this.row39.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 9: {
+          this.row40.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+    
+      }
 
     }
     case 4: {
-      this.row5.forEach(item => {
-        if (item.number == number) {
-          item.amount = +item.amount + +amount;
-          this.addtoWaitingTable(item.number, item.amount);
-          this.addtoCuttingTable();
+      switch (secondNumber ) {
+        case 0: {
+          this.row41.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
         }
-      })
-      break;
+        case 1: {
+          this.row42.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 2: {
+          this.row43.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 3: {
+          this.row44.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 4: {
+          this.row45.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 5: {
+          this.row46.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 6: {
+          this.row47.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 7: {
+          this.row48.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 8: {
+          this.row49.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 9: {
+          this.row50.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+    
+      }
     }
     case 5: {
-      this.row6.forEach(item => {
-        if (item.number == number) {
-          item.amount = +item.amount + +amount;
-          this.addtoWaitingTable(item.number, item.amount);
-          this.addtoCuttingTable();
+      switch (secondNumber ) {
+        case 0: {
+          this.row51.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
         }
-      })
-      break;
+        case 1: {
+          this.row52.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 2: {
+          this.row53.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 3: {
+          this.row54.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 4: {
+          this.row55.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 5: {
+          this.row56.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 6: {
+          this.row57.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 7: {
+          this.row58.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 8: {
+          this.row59.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 9: {
+          this.row60.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+    
+      }
     }
     case 6: {
-      this.row7.forEach(item => {
-        if (item.number == number) {
-          item.amount = +item.amount + +amount;
-          this.addtoWaitingTable(item.number, item.amount);
-          this.addtoCuttingTable();
+      switch (secondNumber ) {
+        case 0: {
+          this.row61.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
         }
-      })
-      break;
+        case 1: {
+          this.row62.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 2: {
+          this.row63.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 3: {
+          this.row64.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 4: {
+          this.row65.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 5: {
+          this.row66.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 6: {
+          this.row67.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 7: {
+          this.row68.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 8: {
+          this.row69.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 9: {
+          this.row70.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+    
+      }
     }
     case 7: {
-      this.row8.forEach(item => {
-        if (item.number == number) {
-          item.amount = +item.amount + +amount;
-          this.addtoWaitingTable(item.number, item.amount);
-          this.addtoCuttingTable();
+      switch (secondNumber ) {
+        case 0: {
+          this.row71.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
         }
-
-      })
-      break;
+        case 1: {
+          this.row72.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 2: {
+          this.row73.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 3: {
+          this.row74.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 4: {
+          this.row75.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 5: {
+          this.row76.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 6: {
+          this.row77.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 7: {
+          this.row78.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 8: {
+          this.row79.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 9: {
+          this.row80.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+    
+      }
 
     }
     case 8: {
-      this.row9.forEach(item => {
-        if (item.number == number) {
-          item.amount = +item.amount + +amount;
-          this.addtoWaitingTable(item.number, item.amount);
-          this.addtoCuttingTable();
+      switch (secondNumber ) {
+        case 0: {
+          this.row81.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
         }
-
-      })
-      break;
+        case 1: {
+          this.row82.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 2: {
+          this.row83.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 3: {
+          this.row84.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 4: {
+          this.row85.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 5: {
+          this.row86.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 6: {
+          this.row87.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 7: {
+          this.row88.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 8: {
+          this.row89.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 9: {
+          this.row90.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+    
+      }
 
     }
     case 9: {
-      this.row10.forEach(item => {
-        if (item.number == number) {
-          item.amount = +item.amount + +amount;
-          this.addtoWaitingTable(item.number, item.amount);
-          this.addtoCuttingTable();
+      switch (secondNumber ) {
+        case 0: {
+          this.row91.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
         }
-      })
-      break;
+        case 1: {
+          this.row92.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 2: {
+          this.row93.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 3: {
+          this.row94.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+        case 4: {
+          this.row95.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 5: {
+          this.row96.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 6: {
+          this.row97.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+        }
+        case 7: {
+          this.row98.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 8: {
+          this.row99.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+    
+          })
+          break;
+    
+        }
+        case 9: {
+          this.row100.forEach(item => {
+            if (item.number == number) {
+              item.amount = +item.amount + +amount;
+              this.addtoWaitingTable(item.number, item.amount);
+              this.addtoCuttingTable();
+            }
+          })
+          break;
+    
+        }
+    
+      }
 
     }
 
-  }
-
+  } 
 
 }
 addtoWaitingTable(number, amount) {
@@ -839,86 +1896,1050 @@ removeUsageWaitingList(usages, object) {
 
 
 updateLeger(number, amount) {
-  let firstNumber = ~~(number / 100);
-  switch (firstNumber) {
-    case 0: {
-      this.row1.forEach(item => {
-        if (item.number == number)
-          item.amount = amount;
-      })
-      break;
 
+  let firstNumber = ~~(number / 100);//3
+  console.log(firstNumber)
+      let secondNumber = (~~(number / 10)) % 10;
+      console.log(secondNumber);
+switch (firstNumber ) {
+  case 0: {
+    switch (secondNumber ) {
+      case 0: {
+        this.row1.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 1: {
+        this.row2.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 2: {
+        this.row3.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 3: {
+        this.row4.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 4: {
+        this.row5.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 5: {
+        this.row6.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 6: {
+        this.row7.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 7: {
+        this.row8.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 8: {
+        this.row9.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 9: {
+        this.row10.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+  
     }
-    case 1: {
-      this.row2.forEach(item => {
-        if (item.number == number)
-          item.amount = amount;
-      })
-      break;
+    
+  }
+  case 1: {
+    switch (secondNumber ) {
+      case 0: {
+        this.row11.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 1: {
+        this.row12.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 2: {
+        this.row13.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 3: {
+        this.row14.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 4: {
+        this.row15.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 5: {
+        this.row16.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 6: {
+        this.row17.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 7: {
+        this.row18.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 8: {
+        this.row19.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 9: {
+        this.row20.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+  
     }
-    case 2: {
-      this.row3.forEach(item => {
-        if (item.number == number)
-          item.amount = amount;
-      })
-      break;
-
+  }
+  case 2: {
+    switch (secondNumber ) {
+      case 0: {
+        this.row21.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 1: {
+        this.row22.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 2: {
+        this.row23.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 3: {
+        this.row24.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 4: {
+        this.row25.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 5: {
+        this.row26.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 6: {
+        this.row27.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 7: {
+        this.row28.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 8: {
+        this.row29.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 9: {
+        this.row30.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+  
     }
-    case 3: {
-      this.row4.forEach(item => {
-        if (item.number == number)
-          item.amount = amount;
-      })
-      break;
-
-    }
-    case 4: {
-      this.row5.forEach(item => {
-        if (item.number == number)
-          item.amount = amount;
-      })
-      break;
-    }
-    case 5: {
-      this.row6.forEach(item => {
-        if (item.number == number)
-          item.amount = amount;
-      })
-      break;
-    }
-    case 6: {
-      this.row7.forEach(item => {
-        if (item.number == number)
-          item.amount = amount;
-      });
-      break;
-    }
-    case 7: {
-      this.row8.forEach(item => {
-        if (item.number == number)
-          item.amount = amount;
-      });
-      break;
-
-    }
-    case 8: {
-      this.row9.forEach(item => {
-        if (item.number == number)
-          item.amount = amount;
-      })
-      break;
-
-    }
-    case 9: {
-      this.row10.forEach(item => {
-        if (item.number == number)
-          item.amount = amount;
-      })
-      break;
-
+  }
+  case 3: {
+    switch (secondNumber ) {
+      case 0: {
+        this.row31.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 1: {
+        this.row32.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 2: {
+        this.row33.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 3: {
+        this.row34.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 4: {
+        this.row35.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 5: {
+        this.row36.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 6: {
+        this.row37.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 7: {
+        this.row38.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 8: {
+        this.row39.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 9: {
+        this.row40.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+  
     }
 
   }
+  case 4: {
+    switch (secondNumber ) {
+      case 0: {
+        this.row41.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 1: {
+        this.row42.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 2: {
+        this.row43.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 3: {
+        this.row44.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 4: {
+        this.row45.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 5: {
+        this.row46.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 6: {
+        this.row47.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 7: {
+        this.row48.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 8: {
+        this.row49.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 9: {
+        this.row50.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+  
+    }
+  }
+  case 5: {
+    switch (secondNumber ) {
+      case 0: {
+        this.row51.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 1: {
+        this.row52.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 2: {
+        this.row53.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 3: {
+        this.row54.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 4: {
+        this.row55.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 5: {
+        this.row56.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 6: {
+        this.row57.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 7: {
+        this.row58.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 8: {
+        this.row59.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 9: {
+        this.row60.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+  
+    }
+  }
+  case 6: {
+    switch (secondNumber ) {
+      case 0: {
+        this.row61.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 1: {
+        this.row62.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 2: {
+        this.row63.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 3: {
+        this.row64.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 4: {
+        this.row65.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 5: {
+        this.row66.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 6: {
+        this.row67.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 7: {
+        this.row68.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 8: {
+        this.row69.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 9: {
+        this.row70.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+  
+    }
+  }
+  case 7: {
+    switch (secondNumber ) {
+      case 0: {
+        this.row71.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 1: {
+        this.row72.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 2: {
+        this.row73.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 3: {
+        this.row74.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 4: {
+        this.row75.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 5: {
+        this.row76.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 6: {
+        this.row77.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 7: {
+        this.row78.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 8: {
+        this.row79.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 9: {
+        this.row80.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+  
+    }
+
+  }
+  case 8: {
+    switch (secondNumber ) {
+      case 0: {
+        this.row81.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 1: {
+        this.row82.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 2: {
+        this.row83.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 3: {
+        this.row84.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 4: {
+        this.row85.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 5: {
+        this.row86.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 6: {
+        this.row87.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 7: {
+        this.row88.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 8: {
+        this.row89.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 9: {
+        this.row90.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+  
+    }
+
+  }
+  case 9: {
+    switch (secondNumber ) {
+      case 0: {
+        this.row91.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 1: {
+        this.row92.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 2: {
+        this.row93.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 3: {
+        this.row94.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+      case 4: {
+        this.row95.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 5: {
+        this.row96.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 6: {
+        this.row97.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+      }
+      case 7: {
+        this.row98.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 8: {
+        this.row99.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+  
+        })
+        break;
+  
+      }
+      case 9: {
+        this.row100.forEach(item => {
+          if (item.number == number) {
+            item.amount = amount;
+          }
+        })
+        break;
+  
+      }
+  
+    }
+
+  }
+
+} 
+
+  // let firstNumber = ~~(number / 100);
+  // switch (firstNumber) {
+  //   case 0: {
+  //     this.row1.forEach(item => {
+  //       if (item.number == number)
+  //         item.amount = amount;
+  //     })
+  //     break;
+
+  //   }
+  //   case 1: {
+  //     this.row2.forEach(item => {
+  //       if (item.number == number)
+  //         item.amount = amount;
+  //     })
+  //     break;
+  //   }
+  //   case 2: {
+  //     this.row3.forEach(item => {
+  //       if (item.number == number)
+  //         item.amount = amount;
+  //     })
+  //     break;
+
+  //   }
+  //   case 3: {
+  //     this.row4.forEach(item => {
+  //       if (item.number == number)
+  //         item.amount = amount;
+  //     })
+  //     break;
+
+  //   }
+  //   case 4: {
+  //     this.row5.forEach(item => {
+  //       if (item.number == number)
+  //         item.amount = amount;
+  //     })
+  //     break;
+  //   }
+  //   case 5: {
+  //     this.row6.forEach(item => {
+  //       if (item.number == number)
+  //         item.amount = amount;
+  //     })
+  //     break;
+  //   }
+  //   case 6: {
+  //     this.row7.forEach(item => {
+  //       if (item.number == number)
+  //         item.amount = amount;
+  //     });
+  //     break;
+  //   }
+  //   case 7: {
+  //     this.row8.forEach(item => {
+  //       if (item.number == number)
+  //         item.amount = amount;
+  //     });
+  //     break;
+
+  //   }
+  //   case 8: {
+  //     this.row9.forEach(item => {
+  //       if (item.number == number)
+  //         item.amount = amount;
+  //     })
+  //     break;
+
+  //   }
+  //   case 9: {
+  //     this.row10.forEach(item => {
+  //       if (item.number == number)
+  //         item.amount = amount;
+  //     })
+  //     break;
+
+  //   }
+
+  // }
 
 
 }
@@ -944,18 +2965,5 @@ removeUsageALLWaitingList(){
   this.waitingListTotal = 0;
 }
 
-/*
-getCustomers(){
-    let recordRef = this.fireStore.collection('customer');
-    recordRef.get()
-      .subscribe(snapshot => {
-        snapshot.forEach(doc => {
-          console.log(doc.id, '=>', doc.data());
-          this.customers.push(doc.data().name);
-        });
-      });
-    console.log(this.customers);
-  }
-*/
 }
 
