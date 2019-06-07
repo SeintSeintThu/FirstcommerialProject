@@ -258,6 +258,22 @@ searchRecord(searchValue) {
           this.addtoLeger(number + "" + this.number, this.amount);
         break;
       }
+      case '$': {
+        console.log("In double series");
+        this.addtoLeger(this.number +"0"+"0", this.amount);
+        this.addtoLeger("0"+ this.number+"0", this.amount);
+        this.addtoLeger("0"+"0" +this.number, this.amount);
+       
+        this.addtoLeger(this.number +""+ this.number+""+ this.number, this.amount);
+        for (let number of this.numberforSeries){
+          if(number != this.number){
+          this.addtoLeger(this.number + ""+number+ ""+number, this.amount);
+          this.addtoLeger(number + ""+ this.number + ""+number, this.amount);
+          this.addtoLeger(number + ""+ number + ""+ this.number, this.amount);
+          }
+        }
+        break;
+      }
     }
   }
   //For New
