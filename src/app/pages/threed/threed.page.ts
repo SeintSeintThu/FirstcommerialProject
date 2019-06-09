@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgForm, FormBuilder } from '@angular/forms';
 import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 import { RecordService } from '../service/record.service';
 import { Legar } from '../service/models/legar';
 import { ToastrService } from 'ngx-toastr';
+
 //import {ToastrService} from 'ngx-toastr';
 
 @Component({
@@ -25,7 +25,7 @@ export class ThreeDeePage implements OnInit {
   number: number;
   amount: number;
   selectedFormat: string;
-  searchValue: number;
+  searchValue: string;
   @Input() isChecked = false;
 
   doubles: string[] = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999'];
@@ -210,7 +210,8 @@ export class ThreeDeePage implements OnInit {
   searchRecord(searchValue) {
     this.searchList.pop();
     this.searchList = [];
-    console.log(this.searchValue);
+    this.searchValue = searchValue;
+   // console.log(this.searchValue);
     this.waitingList.forEach(record => {
       console.log("In If")
       console.log(this.searchList)
@@ -223,6 +224,7 @@ export class ThreeDeePage implements OnInit {
       }
 
     });
+    this.searchValue = "";
   }
   saveRecord() {
     this.waitingList.forEach(item => {
@@ -296,21 +298,85 @@ export class ThreeDeePage implements OnInit {
         let next1 = firstNumber + "" + lastNumber + "" + secondNumber;
         console.log(next1);
         this.addtoLeger(next1, this.amount);
+       if(firstNumber != secondNumber && firstNumber !=lastNumber && secondNumber != firstNumber && secondNumber !=lastNumber && lastNumber !=secondNumber && lastNumber !=firstNumber ){
+        
         let next6 = firstNumber + "" + secondNumber + "" + lastNumber;
         console.log(next6);
-        this.addtoLeger(next6, this.amount);
+        if(this.amountTwo)
+        this.addtoLeger(next6, this.amountTwo);
+        else 
+        this.addtoLeger(next6, this.amount );
         let next2 = secondNumber + "" + lastNumber + "" + firstNumber;
         console.log(next2);
-        this.addtoLeger(next2, this.amount);
+        if(this.amountTwo)
+        this.addtoLeger(next2, this.amountTwo);
+        else 
+        this.addtoLeger(next2, this.amount );
         let next3 = secondNumber + "" + firstNumber + "" + lastNumber;
         console.log(next3);
-        this.addtoLeger(next3, this.amount);
+        if(this.amountTwo)
+        this.addtoLeger(next3, this.amountTwo);
+        else 
+        this.addtoLeger(next3, this.amount );
         let next4 = lastNumber + "" + firstNumber + "" + secondNumber;
         console.log(next4);
-        this.addtoLeger(next4, this.amount);
+        if(this.amountTwo)
+        this.addtoLeger(next4, this.amountTwo);
+        else 
+        this.addtoLeger(next4, this.amount );
         let next5 = lastNumber + "" + secondNumber + "" + firstNumber;
         console.log(next5);
-        this.addtoLeger(next5, this.amount);
+        if(this.amountTwo)
+        this.addtoLeger(next5, this.amountTwo);
+        else 
+        this.addtoLeger(next5, this.amount );
+       }
+       else if(firstNumber == secondNumber && firstNumber != lastNumber){
+       
+        let next2 = lastNumber+ "" + firstNumber + "" + secondNumber;
+        console.log(next2);
+        if(this.amountTwo)
+        this.addtoLeger(next2, this.amountTwo);
+        else 
+        this.addtoLeger(next2, this.amount );
+        let next3 = secondNumber + "" + lastNumber + "" + firstNumber;
+        console.log(next3);
+        if(this.amountTwo)
+        this.addtoLeger(next3, this.amountTwo);
+        else 
+        this.addtoLeger(next3, this.amount );
+       }
+       else if(firstNumber == lastNumber && firstNumber != secondNumber){
+        let next2 = lastNumber+ "" + firstNumber + "" + secondNumber;
+        console.log(next2);
+        if(this.amountTwo)
+        this.addtoLeger(next2, this.amountTwo);
+        else 
+        this.addtoLeger(next2, this.amount );
+        let next3 = secondNumber + "" + lastNumber + "" + firstNumber;
+        if(this.amountTwo)
+        this.addtoLeger(next3, this.amountTwo);
+        else 
+        this.addtoLeger(next3, this.amount );
+        console.log(next3);
+
+        
+      }
+      else if(secondNumber == lastNumber && firstNumber != secondNumber){
+        let next2 = secondNumber+ "" + lastNumber + "" + firstNumber;
+        console.log(next2);
+        if(this.amountTwo)
+        this.addtoLeger(next2, this.amountTwo);
+        else 
+        this.addtoLeger(next2, this.amount );
+        let next3 = secondNumber + "" + firstNumber + "" +lastNumber;
+        if(this.amountTwo)
+        this.addtoLeger(next3, this.amountTwo);
+        else 
+        this.addtoLeger(next3, this.amount );
+        console.log(next3);
+       
+      }
         break;
       }
       case '*': {
@@ -329,6 +395,8 @@ export class ThreeDeePage implements OnInit {
         console.log('this.arrow_downward')
         let firstNumber = ~~(this.number / 10);//2
         let secondNumber = this.number % 10;
+        console.log(firstNumber)
+        console.log(secondNumber)
         this.addtoLeger(firstNumber + "0" + secondNumber, this.amount);
         for (let number of this.numberforSeries)
           this.addtoLeger(firstNumber + "" + number + "" + secondNumber, this.amount);
@@ -598,59 +666,62 @@ export class ThreeDeePage implements OnInit {
 
   }
 addtoLeger(number, amount) {
-  let firstNumber = ~~(this.number / 100);//3
+  console.log(number)
+  let firstNumber;
+  let secondNumber;
+ firstNumber = ~~(number / 100);//3
     console.log(firstNumber)
-        let secondNumber = (~~(this.number / 10)) % 10;
-        console.log(secondNumber);
+  secondNumber = (~~(number / 10)) % 10;
+  console.log(secondNumber);
+
   switch (firstNumber ) {
     case 0: {
-      switch (secondNumber ) {
-        case 0: {
+      if(secondNumber ==  0)
+      {
+          console.log("00")
           this.row1.forEach(item => {
             if (item.number == number) {
               item.amount = +item.amount + +amount;
               this.addtoWaitingTable(item.number, item.amount);
               this.addtoCuttingTable();
             }
-          })
-          break;
+          });
     
-        }
-        case 1: {
+    }
+    if(secondNumber ==  1) {
+          console.log("01")
           this.row2.forEach(item => {
+            console.log(item.number +":"+ number)
             if (item.number == number) {
               item.amount = +item.amount + +amount;
               this.addtoWaitingTable(item.number, item.amount);
               this.addtoCuttingTable();
             }
     
-          })
-          break;
+          });
     
-        }
-        case 2: {
+      }
+      if(secondNumber ==  2){
           this.row3.forEach(item => {
             if (item.number == number) {
               item.amount = +item.amount + +amount;
               this.addtoWaitingTable(item.number, item.amount);
               this.addtoCuttingTable();
             }
-          })
-          break;
+          });
     
         }
-        case 3: {
+        if(secondNumber ==  3){
           this.row4.forEach(item => {
             if (item.number == number) {
               item.amount = +item.amount + +amount;
               this.addtoWaitingTable(item.number, item.amount);
               this.addtoCuttingTable();
             }
-          })
-          break;
+          });
     
         }
-        case 4: {
+        if(secondNumber ==  4) {
           this.row5.forEach(item => {
             if (item.number == number) {
               item.amount = +item.amount + +amount;
@@ -658,9 +729,9 @@ addtoLeger(number, amount) {
               this.addtoCuttingTable();
             }
           })
-          break;
+        
         }
-        case 5: {
+        if(secondNumber ==  5){
           this.row6.forEach(item => {
             if (item.number == number) {
               item.amount = +item.amount + +amount;
@@ -668,19 +739,17 @@ addtoLeger(number, amount) {
               this.addtoCuttingTable();
             }
           })
-          break;
         }
-        case 6: {
+        if(secondNumber ==  6){
           this.row7.forEach(item => {
             if (item.number == number) {
               item.amount = +item.amount + +amount;
               this.addtoWaitingTable(item.number, item.amount);
               this.addtoCuttingTable();
             }
-          })
-          break;
+          });
         }
-        case 7: {
+        if(secondNumber ==  7){
           this.row8.forEach(item => {
             if (item.number == number) {
               item.amount = +item.amount + +amount;
@@ -689,10 +758,10 @@ addtoLeger(number, amount) {
             }
     
           })
-          break;
+    
     
         }
-        case 8: {
+        if(secondNumber ==  8) {
           this.row9.forEach(item => {
             if (item.number == number) {
               item.amount = +item.amount + +amount;
@@ -700,11 +769,10 @@ addtoLeger(number, amount) {
               this.addtoCuttingTable();
             }
     
-          })
-          break;
+          });
     
         }
-        case 9: {
+        if(secondNumber ==  9) {
           this.row10.forEach(item => {
             if (item.number == number) {
               item.amount = +item.amount + +amount;
@@ -712,18 +780,20 @@ addtoLeger(number, amount) {
               this.addtoCuttingTable();
             }
           })
-          break;
+       
     
         }
     
       }
-      
-    }
+      break;
+    
     case 1: {
       switch (secondNumber ) {
         case 0: {
           this.row11.forEach(item => {
+            console.log(item.number)
             if (item.number == number) {
+              console.log(item)
               item.amount = +item.amount + +amount;
               this.addtoWaitingTable(item.number, item.amount);
               this.addtoCuttingTable();
@@ -833,6 +903,7 @@ addtoLeger(number, amount) {
         }
     
       }
+      break;
     }
     case 2: {
       switch (secondNumber ) {
@@ -948,6 +1019,7 @@ addtoLeger(number, amount) {
         }
     
       }
+      break;
     }
     case 3: {
       switch (secondNumber ) {
@@ -1063,7 +1135,7 @@ addtoLeger(number, amount) {
         }
     
       }
-
+      break;   
     }
     case 4: {
       switch (secondNumber ) {
@@ -1179,6 +1251,7 @@ addtoLeger(number, amount) {
         }
     
       }
+      break;
     }
     case 5: {
       switch (secondNumber ) {
@@ -1294,6 +1367,7 @@ addtoLeger(number, amount) {
         }
     
       }
+      break;
     }
     case 6: {
       switch (secondNumber ) {
@@ -1409,6 +1483,7 @@ addtoLeger(number, amount) {
         }
     
       }
+      break;
     }
     case 7: {
       switch (secondNumber ) {
@@ -1524,6 +1599,7 @@ addtoLeger(number, amount) {
         }
     
       }
+      break;
 
     }
     case 8: {
@@ -1640,7 +1716,7 @@ addtoLeger(number, amount) {
         }
     
       }
-
+      break;
     }
     case 9: {
       switch (secondNumber ) {
@@ -1756,6 +1832,7 @@ addtoLeger(number, amount) {
         }
     
       }
+      break;
 
     }
 
@@ -1763,6 +1840,7 @@ addtoLeger(number, amount) {
 
 }
 addtoWaitingTable(number, amount) {
+   console.log("Reached Waitng")
   if (this.waitingList.length != 0) {
     console.log("In If")
     console.log(this.waitingList)
@@ -1809,6 +1887,7 @@ addtoWaitingTable(number, amount) {
 }
 
 addtoCuttingTable() {
+  console.log("Reached Waitng")
   console.log(this.restricedValue)
   console.log(this.waitingList)
   this.waitingList.forEach(record => {
@@ -2963,6 +3042,8 @@ removeUsageALLWaitingList(){
   });
   this.waitingList = [];
   this.waitingListTotal = 0;
+  this.searchValue ="";
+  this.searchList.pop();
 }
 
 }

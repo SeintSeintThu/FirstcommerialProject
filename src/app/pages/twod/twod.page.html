@@ -58,7 +58,7 @@
                             <tr *ngFor="let info of waitingList">
                                 <td>{{info.number}}</td>
                                 <td class="font1">{{info.amount}}</td>
-                                <td><a class="material-icons"  (click) ="tgi (waitingList,info)">delete</a></td>
+                                <td><a class="material-icons"  (click) ="removeUsageWaitingList(waitingList,info)">delete</a></td>
                             </tr>
                             <tr>
                                 <td>Total : {{waitingListTotal}}</td>
@@ -100,7 +100,7 @@
                         <tr *ngFor="let info of excedList">
                             <td>{{info.number}}</td>
                             <td class="font1">{{info.amount}}</td>
-                            <td><a class="material-icons"  (click) ="removeUsageExcedList(excedList,info)">delete</a></td>
+                            <!-- <td><a class="material-icons"  (click) ="removeUsageExcedList(excedList,info)">delete</a></td> -->
     
                         </tr>
                         <tr>

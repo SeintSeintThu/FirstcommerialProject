@@ -244,7 +244,7 @@
                         <tr>
                             <th>နံပါတ္</th>
                             <th>ပမာဏ <i class="font2">(%)</i></th>
-                            <th>ျပင္ရန္</th>
+            
                         </tr>
                     </thead>
     
@@ -252,7 +252,7 @@
                         <tr *ngFor="let info of excedList">
                             <td>{{info.number}}</td>
                             <td class="font1">{{info.amount}}</td>
-                            <td><a class="material-icons"  (click) ="removeUsageExcedList(excedList,info)">delete</a></td>
+                            <!-- <td><a class="material-icons"  (click) ="removeUsageExcedList(excedList,info)">delete</a></td> -->
                         </tr>
                         <tr>
                             <td>Total :{{excedListTotal}}</td>
