@@ -300,7 +300,7 @@ export class ThreeDeePage implements OnInit {
         this.addtoLeger(next1, this.amount);
        if(firstNumber != secondNumber && firstNumber !=lastNumber && secondNumber != firstNumber && secondNumber !=lastNumber && lastNumber !=secondNumber && lastNumber !=firstNumber ){
         
-        let next6 = firstNumber + "" + secondNumber + "" + lastNumber;
+        let next6 = firstNumber + "" + lastNumber + "" + secondNumber;
         console.log(next6);
         if(this.amountTwo)
         this.addtoLeger(next6, this.amountTwo);
