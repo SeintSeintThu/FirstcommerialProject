@@ -97,11 +97,21 @@
                     </thead>
     
                     <tbody>
+                     <tr *ngFor="let info of restriedList">
+                                    <td>{{info.number}}</td>
+                                    <td class="font1">{{info.amount}}</td>
+                    </tr>
                         <tr *ngFor="let info of excedList">
                             <td>{{info.number}}</td>
                             <td class="font1">{{info.amount}}</td>
+                            <!-- <td>HIII<input type="radio" (change) = "onChecked(checked.checked)"> </td> -->
                             <!-- <td><a class="material-icons"  (click) ="removeUsageExcedList(excedList,info)">delete</a></td> -->
-    
+                            <div class="input-field col s6">
+                                <label>
+                                    <input #dae type="radio" class="with-gap" name="group1" (change) = "onChange(dae.checked,info)">
+                                    <span>Stop</span>
+                                </label>
+                            </div>
                         </tr>
                         <tr>
                             <td>Total : {{excedListTotal}}</td>
@@ -133,7 +143,7 @@
                 <tr *ngFor="let info of searchList">
                     <td>{{info.number}}</td>
                     <td class="font1">{{info.amount}}</td>
-                   
+                  
                 </tr>
             </tbody>
         </table>

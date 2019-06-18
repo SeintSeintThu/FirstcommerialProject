@@ -143,6 +143,7 @@ export class ThreeDeePage implements OnInit {
   row98 = [];
   row99 = [];
   row100 = [];
+  restriedList =[];
 
   // customers =[];
   excedListTotal = 0;
@@ -3045,6 +3046,27 @@ removeUsageALLWaitingList(){
   this.searchValue ="";
   this.searchList.pop();
 }
+onChange(isChecked,info){
+   
+  console.log(isChecked);
+  console.log(info)
+  this.excedList.forEach(record => {
+    console.log(info.number)
+    console.log(record.number)
+    if (info.number == record.number) {
+          let index= 0;
+          index = this.excedList.indexOf(record);
+          this.excedList.splice(index, 1)
+          let record1 = {
+            number: record.number,
+            amount: record.amount
+          }
 
+          this.restriedList.push(record1)
+
+      }
+        
+    });
+}
 }
 

@@ -60,6 +60,7 @@ export class TwoDeePage implements OnInit {
   makeDate: Date;
   addValue: string;
   amountTwo: number;
+  restriedList =[];
 
 
   doubles: number[] = [11, 22, 33, 44, 55, 66, 77, 88, 99];
@@ -844,6 +845,28 @@ export class TwoDeePage implements OnInit {
     this.waitingList =[];
     this.waitingListTotal=0;
   }
+  onChange(isChecked,info){
+   
+    console.log(isChecked);
+    console.log(info)
+    this.excedList.forEach(record => {
+      console.log(info.number)
+      console.log(record.number)
+      if (info.number == record.number) {
+            let index= 0;
+            index = this.excedList.indexOf(record);
+            this.excedList.splice(index, 1)
+            let record1 = {
+              number: record.number,
+              amount: record.amount
+            }
+
+            this.restriedList.push(record1)
+
+        }
+          
+      });
+}
 }
 
 // getCustomers() {
